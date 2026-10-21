@@ -11,7 +11,9 @@ export default function Evaluation() {
   const [selected, setSelected] = useState<EvalCase | null>(null);
   async function load() {
     try {
-      const r = await fetch("/evidence/fixture-latest.json");
+      const r = await fetch(
+        import.meta.env.BASE_URL + "evidence/fixture-latest.json",
+      );
       if (!r.ok) throw new Error("Recorded evaluation unavailable");
       setRun(await r.json());
       setError("");

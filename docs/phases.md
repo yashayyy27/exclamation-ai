@@ -4,7 +4,7 @@ All phases were implemented during the build session on 21 October 2026. This is
 
 ## Phase 0 — inspect and start
 
-Inspected the ZIP/master prompt, current workspace, Git state, runtimes and credential presence without printing secrets. Existing unrelated projects were preserved. Created isolated `exclamation-ai/`, `AGENTS.md` and `docs/architecture.md`. No configured Google project/ADC or OpenAI key/model was present. GitHub connector returned account `yashayyy27`; repository lookup returned 404. `gh` CLI was absent. Sites registration returned an actual project ID, persisted in `.openai/hosting.json`.
+Inspected the ZIP/master prompt, current workspace, Git state, runtimes and credential presence without printing secrets. Existing unrelated projects were preserved. Created isolated `exclamation-ai/`, `AGENTS.md` and `docs/architecture.md`. No configured Google project/ADC or OpenAI key/model was present. GitHub connector returned account `yashayyy27`; repository lookup returned 404. `gh` CLI was absent. A private Sites project was initially registered, but the owner later explicitly selected GitHub hosting instead. The unused deployment workflow was cancelled before any source push or deployment; the Sites manifest was removed. Final target: GitHub Pages.
 
 Choice: React/Vite/TypeScript + FastAPI/Pydantic + SQLite for a fully credential-free vertical slice. Public fixture hosting is static; paid integrations stay server-side and opt-in. Dependencies installed with approved network access. Python 3.12 from the bundled runtime replaced the incompatible system Python 3.9 venv.
 
@@ -28,7 +28,7 @@ Added tests for numeric/date/unit/source/query tampering, empty data, metadata i
 
 Implemented Customer Journey, Evaluation Studio, Client Room and Data Sources. Added review reset, editable recommendation, actual PDF/Markdown downloads, a six-slide draft and three-minute demo. Every PDF page was rendered with PyMuPDF (Poppler unavailable) and visually inspected; all show source and draft status. `scripts/export_client.ts` keeps committed artifacts draft so automated QA cannot impersonate human approval.
 
-Initial browser run passed 10/10. A later focus-management refinement caused a real regression: making the entire workspace inert also disabled the nested product dialog. Browser purchase tests caught it. Fixed by marking only siblings of the dialog's ancestor path inert; added explicit Tab/Escape/focus-return assertions. Retested after the repair and page-module refactor; final observed output is in `docs/evidence/browser-tests.txt`.
+Initial browser run passed 10/10. A later focus-management refinement caused a real regression: making the entire workspace inert also disabled the nested product dialog. Browser purchase tests caught it. Fixed by marking only siblings of the dialog's ancestor path inert; added explicit Tab/Escape/focus-return assertions. A second focus check found React autoFocus captured the close button rather than the opener; the hook now owns initial focus and restores the actual trigger. Retested after the repairs and page-module refactor; final observed output is in `docs/evidence/browser-tests.txt`.
 
 Dependency audit found vulnerabilities in the initial jsPDF/Vitest versions and pytest 8.4.2. Updated to patched versions and reran applicable checks; final audit logs are committed. A TestClient deprecation warning remains visible; it is not a test failure.
 

@@ -61,7 +61,7 @@ To expose local model mode in the web UI, add `VITE_API_URL=http://127.0.0.1:800
 
 ## 5. GitHub
 
-The authenticated connector account is `yashayyy27`. The connector can inspect and mutate repository contents but cannot create a repository; CLI/browser authentication is a separate requirement. If publication remains blocked:
+The authenticated account is `yashayyy27`. The public repository was created through the authenticated browser after the connector verified ownership and nonexistence. Git publication can use the existing Git credential helper; the commands below are recovery instructions if another environment lacks authentication:
 
 ```sh
 # Install official GitHub CLI, then authenticate on your own device.
@@ -76,6 +76,6 @@ Do not overwrite a repository that already exists. Confirm owner before creating
 
 ## 6. Deployment
 
-The static build can be hosted without credentials: `npm run build`, publish `dist/`. The Python service is optional and not hosted with the static demo. A Sites project manifest is present; only reported successful deployment responses constitute publication. Do not bind a domain, pay for a plan or deploy external API credentials as part of this demo.
+The static build can be hosted without credentials: `npm run build`, publish `dist/`. The Python service is optional and not hosted with the static demo. GitHub Pages deployment is configured in `.github/workflows/deploy.yml`; only a successful GitHub deployment and reachable page constitute publication. In repository Settings → Pages, choose GitHub Actions as the source. The build sets `DEPLOY_BASE_PATH=/exclamation-ai/` so assets and evaluation JSON resolve under the project path. Do not bind a domain, pay for a plan or deploy external API credentials as part of this demo.
 
 To reproduce on another static host: select Node 24, build `npm ci && npm run build`, publish directory `dist`. Hash navigation works without server rewrites. Keep the demo source as SYNTHETIC / ILLUSTRATIVE and provider as deterministic fixture. Add a model/BigQuery backend only after server authentication, budgets and a live verification pass.

@@ -29,7 +29,7 @@ export async function clientDeck(
   });
   pdf.setProperties({
     title: "! - Evidence before investment",
-    subject: "Advisory portfolio / synthetic evidence",
+    subject: `Advisory portfolio / ${s.source.label}`,
     creator: "!",
   });
   const ink = [11, 11, 13] as const,
@@ -46,7 +46,7 @@ export async function clientDeck(
       .replace(/…/g, "...");
     if (/[^\x20-\x7e\n\r]/.test(text))
       throw new Error(
-        "PDF supports Latin text and common punctuation. Use the Markdown export to preserve other characters.",
+        "PDF supports ASCII text and common punctuation. Use the Markdown export to preserve other characters.",
       );
     return text;
   };
@@ -131,7 +131,16 @@ export async function clientDeck(
     80,
   );
   page(2, "Provenance + performance", false);
-  text("SYNTHETIC.\nEXPLICITLY.", 16, 55, 46, 145, true);
+  text(
+    s.source.id === "synthetic_fixture_v1"
+      ? "SYNTHETIC.\nEXPLICITLY."
+      : "PUBLIC.\nHISTORICAL.",
+    16,
+    55,
+    46,
+    145,
+    true,
+  );
   text(
     `${s.window.join(" to ")}\nScope: ${s.channel}\nClosed, ordered session funnel. USD revenue is deduplicated by transaction.`,
     16,
@@ -157,7 +166,9 @@ export async function clientDeck(
     132,
   );
   text(
-    "Source: deterministic invented event records. No Google extract or observed client result. No matched spend, touchpoint history or causal design.",
+    s.source.id === "synthetic_fixture_v1"
+      ? "Source: deterministic invented event records. No Google extract or observed client result. No matched spend, touchpoint history or causal design."
+      : "Source: Google public historical export. Obfuscated records have limited internal consistency. No matched spend, touchpoint history or causal design. Not client performance.",
     170,
     122,
     15,

@@ -5,7 +5,7 @@ Audit date: **22 October 2026 (Australia/Sydney)**. Machine receipts use UTC. Ba
 ## Observed checks
 
 - Baseline rerun: 27 Python tests, 47 frontend tests; lint, mypy, TypeScript and production build passed.
-- Upgraded first check: 43 Python tests, 48 frontend tests; lint/types/build passed. Final full check: **45 Python tests and 48 frontend tests passed**, with lint, mypy, TypeScript and production build passing. [Actual log](evidence/readiness-checks.txt).
+- Upgraded first check: 43 Python tests, 48 frontend tests; lint/types/build passed. Final full check: **45 Python tests and 50 frontend tests passed**, with lint, mypy, TypeScript and production build passing. [Actual log](evidence/readiness-checks.txt).
 - Development policy evaluation: v1 21/36, v2 36/36; zero model calls. Numerical grading now checks an independent fixed oracle; schema validation is executed rather than hardcoded.
 - Separate release cases: initial 23/24; H02 oracle adjudicated, corrected run 24/24. Original failed run is retained. The inspected set is not untouched held-out evidence. No live model score exists.
 - Adversarial replay: original metric validator ACCEPTED a near-equal duplicate replacing purchases; upgraded gate REJECTED the identical candidate. Zero model calls. See [receipt](evidence/validator-replay.json).
@@ -23,7 +23,9 @@ Run [the bounded integration protocol](integration-verification.md) only after o
 
 ## Publication
 
-A pull request and hosted CI verification will be linked here after they actually exist. Until then, the public Pages URL represents the previous main build. No failed-test merge is permitted.
+Published through [PR #1](https://github.com/yashayyy27/exclamation-ai/pull/1). [Hosted verification workflow](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) reruns on every branch push and PR change; inspect PR checks for the current head. The first upgrade PR run passed all steps: [39609478642](https://github.com/yashayyy27/exclamation-ai/actions/runs/39609478642).
+
+The PR remains open for owner review. GitHub Pages serves the existing main release until merge; new branch features are demonstrated by the committed actual screenshots and PDF, not claimed as already deployed. No failed-test merge is permitted. Static Pages hosts no paid API service.
 
 ## Remaining limits
 

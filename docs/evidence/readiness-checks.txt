@@ -16,7 +16,7 @@ npm run lint
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-45 passed, 1 warning in 9.23s
+45 passed, 1 warning in 10.00s
 npm test
 
 > exclamation-ai@0.1.0 test
@@ -26,10 +26,10 @@ npm test
  RUN  v4.1.12 /Users/yashhurdale/Documents/New project/exclamation-ai/apps/web
 
 
- Test Files  1 passed (1)
-      Tests  48 passed (48)
-   Start at  00:34:16
-   Duration  195ms (transform 56ms, setup 0ms, import 72ms, tests 9ms, environment 0ms)
+ Test Files  2 passed (2)
+      Tests  50 passed (50)
+   Start at  00:39:36
+   Duration  268ms (transform 117ms, setup 0ms, import 136ms, tests 90ms, environment 0ms)
 
 npm run build
 
@@ -41,11 +41,11 @@ transforming...
 ✓ 1841 modules transformed.
 rendering chunks...
 computing gzip size...
-../../dist/index.html                            0.68 kB │ gzip:   0.40 kB
+../../dist/index.html                            0.68 kB │ gzip:   0.39 kB
 ../../dist/assets/index-C-hKEteC.css            38.45 kB │ gzip:   8.73 kB
 ../../dist/assets/purify.es-CAi2OJFm.js         30.47 kB │ gzip:  11.69 kB
-../../dist/assets/index.es-CQbXmKIy.js         159.78 kB │ gzip:  53.39 kB
+../../dist/assets/index.es-DCIvfqW7.js         159.78 kB │ gzip:  53.39 kB
 ../../dist/assets/html2canvas.esm-QH1iLAAe.js  202.38 kB │ gzip:  47.71 kB
-../../dist/assets/jspdf.es.min-BSvConKW.js     390.77 kB │ gzip: 127.33 kB
-../../dist/assets/index-xqW9jYBL.js            492.36 kB │ gzip:  99.53 kB
-✓ built in 2.17s
+../../dist/assets/jspdf.es.min-D6DTwPOw.js     390.77 kB │ gzip: 127.33 kB
+../../dist/assets/index-LB11uFfd.js            492.63 kB │ gzip:  99.61 kB
+✓ built in 2.15s

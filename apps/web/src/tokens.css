@@ -1,0 +1,13 @@
+:root {
+  --ink: #0b0b0d;
+  --paper: #f5f5f2;
+  --red: #ef2929;
+  --red-text: #c91818;
+  --muted: #686866;
+  --line: #d9d9d3;
+  --white: #fff;
+  --sidebar: 228px;
+  --font: Arial, Helvetica, sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --ease: 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}

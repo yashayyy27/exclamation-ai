@@ -1,0 +1,16 @@
+# ! — GTM / GA4 setup and manual verification
+
+1. Use an owner-controlled test GA4 property and GTM web container. Keep sandbox/debug traffic separate from production. No real property or container was created by this project.
+2. Put the public container ID in local `apps/web/.env.local`: `VITE_GTM_ID=GTM-YOURID`. Restart Vite. Never put an API key in a `VITE_` variable.
+3. In GTM, create a Google tag using the owner's GA4 measurement ID. Disable automatic page_view (`send_page_view=false`) so the explicit sandbox page_view remains the sole source. Review enhanced measurement settings to prevent duplicate history/page events.
+4. Create Data Layer Variables (version 2): `ecommerce.currency`, `ecommerce.value`, `ecommerce.items`, `ecommerce.transaction_id`, `page_path`, `source_id`, `debug_mode`, `campaign.utm_source`, `campaign.utm_medium`, `campaign.utm_campaign`.
+5. Create a custom-event trigger with exact names `page_view|view_item_list|select_item|view_item|add_to_cart|remove_from_cart|begin_checkout|purchase` and regex matching enabled. Scope to `source_id` equals `first_party_demo`.
+6. Create one GA4 Event tag using the built-in Event variable as event name. Configure ecommerce data from the Data Layer. Map page_path, debug_mode, source_id and campaign_source / campaign_medium / campaign_name from the declared variables. Require analytics_storage consent. Advertising consent stays denied. Do not add a second gtag delivery implementation.
+7. Preview the unpublished container in Tag Assistant. Clear consent in local browser storage. Open Measurement Lab. Verify no GTM script or Analytics request before opt-in. Local QA events should still be visible.
+8. Grant analytics consent. Open product, add twice, remove once, begin checkout and complete. Inspect each tag firing, item quantity/value and unique transaction ID. Ecommerce is cleared with `{ecommerce:null}` before each event.
+9. Verify every delivered event in GA4 DebugView. Filter debug/internal traffic out of production reporting. Revoke consent and verify subsequent clicks produce no analytics event requests. A consent-state request from an already loaded Google tag must not be mistaken for ecommerce collection.
+10. Export the actual owner GTM container JSON from Admin → Export Container after QA. Do not publish an unvalidated generated container recipe.
+
+Record evidence in `docs/qa-guide.md`: date, browser, container version, test property, pre-consent network check, Tag Assistant screenshot, DebugView screenshot, one transaction payload and duplicate-event check. Redact account/private identifiers. **No such external evidence exists yet.**
+
+Troubleshooting: no events → check consent and container ID/build restart; duplicate purchase → check duplicate tags and trigger overlap; wrong cart value → inspect the latest cleared ecommerce payload; missing DebugView → verify debug_mode and test property; dashboard does not update → expected: storefront events are intentionally separate from the committed analytics fixture.

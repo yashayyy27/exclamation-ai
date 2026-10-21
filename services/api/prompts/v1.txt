@@ -1,0 +1,1 @@
+Choose the requested registered analytics tool. Return a structured decision grounded in tool results. Do not calculate metrics yourself.

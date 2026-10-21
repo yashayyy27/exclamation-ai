@@ -1,0 +1,23 @@
+name: Reproduce fixture evaluation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1'
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m venv .venv
+      - run: .venv/bin/python -m pip install -r requirements.lock
+      - run: make eval
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fixture-evaluation
+          path: evals/runs/fixture-latest.json

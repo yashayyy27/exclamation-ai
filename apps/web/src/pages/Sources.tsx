@@ -1,0 +1,95 @@
+import { Download, Sparkles, Database, Activity } from "lucide-react";
+import type { Snapshot } from "../types";
+import { Tag, SectionHead, Evidence } from "../components/UI";
+import { download } from "../export";
+export default function Sources({ s }: { s: Snapshot }) {
+  return (
+    <>
+      <SectionHead
+        number="07"
+        title="Know where you stand."
+        detail="Connection state is a fact, not a marketing claim."
+      />
+      <div className="source-cards">
+        {[
+          {
+            title: "Deterministic fixture",
+            tag: "AVAILABLE",
+            body: "Raw synthetic ecommerce events transformed by Python + SQL. Checked-in snapshots power the public demo.",
+            icon: Database,
+          },
+          {
+            title: "Google public BigQuery",
+            tag: "NOT CONNECTED",
+            body: "Read-only SDK adapter implemented. Owner project and ADC credentials required; dry run, 1 GB hard cap and complete extraction limit.",
+            icon: Database,
+          },
+          {
+            title: "GA4 / GTM sandbox",
+            tag: import.meta.env.VITE_GTM_ID
+              ? "CONFIGURED / UNVERIFIED"
+              : "NOT CONFIGURED",
+            body: "Consent-gated dataLayer events work locally. Live collection requires owner GTM container + GA4 property and manual Tag Assistant/DebugView QA.",
+            icon: Activity,
+          },
+          {
+            title: "OpenAI Responses",
+            tag: "NOT VERIFIED",
+            body: "Bounded tool calling and structured output provider implemented server-side. No actual model calls recorded. Configure API key, model and API access token locally.",
+            icon: Sparkles,
+          },
+        ].map((c) => (
+          <article className="source-card" key={c.title}>
+            <c.icon size={24} />
+            <Tag>{c.tag}</Tag>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </article>
+        ))}
+      </div>
+      <div className="bottom-grid">
+        <div className="white-panel">
+          <span className="eyebrow">PROVENANCE / {s.source.id}</span>
+          <h3>Context travels with every number.</h3>
+          <dl>
+            {Object.entries(s.source).map(([k, v]) => (
+              <div key={k}>
+                <dt>{k.replaceAll("_", " ")}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="white-panel">
+          <span className="eyebrow">QUALITY / COMPLETE RAW FIXTURE</span>
+          <h3>Messy in. Accountable out.</h3>
+          {Object.entries(s.quality).map(([k, v]) => (
+            <div className="quality-row" key={k}>
+              <span>{k.replaceAll("_", " ")}</span>
+              <strong>{v}</strong>
+            </div>
+          ))}
+          <p className="muted">
+            Quality counts cover the complete fixture, regardless of active
+            analytics filters. One invalid record has both a missing identifier
+            and negative revenue; those issue counts overlap.
+          </p>
+          <button
+            className="button"
+            onClick={() =>
+              download(
+                "scoped-evidence.json",
+                JSON.stringify({ ...s, answers: undefined }, null, 2),
+                "application/json",
+              )
+            }
+          >
+            <Download size={16} />
+            Download scoped evidence
+          </button>
+        </div>
+      </div>
+      <Evidence s={s} />
+    </>
+  );
+}

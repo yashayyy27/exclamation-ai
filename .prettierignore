@@ -1,0 +1,8 @@
+node_modules
+.venv
+dist
+apps/web/src/snapshot.json
+data/fixtures/events.json
+evals/runs
+apps/web/public/evidence
+requirements.lock

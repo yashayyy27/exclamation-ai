@@ -1,13 +1,14 @@
 {
-  "run_id": "heldout-fixture-20261021T132539695564Z",
+  "run_id": "heldout-fixture-20261021T133535142720Z",
   "provider": "fixture",
   "kind": "DETERMINISTIC RELEASE HOLDOUT; NOT MODEL QUALITY",
   "model": null,
-  "commit": "ba5a2738339fa939002bef9a43cbd6e76d207677",
+  "commit": "6fa0f241d91a1a9080b1cfd9e4548a9cf12751b1",
   "working_tree_dirty": true,
   "cases_sha256": "017d8b9f7b8a650a570a6bad7215c598e4a7b15740d0a27d24574b15717346c2",
   "prompt_sha256": "8bceaa674bcb7e9c479a62817a026d297b42d5b6ab55cecd8ade1fccfcf1b36b",
   "data_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+  "code_sha256": "1eca21721f8318fb437e6a02228ac95badc22e0285b845a8523841871907986a",
   "api_requests": 0,
   "tokens": null,
   "cost_usd": null,
@@ -15,7 +16,7 @@
   "limitations": "Author-written small release holdout, not an external benchmark. Bounded action rubric is not an independent human quality rating. Model probes bypass router to distinguish model behaviour from policy. No client outcomes.",
   "passed": 24,
   "total": 24,
-  "elapsed_ms": 3115.166,
+  "elapsed_ms": 2685.424,
   "results": [
     {
       "id": "H01",
@@ -97,7 +98,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 143.027
+      "elapsed_ms": 145.723
     },
     {
       "id": "H02",
@@ -135,7 +136,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.937
+      "elapsed_ms": 138.884
     },
     {
       "id": "H03",
@@ -217,7 +218,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.5
+      "elapsed_ms": 137.89
     },
     {
       "id": "H04",
@@ -354,7 +355,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.386
+      "elapsed_ms": 137.773
     },
     {
       "id": "H05",
@@ -491,7 +492,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.061
+      "elapsed_ms": 139.266
     },
     {
       "id": "H06",
@@ -628,7 +629,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 143.388
+      "elapsed_ms": 141.011
     },
     {
       "id": "H07",
@@ -688,7 +689,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 142.406
+      "elapsed_ms": 142.096
     },
     {
       "id": "H08",
@@ -748,7 +749,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.181
+      "elapsed_ms": 140.354
     },
     {
       "id": "H09",
@@ -808,7 +809,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.404
+      "elapsed_ms": 137.862
     },
     {
       "id": "H10",
@@ -890,7 +891,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.676
+      "elapsed_ms": 137.822
     },
     {
       "id": "H11",
@@ -972,7 +973,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 156.663
+      "elapsed_ms": 137.792
     },
     {
       "id": "H12",
@@ -1054,7 +1055,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.329
+      "elapsed_ms": 137.364
     },
     {
       "id": "H13",
@@ -1075,7 +1076,7 @@
       "error_code": null,
       "decision": null,
       "api_requests": 0,
-      "elapsed_ms": 0.012
+      "elapsed_ms": 0.01
     },
     {
       "id": "H14",
@@ -1262,7 +1263,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 142.622
+      "elapsed_ms": 138.209
     },
     {
       "id": "H20",
@@ -1344,7 +1345,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.837
+      "elapsed_ms": 138.345
     },
     {
       "id": "H21",
@@ -1393,7 +1394,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 144.206
+      "elapsed_ms": 140.509
     },
     {
       "id": "H22",
@@ -1442,7 +1443,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 141.289
+      "elapsed_ms": 139.953
     },
     {
       "id": "H23",
@@ -1480,7 +1481,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 142.821
+      "elapsed_ms": 140.516
     },
     {
       "id": "H24",
@@ -1518,7 +1519,7 @@
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 140.896
+      "elapsed_ms": 142.148
     }
   ]
 }

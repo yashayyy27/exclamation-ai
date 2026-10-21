@@ -15,15 +15,16 @@
     "export:client": "node scripts/export_client.ts"
   },
   "dependencies": {
+    "jspdf": "^4.2.1",
     "lucide-react": "^0.468.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "jspdf": "^4.2.1"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
     "@eslint/js": "^9.0.0",
     "@playwright/test": "^1.51.0",
+    "@types/node": "^24.19.2",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^4.4.0",

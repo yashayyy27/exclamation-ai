@@ -36,7 +36,7 @@ class Analytics:
         self.db = sqlite3.connect(":memory:")
         self.db.row_factory = sqlite3.Row
         self.db.execute(
-            "CREATE TABLE raw_events(event_id TEXT,name TEXT,ts REAL,user_id TEXT,session_id TEXT,channel TEXT,campaign TEXT,currency TEXT,transaction_id TEXT,revenue REAL)"
+            "CREATE TABLE raw_events(event_id TEXT,name TEXT,ts REAL,user_id TEXT,session_id TEXT,channel TEXT,campaign TEXT,currency TEXT,transaction_id TEXT,revenue REAL,missing_revenue INTEGER)"
         )
         self.schema_mismatches = 0
         for e in self.records:
@@ -58,7 +58,7 @@ class Analytics:
                 self.schema_mismatches += 1
                 continue
             self.db.execute(
-                "INSERT INTO raw_events VALUES(?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO raw_events VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                 (
                     e["event_id"],
                     e["event_name"],
@@ -70,6 +70,7 @@ class Analytics:
                     p.get("currency", "USD"),
                     t.get("transaction_id"),
                     t.get("purchase_revenue_in_usd") or 0,
+                    int(e["event_name"] == "purchase" and t.get("purchase_revenue_in_usd") is None),
                 ),
             )
         for table, file in [("events", "clean_events"), ("sessions", "sessions"), ("transactions", "transactions")]:
@@ -93,6 +94,7 @@ class Analytics:
                 "SELECT COUNT(*) FROM raw_events WHERE user_id IS NULL OR session_id IS NULL"
             ).fetchone()[0],
             "negative_revenue": self.db.execute("SELECT COUNT(*) FROM raw_events WHERE revenue<0").fetchone()[0],
+            "missing_purchase_revenue": self.db.execute("SELECT COUNT(*) FROM raw_events WHERE missing_revenue=1").fetchone()[0],
             "missing_channel": self.db.execute("SELECT COUNT(*) FROM events WHERE channel='(unknown)'").fetchone()[0],
         }
 
@@ -141,6 +143,19 @@ class Analytics:
             ("revenue", revenue["revenue"], "USD"),
             ("checkout_completion", counts[-1] / counts[-2] * 100 if counts[-2] else 0, "%"),
         ]
+        missing_revenue = self.db.execute(
+            "SELECT COUNT(*) FROM raw_events r JOIN sessions s ON s.session_key=r.user_id || ':' || r.session_id WHERE r.missing_revenue=1 AND s."
+            + where.replace("channel", "s.channel"),
+            args,
+        ).fetchone()[0]
+        # Unknown money and undefined ratios are omitted, never published as observed zeros.
+        metric_values = [
+            (n, v, u)
+            for n, v, u in metric_values
+            if not (n == "revenue" and missing_revenue)
+            and not (n == "conversion_rate" and not counts[0])
+            and not (n == "checkout_completion" and not counts[-2])
+        ]
         metrics = [
             {
                 "metric": n,
@@ -168,11 +183,18 @@ class Analytics:
             "decision": {
                 "step": names[biggest + 1] if biggest is not None else None,
                 "lost_sessions": losses[biggest] if biggest is not None else 0,
-                "action": "Test a clearer product-to-cart proposition; audit instrumentation before changing the experience.",
-                "caveat": "Synthetic fixture demonstrates diagnosis, not a real commercial opportunity. Drop-off does not establish its cause.",
+                "action": f"Audit the {names[biggest + 1].lower()} transition, then test one clearer experience proposition."
+                if biggest is not None
+                else "Collect eligible sessions before recommending a change.",
+                "caveat": (
+                    "Synthetic fixture demonstrates diagnosis, not a real commercial opportunity."
+                    if self.source["id"] == "synthetic_fixture_v1"
+                    else "Historical obfuscated data has limited internal consistency; reconcile collection and identity before acting."
+                )
+                + " Drop-off does not establish its cause.",
             },
             "attribution": {
                 "status": "INSUFFICIENT_EVIDENCE",
-                "reason": "One observed session per synthetic identity. No multi-touch or cross-device evidence; only descriptive session-source comparison.",
+                "reason": "Touchpoint sequences and cross-device identity are not reconstructed. Session/acquisition source comparisons are descriptive; multi-touch attribution is unsupported.",
             },
         }

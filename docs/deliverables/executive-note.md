@@ -10,7 +10,7 @@ Invented event records, not an extract of public GA4.
 Query: q-211ee1809e6a
 
 ## Decision
-Test a clearer product-to-cart proposition; audit instrumentation before changing the experience.
+Audit the add to cart transition, then test one clearer experience proposition.
 
 ## Evidence
 sessions: 420 sessions [q-211ee1809e6a]

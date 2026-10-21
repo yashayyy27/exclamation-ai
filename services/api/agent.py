@@ -259,6 +259,7 @@ def ask(req: AskRequest, analytics: Analytics | None = None, version: str = "v2"
             "Clarify the question or supply independently verified evidence.",
             "INSUFFICIENT_EVIDENCE",
         )
+    selected: Any = None
     try:
         a = analytics or Analytics()
         snapshot = a.snapshot(req.start, req.end, req.channel)
@@ -279,6 +280,14 @@ def ask(req: AskRequest, analytics: Analytics | None = None, version: str = "v2"
                 "INSUFFICIENT_EVIDENCE",
             )
         metric_key = definition_metric(req.question)
+        if metric_key == "revenue" and not any(m["metric"] == "revenue" for m in snapshot["metrics"]):
+            return response(
+                "INSUFFICIENT_EVIDENCE",
+                "Purchase revenue is missing in this scope; a total cannot be verified.",
+                [],
+                "Repair missing revenue before reporting a monetary total.",
+                "INSUFFICIENT_EVIDENCE",
+            )
         evidence = run_tool(tool, snapshot, a, metric_key)
         trace["tools"] = [tool]
         trace["query_ids"] = sorted({m["query_id"] for m in evidence["metrics"]})
@@ -301,6 +310,8 @@ def ask(req: AskRequest, analytics: Analytics | None = None, version: str = "v2"
         raise ValueError("Generated evidence failed validation") from failure
     except Exception:
         # Never return provider exception bodies: they may contain request metadata.
+        trace["api_calls"] = getattr(selected, "calls", trace["api_calls"])
+        trace["tokens"] = None  # Partial failed requests do not establish complete token usage.
         trace["error_code"] = "PIPELINE_OR_PROVIDER_ERROR"
         return response(
             "REVIEW_REQUIRED",

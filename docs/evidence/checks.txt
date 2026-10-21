@@ -9,14 +9,14 @@ npm run lint
 
 /Library/Developer/CommandLineTools/usr/bin/make test
 .venv/bin/python -m pytest -q
-.........................                                                [100%]
+...........................                                              [100%]
 =============================== warnings summary ===============================
 .venv/lib/python3.12/site-packages/fastapi/testclient.py:1
   /Users/yashhurdale/Documents/New project/exclamation-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-25 passed, 1 warning in 7.07s
+27 passed, 1 warning in 8.35s
 npm test
 
 > exclamation-ai@0.1.0 test
@@ -28,8 +28,8 @@ npm test
 
  Test Files  1 passed (1)
       Tests  47 passed (47)
-   Start at  23:38:47
-   Duration  192ms (transform 47ms, setup 0ms, import 61ms, tests 7ms, environment 0ms)
+   Start at  23:50:32
+   Duration  198ms (transform 57ms, setup 0ms, import 69ms, tests 8ms, environment 0ms)
 
 npm run build
 
@@ -41,11 +41,11 @@ transforming...
 ✓ 1840 modules transformed.
 rendering chunks...
 computing gzip size...
-../../dist/index.html                            0.60 kB │ gzip:   0.38 kB
+../../dist/index.html                            0.68 kB │ gzip:   0.40 kB
 ../../dist/assets/index-wfb1jmYQ.css            37.03 kB │ gzip:   8.41 kB
 ../../dist/assets/purify.es-CAi2OJFm.js         30.47 kB │ gzip:  11.69 kB
-../../dist/assets/index.es-DH8eGztO.js         159.78 kB │ gzip:  53.39 kB
+../../dist/assets/index.es-BorsSR43.js         159.78 kB │ gzip:  53.40 kB
 ../../dist/assets/html2canvas.esm-QH1iLAAe.js  202.38 kB │ gzip:  47.71 kB
-../../dist/assets/jspdf.es.min-8cCHks0p.js     390.77 kB │ gzip: 127.33 kB
-../../dist/assets/index-CTMIjyOl.js            456.44 kB │ gzip:  94.70 kB
-✓ built in 2.15s
+../../dist/assets/jspdf.es.min-DJZKVg7C.js     390.77 kB │ gzip: 127.33 kB
+../../dist/assets/index-D8Rh3B1U.js            459.52 kB │ gzip:  94.72 kB
+✓ built in 2.31s

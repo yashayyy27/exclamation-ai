@@ -10,8 +10,8 @@ computing gzip size...
 ../../dist/index.html                            0.72 kB │ gzip:   0.41 kB
 ../../dist/assets/index-wfb1jmYQ.css            37.03 kB │ gzip:   8.41 kB
 ../../dist/assets/purify.es-CAi2OJFm.js         30.47 kB │ gzip:  11.69 kB
-../../dist/assets/index.es-_LYKk3EU.js         159.78 kB │ gzip:  53.39 kB
+../../dist/assets/index.es-DRUU3Zmc.js         159.78 kB │ gzip:  53.39 kB
 ../../dist/assets/html2canvas.esm-QH1iLAAe.js  202.38 kB │ gzip:  47.71 kB
-../../dist/assets/jspdf.es.min-DFgwA11J.js     390.77 kB │ gzip: 127.33 kB
-../../dist/assets/index-DXKvqaXe.js            456.43 kB │ gzip:  94.70 kB
-✓ built in 2.24s
+../../dist/assets/jspdf.es.min-CqtVnKw4.js     390.77 kB │ gzip: 127.33 kB
+../../dist/assets/index-DKO4Jlvg.js            459.55 kB │ gzip:  94.74 kB
+✓ built in 2.12s

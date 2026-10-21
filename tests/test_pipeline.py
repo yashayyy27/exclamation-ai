@@ -3,7 +3,7 @@ import json
 from types import SimpleNamespace
 import pytest
 from fastapi.testclient import TestClient
-from services.api.analytics import Analytics, ROOT
+from services.api.analytics import Analytics, ROOT, SOURCE
 from services.api.agent import ask, run_tool, validate_decision, FixtureProvider
 from services.api.bigquery import BigQueryAdapter
 from services.api.models import AskRequest, ModelDecision
@@ -228,3 +228,18 @@ def test_metadata_injection_cannot_change_tool_or_execute_sql():
     assert ans.status == "SUPPORTED"
     assert ans.trace["tools"] == ["get_funnel"]
     assert ans.supporting_metrics[0].value == 420
+
+
+def test_missing_purchase_revenue_is_not_fabricated_as_zero():
+    records = copy.deepcopy(json.loads((ROOT / "data/fixtures/events.json").read_text()))
+    next(e for e in records if e["event_name"] == "purchase")["ecommerce"]["purchase_revenue_in_usd"] = None
+    a = Analytics(records)
+    assert a.quality()["missing_purchase_revenue"] == 1
+    assert not any(m["metric"] == "revenue" for m in a.snapshot()["metrics"])
+    assert ask(AskRequest(question="Show revenue"), analytics=a).status == "INSUFFICIENT_EVIDENCE"
+
+
+def test_empty_ratio_is_undefined_and_public_caveat_uses_actual_source():
+    assert not any(m["metric"] == "conversion_rate" for m in Analytics([]).snapshot()["metrics"])
+    public = {**SOURCE, "id": "google_public_historical", "label": "GOOGLE PUBLIC / HISTORICAL"}
+    assert "Historical obfuscated" in Analytics(source=public).snapshot()["decision"]["caveat"]

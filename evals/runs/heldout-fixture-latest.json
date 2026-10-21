@@ -1,14 +1,14 @@
 {
-  "run_id": "heldout-fixture-20261021T133535142720Z",
+  "run_id": "heldout-fixture-20261021T134421428243Z",
   "provider": "fixture",
   "kind": "DETERMINISTIC RELEASE HOLDOUT; NOT MODEL QUALITY",
   "model": null,
-  "commit": "6fa0f241d91a1a9080b1cfd9e4548a9cf12751b1",
-  "working_tree_dirty": true,
+  "commit": "483ad36c09ce7042f75546b4f26148cee458622f",
+  "working_tree_dirty": false,
   "cases_sha256": "017d8b9f7b8a650a570a6bad7215c598e4a7b15740d0a27d24574b15717346c2",
   "prompt_sha256": "8bceaa674bcb7e9c479a62817a026d297b42d5b6ab55cecd8ade1fccfcf1b36b",
   "data_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
-  "code_sha256": "1eca21721f8318fb437e6a02228ac95badc22e0285b845a8523841871907986a",
+  "code_sha256": "2f9346203b8255d80b997fee61c34e6220521c39f8959823b982e99ba0886414",
   "api_requests": 0,
   "tokens": null,
   "cost_usd": null,
@@ -16,7 +16,7 @@
   "limitations": "Author-written small release holdout, not an external benchmark. Bounded action rubric is not an independent human quality rating. Model probes bypass router to distinguish model behaviour from policy. No client outcomes.",
   "passed": 24,
   "total": 24,
-  "elapsed_ms": 2685.424,
+  "elapsed_ms": 280.358,
   "results": [
     {
       "id": "H01",
@@ -47,7 +47,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -58,7 +58,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -69,7 +69,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -80,7 +80,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -91,14 +91,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "audit_then_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 145.723
+      "elapsed_ms": 20.05
     },
     {
       "id": "H02",
@@ -129,14 +129,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "clarify_definition",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.884
+      "elapsed_ms": 12.707
     },
     {
       "id": "H03",
@@ -167,7 +167,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -178,7 +178,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -189,7 +189,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -200,7 +200,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -211,14 +211,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "audit_then_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.89
+      "elapsed_ms": 12.523
     },
     {
       "id": "H04",
@@ -249,7 +249,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -260,7 +260,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -271,7 +271,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -282,7 +282,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -293,7 +293,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -304,7 +304,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -315,7 +315,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -326,7 +326,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -337,7 +337,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "conflicting_transactions",
@@ -348,14 +348,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "action": "repair_tracking",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.773
+      "elapsed_ms": 12.283
     },
     {
       "id": "H05",
@@ -386,7 +386,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -397,7 +397,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -408,7 +408,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -419,7 +419,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -430,7 +430,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -441,7 +441,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -452,7 +452,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -463,7 +463,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -474,7 +474,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "conflicting_transactions",
@@ -485,14 +485,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "action": "repair_tracking",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 139.266
+      "elapsed_ms": 12.173
     },
     {
       "id": "H06",
@@ -523,7 +523,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -534,7 +534,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -545,7 +545,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -556,7 +556,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -567,7 +567,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -578,7 +578,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -589,7 +589,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -600,7 +600,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -611,7 +611,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "conflicting_transactions",
@@ -622,14 +622,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "action": "repair_tracking",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 141.011
+      "elapsed_ms": 12.247
     },
     {
       "id": "H07",
@@ -660,7 +660,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -671,7 +671,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -682,14 +682,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "validate_channel_quality",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 142.096
+      "elapsed_ms": 12.422
     },
     {
       "id": "H08",
@@ -720,7 +720,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -731,7 +731,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -742,14 +742,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "validate_channel_quality",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 140.354
+      "elapsed_ms": 12.035
     },
     {
       "id": "H09",
@@ -780,7 +780,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -791,7 +791,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -802,14 +802,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "validate_channel_quality",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.862
+      "elapsed_ms": 11.97
     },
     {
       "id": "H10",
@@ -840,7 +840,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -851,7 +851,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -862,7 +862,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -873,7 +873,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -884,14 +884,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "run_controlled_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.822
+      "elapsed_ms": 12.003
     },
     {
       "id": "H11",
@@ -922,7 +922,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -933,7 +933,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -944,7 +944,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -955,7 +955,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -966,14 +966,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "run_controlled_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.792
+      "elapsed_ms": 11.986
     },
     {
       "id": "H12",
@@ -1004,7 +1004,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -1015,7 +1015,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -1026,7 +1026,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -1037,7 +1037,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -1048,14 +1048,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "run_controlled_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 137.364
+      "elapsed_ms": 12.077
     },
     {
       "id": "H13",
@@ -1076,7 +1076,7 @@
       "error_code": null,
       "decision": null,
       "api_requests": 0,
-      "elapsed_ms": 0.01
+      "elapsed_ms": 0.008
     },
     {
       "id": "H14",
@@ -1212,7 +1212,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -1223,7 +1223,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -1234,7 +1234,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -1245,7 +1245,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -1256,14 +1256,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "audit_then_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.209
+      "elapsed_ms": 13.741
     },
     {
       "id": "H20",
@@ -1294,7 +1294,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -1305,7 +1305,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -1316,7 +1316,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -1327,7 +1327,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -1338,14 +1338,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "audit_then_test",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 138.345
+      "elapsed_ms": 13.469
     },
     {
       "id": "H21",
@@ -1376,7 +1376,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cd2be3ba41a5"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "conversion_rate",
@@ -1387,14 +1387,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-c1762e42fa2b"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "action": "review_periods",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 140.509
+      "elapsed_ms": 14.993
     },
     {
       "id": "H22",
@@ -1425,7 +1425,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cd2be3ba41a5"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "conversion_rate",
@@ -1436,14 +1436,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-c1762e42fa2b"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "action": "review_periods",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 139.953
+      "elapsed_ms": 14.684
     },
     {
       "id": "H23",
@@ -1474,14 +1474,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "clarify_definition",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 140.516
+      "elapsed_ms": 12.105
     },
     {
       "id": "H24",
@@ -1512,14 +1512,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5f5ec5acbd0a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "action": "clarify_definition",
         "confidence": "DESCRIPTIVE_ONLY"
       },
       "api_requests": 0,
-      "elapsed_ms": 142.148
+      "elapsed_ms": 12.077
     }
   ]
 }

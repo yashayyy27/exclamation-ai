@@ -4,7 +4,7 @@
 
 **AI-powered marketing intelligence. Grounded in evidence. Built for action.**
 
-A working, independent portfolio built around one question: **what decision does this evidence actually support?** Instrument a demo purchase, inspect an ordered funnel, question a bounded analyst, investigate evaluation failures and export a reviewed client recommendation.
+A working, AI-assisted portfolio built around one question: **what decision does this evidence actually support?** Instrument a demo purchase, inspect an ordered funnel, question a bounded analyst, investigate evaluation failures and export a reviewed client recommendation.
 
 ![Actual running desktop workspace](docs/screenshots/overview-desktop.png)
 
@@ -13,6 +13,14 @@ A working, independent portfolio built around one question: **what decision does
 **[Open the working GitHub Pages demo](https://yashayyy27.github.io/exclamation-ai/)** · **[Source code](https://github.com/yashayyy27/exclamation-ai)** · [Hosted CI](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) · [Release evidence](docs/release.md)
 
 Published to the authenticated owner’s public repository and GitHub Pages. The deployed Overview and Evaluation Studio were checked in a browser; the recorded fixture run loads correctly under the project URL. Hosted CI has passed, including desktop/mobile browser tests. Further pushes rerun verification automatically.
+
+## Recruitment audit: evidence you can inspect
+
+The [prioritised independent audit](docs/audit/2026-10-22-gap-report.md) found a real validation defect: two near-equal copies of one metric could replace another. The [recorded replay](docs/evidence/validator-replay.json) shows baseline **ACCEPTED** and upgraded **REJECTED**. This is a synthetic adversarial provider test, not an invented model failure. The public deterministic ROAS failure remains inspectable in Evaluation Studio.
+
+The upgrade adds genuine model tool choice, a separate bounded release-evaluation harness with independent numeric oracles, content/SQL lineage hashes, GoogleSQL reconciliation, explicit paid-call opt-in, campaign uncertainty, absolute/proportional funnel priorities and a separate attribution sensitivity example. The [readiness matrix](docs/rga-role-evidence-matrix.md) links code, tests and demo evidence. The [verification report](docs/verification.md) records observed results and remaining owner gates. **Live OpenAI quality, BigQuery results and GTM/GA4 receipt remain unverified.**
+
+Start with the [three-minute walkthrough](docs/demo-script.md), [six-slide client PDF](docs/deliverables/client-review.pdf) and [marketing decision framework](docs/marketing-framework.md). Everything is advisory; no client use, uplift or applicant-only authorship is claimed.
 
 ## Run it in one minute
 
@@ -33,7 +41,8 @@ For the full engineering workflow:
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock
 make check            # Python lint/types/tests + browser unit tests + TS/build
-make eval             # actual recorded deterministic cases, not a model score
+make eval             # deterministic development cases, not a model score
+make eval-heldout     # separate release cases + independent numeric oracle
 npx playwright install chromium
 npm run test:e2e      # desktop/mobile flows and axe scans
 make dev              # web :5173 + API :8000; Ctrl-C stops both
@@ -57,9 +66,9 @@ The [three-minute technical script](docs/demo-script.md) adds architecture and e
 
 - **Raw events → genuine SQL.** 1,153 invented records; two duplicates and one invalid record. Three read-only SQL transformations establish event, session and transaction grains. Ground truth: 420 sessions → 336 product views → 192 cart sessions → 139 checkouts → 63 purchases. Ordered conversion: 15%. Deduplicated illustrative revenue: USD 5,040. None is an observed client result.
 - **Evidence travels with a claim.** Metrics carry unit, date window, source ID and query ID. The validator rejects changed values, units, dates, sources and citations. Empty evidence abstains. Two failed validation attempts return REVIEW_REQUIRED.
-- **Bounded model integration.** An optional real OpenAI Responses provider uses strict function calling and structured output. The server scopes the intent and tools, calculates aggregates, then verifies the result. The model selects constrained finding/action types; it cannot write arbitrary SQL or unsupported numeric prose. Actual API behavior is NOT YET VERIFIED.
+- **Bounded model integration.** An optional real OpenAI Responses provider uses strict function calling and structured output. The server scopes the intent and filters, offers six tools plus abstention for genuine model selection, calculates registered aggregates and verifies the result. The model selects constrained finding/action types; it cannot write arbitrary SQL or unsupported numeric prose. Actual API behavior is NOT YET VERIFIED. Unknown token usage is null; validation retries accumulate known usage rather than overwriting it.
 - **Real measurement code.** Product/list/cart/checkout actions produce schema-validated dataLayer contracts. Google tags load only after analytics consent, with advertising consent denied. GTM is the single delivery path. Local event QA does not pretend to be live GA4 collection.
-- **Source-aware BigQuery adapter.** One fixed public table, parameterized dates, dry runs, a hard maximum of 1 GB billed, timeouts and refusal of incomplete extracts above 20,000 rows. SDK protocol/cost guards are mocked tests; real Google execution remains unverified.
+- **Source-aware BigQuery adapter.** One fixed public table, parameterized dates, dry runs, a hard maximum of 1 GB billed, timeouts and refusal of incomplete extracts above 200,000 rows. SDK protocol/cost guards are mocked tests; real Google execution remains unverified.
 - **Decision before decoration.** A priority transition, descriptive source comparison, honest attribution insufficiency, sample-size assumptions and editable client output make the next action reviewable.
 
 ```mermaid
@@ -89,7 +98,7 @@ The [36 committed cases](evals/cases/golden.json) cover KPI ground truth, funnel
 
 **These scores do not demonstrate an LLM improvement.** The v1/v2 fixture comparison changes routing/guard behavior. Both prompt files exist, but their live semantic effect is unmeasured. Numerical, lineage, abstention, tool and schema grades are separate. Tokens and cost are null, not invented zeros. Timing is actual local harness elapsed time. The deliberate failure case is clearly labelled as simulated.
 
-Read the [generated evaluation report](docs/evaluation-report.md), inspect [per-case JSON](evals/runs/fixture-latest.json), or reproduce with `make eval`. `make eval-live` is opt-in and spends owner API credits. Live runs write a separate report. Future work must use a held-out paraphrase set rather than treating the development set as generalization evidence.
+Read the [generated evaluation report](docs/evaluation-report.md), inspect [per-case JSON](evals/runs/fixture-latest.json), or reproduce with `make eval`. The separate [24-case release harness](evals/heldout.py) records immutable hashed runs and actual model choices, abstention, numerical accuracy, grounding, injection probes and a bounded action rubric. Its deterministic first run was 23/24; an ambiguous denominator question required an oracle correction, retained in the [failure analysis](docs/failure-analysis.md). The corrected run is 24/24. This set has now been inspected; it is not untouched generalization evidence. Real model results and independent human recommendation ratings remain absent. Paid commands require approval and an explicit request ceiling; see [integration verification](docs/integration-verification.md).
 
 ## Client deliverables
 

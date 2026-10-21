@@ -50,6 +50,22 @@ export default function Evaluation() {
           comparison measures routing and guard policy, not model improvement.
         </span>
       </div>
+      <div className="notice">
+        <span>
+          RELEASE AUDIT: metric identity duplication is now rejected, including
+          near-equal copies. A separate 24-case release set tests independent
+          numeric oracles and bounded recommendation rules. Live model probes
+          offer all six tools plus abstention; no real model score is claimed.{" "}
+          <a
+            href="https://github.com/yashayyy27/exclamation-ai/blob/main/docs/verification.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Inspect verification and limitations
+          </a>
+          .
+        </span>
+      </div>
       {error && <p role="alert">{error}</p>}
       {run && (
         <>

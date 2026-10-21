@@ -39,13 +39,15 @@ class BigQueryAdapter:
         sql = (ROOT / "data/sql/bigquery_events.sql").read_text()
         dry_config = self.sdk.QueryJobConfig(dry_run=True, use_query_cache=False, query_parameters=params)
         dry = self.client.query(sql, job_config=dry_config, location="US")
-        estimate = dry.total_bytes_processed or 0
+        estimate = dry.total_bytes_processed
+        if estimate is None:
+            raise ValueError("Unknown dry-run estimate; query refused")
         if estimate > self.cap:
             raise ValueError("Query dry-run exceeds hard byte budget; narrow the window")
         config = self.sdk.QueryJobConfig(maximum_bytes_billed=self.cap, query_parameters=params, job_timeout_ms=20000)
         job = self.client.query(sql, job_config=config, location="US", timeout=25)
-        rows = list(job.result(timeout=25, max_results=20001))
-        if len(rows) > 20000:
+        rows = list(job.result(timeout=25, max_results=200001))
+        if len(rows) > 200000:
             raise ValueError("Extract exceeds complete-row limit; narrow date range. No partial metrics published.")
         records = [
             {
@@ -63,9 +65,23 @@ class BigQueryAdapter:
             }
             for r in rows
         ]
-        return Analytics(records, PUBLIC_SOURCE), {
+        return Analytics(
+            records,
+            {
+                **PUBLIC_SOURCE,
+                "available_start": PUBLIC_SOURCE["start"],
+                "available_end": PUBLIC_SOURCE["end"],
+                "start": start,
+                "end": end,
+            },
+        ), {
             "job_id": job.job_id,
             "dry_run_bytes": estimate,
             "maximum_bytes_billed": self.cap,
             "rows": len(rows),
+            "actual_bytes_processed": getattr(job, "total_bytes_processed", None),
+            "actual_bytes_billed": getattr(job, "total_bytes_billed", None),
+            "cache_hit": getattr(job, "cache_hit", None),
+            "cost_usd": None,
+            "cost_note": "Billed bytes are measured; dollar cost depends on owner pricing, credits and billing mode.",
         }

@@ -16,7 +16,7 @@
       "2021-01-14"
     ],
     "channel": "all",
-    "query_id": "q-211ee1809e6a",
+    "query_id": "q-4407a679dc45",
     "metrics": [
       {
         "metric": "sessions",
@@ -27,7 +27,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-211ee1809e6a"
+        "query_id": "q-4407a679dc45"
       },
       {
         "metric": "purchases",
@@ -38,7 +38,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-211ee1809e6a"
+        "query_id": "q-4407a679dc45"
       },
       {
         "metric": "conversion_rate",
@@ -49,7 +49,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-211ee1809e6a"
+        "query_id": "q-4407a679dc45"
       },
       {
         "metric": "revenue",
@@ -60,7 +60,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-211ee1809e6a"
+        "query_id": "q-4407a679dc45"
       },
       {
         "metric": "checkout_completion",
@@ -71,7 +71,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-211ee1809e6a"
+        "query_id": "q-4407a679dc45"
       }
     ],
     "funnel": [
@@ -111,21 +111,164 @@
         "channel": "google / cpc",
         "sessions": 140,
         "purchases": 16,
-        "conversion": 11.4286
+        "conversion": 11.4286,
+        "conversion_interval_95": [
+          7.16,
+          17.76
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "google / organic",
         "sessions": 140,
         "purchases": 25,
-        "conversion": 17.8571
+        "conversion": 17.8571,
+        "conversion_interval_95": [
+          12.4,
+          25.03
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "newsletter / email",
         "sessions": 140,
         "purchases": 22,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          10.61,
+          22.65
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 140,
+        "purchases": 16,
+        "conversion": 11.4286,
+        "conversion_interval_95": [
+          7.16,
+          17.76
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 140,
+        "purchases": 25,
+        "conversion": 17.8571,
+        "conversion_interval_95": [
+          12.4,
+          25.03
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 140,
+        "purchases": 22,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          10.61,
+          22.65
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 336,
+        "lost": 144,
+        "loss_pct": 42.86,
+        "score": 61.71
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 139,
+        "lost": 76,
+        "loss_pct": 54.68,
+        "score": 41.55
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 420,
+        "lost": 84,
+        "loss_pct": 20.0,
+        "score": 16.8
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 192,
+        "lost": 53,
+        "loss_pct": 27.6,
+        "score": 14.63
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -207,7 +350,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 63,
     "decision": {
@@ -235,7 +379,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -246,7 +390,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -257,7 +401,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -268,7 +412,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -279,14 +423,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -303,7 +447,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-211ee1809e6a"
+            "q-4407a679dc45"
           ],
           "evidence_rows": [
             {
@@ -337,7 +481,7 @@
               "step_rate": 45.3237
             }
           ],
-          "elapsed_ms": 2.031,
+          "elapsed_ms": 2.306,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -355,7 +499,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -366,7 +510,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -377,7 +521,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "caveats": [
@@ -401,36 +545,54 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-211ee1809e6a"
+            "q-4407a679dc45"
           ],
           "evidence_rows": [
             {
               "channel": "google / cpc",
               "sessions": 140,
               "purchases": 16,
-              "conversion": 11.4286
+              "conversion": 11.4286,
+              "conversion_interval_95": [
+                7.16,
+                17.76
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "google / organic",
               "sessions": 140,
               "purchases": 25,
-              "conversion": 17.8571
+              "conversion": 17.8571,
+              "conversion_interval_95": [
+                12.4,
+                25.03
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "newsletter / email",
               "sessions": 140,
               "purchases": 22,
-              "conversion": 15.7143
+              "conversion": 15.7143,
+              "conversion_interval_95": [
+                10.61,
+                22.65
+              ],
+              "spend_usd": null,
+              "roas": null
             }
           ],
-          "elapsed_ms": 1.627,
+          "elapsed_ms": 1.86,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -441,7 +603,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -452,7 +614,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -463,7 +625,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -474,7 +636,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -485,7 +647,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -496,7 +658,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -507,7 +669,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -518,7 +680,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -529,7 +691,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -553,7 +726,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -564,9 +737,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 2.478,
+          "elapsed_ms": 2.493,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -584,7 +758,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "caveats": [
@@ -608,13 +782,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-211ee1809e6a"
+            "q-4407a679dc45"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 1.567,
+          "elapsed_ms": 1.822,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -632,7 +806,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "conversion_rate",
@@ -643,7 +817,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "caveats": [
@@ -667,8 +841,8 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-19959b7f9b27",
-            "q-b6fec75a1a64"
+            "q-0ae4fdf3806b",
+            "q-c77cbf119c04"
           ],
           "evidence_rows": [
             [
@@ -746,7 +920,7 @@
               }
             ]
           ],
-          "elapsed_ms": 3.705,
+          "elapsed_ms": 4.227,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -764,7 +938,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "purchases",
@@ -775,7 +949,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "conversion_rate",
@@ -786,7 +960,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "revenue",
@@ -797,7 +971,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           },
           {
             "metric": "checkout_completion",
@@ -808,7 +982,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-211ee1809e6a"
+            "query_id": "q-4407a679dc45"
           }
         ],
         "caveats": [
@@ -832,13 +1006,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-211ee1809e6a"
+            "q-4407a679dc45"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 1.558,
+          "elapsed_ms": 1.848,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -861,7 +1035,7 @@
       "2021-01-14"
     ],
     "channel": "google / organic",
-    "query_id": "q-5a2bb9b63f69",
+    "query_id": "q-b503258969dd",
     "metrics": [
       {
         "metric": "sessions",
@@ -872,7 +1046,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5a2bb9b63f69"
+        "query_id": "q-b503258969dd"
       },
       {
         "metric": "purchases",
@@ -883,7 +1057,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5a2bb9b63f69"
+        "query_id": "q-b503258969dd"
       },
       {
         "metric": "conversion_rate",
@@ -894,7 +1068,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5a2bb9b63f69"
+        "query_id": "q-b503258969dd"
       },
       {
         "metric": "revenue",
@@ -905,7 +1079,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5a2bb9b63f69"
+        "query_id": "q-b503258969dd"
       },
       {
         "metric": "checkout_completion",
@@ -916,7 +1090,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5a2bb9b63f69"
+        "query_id": "q-b503258969dd"
       }
     ],
     "funnel": [
@@ -956,9 +1130,114 @@
         "channel": "google / organic",
         "sessions": 140,
         "purchases": 25,
-        "conversion": 17.8571
+        "conversion": 17.8571,
+        "conversion_interval_95": [
+          12.4,
+          25.03
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 140,
+        "purchases": 25,
+        "conversion": 17.8571,
+        "conversion_interval_95": [
+          12.4,
+          25.03
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 112,
+        "lost": 48,
+        "loss_pct": 42.86,
+        "score": 20.57
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 47,
+        "lost": 22,
+        "loss_pct": 46.81,
+        "score": 10.3
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 140,
+        "lost": 28,
+        "loss_pct": 20.0,
+        "score": 5.6
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 64,
+        "lost": 17,
+        "loss_pct": 26.56,
+        "score": 4.52
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -1040,7 +1319,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 25,
     "decision": {
@@ -1068,7 +1348,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "purchases",
@@ -1079,7 +1359,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "conversion_rate",
@@ -1090,7 +1370,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "revenue",
@@ -1101,7 +1381,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "checkout_completion",
@@ -1112,14 +1392,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -1136,7 +1416,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5a2bb9b63f69"
+            "q-b503258969dd"
           ],
           "evidence_rows": [
             {
@@ -1170,7 +1450,7 @@
               "step_rate": 53.1915
             }
           ],
-          "elapsed_ms": 0.95,
+          "elapsed_ms": 1.167,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -1197,14 +1477,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.919,
+          "elapsed_ms": 1.099,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -1215,7 +1495,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -1226,7 +1506,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -1237,7 +1517,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -1248,7 +1528,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -1259,7 +1539,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -1270,7 +1550,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -1281,7 +1561,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -1292,7 +1572,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -1303,7 +1583,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -1327,7 +1618,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -1338,9 +1629,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.974,
+          "elapsed_ms": 1.218,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -1358,7 +1650,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           }
         ],
         "caveats": [
@@ -1382,13 +1674,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5a2bb9b63f69"
+            "q-b503258969dd"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.932,
+          "elapsed_ms": 1.149,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -1406,7 +1698,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "conversion_rate",
@@ -1417,7 +1709,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           }
         ],
         "caveats": [
@@ -1441,8 +1733,8 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5aeeead67a4b",
-            "q-8c60dcc1936f"
+            "q-ac45f2ab8637",
+            "q-cddcbf60aee0"
           ],
           "evidence_rows": [
             [
@@ -1520,7 +1812,7 @@
               }
             ]
           ],
-          "elapsed_ms": 2.416,
+          "elapsed_ms": 3.064,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -1538,7 +1830,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "purchases",
@@ -1549,7 +1841,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "conversion_rate",
@@ -1560,7 +1852,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "revenue",
@@ -1571,7 +1863,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           },
           {
             "metric": "checkout_completion",
@@ -1582,7 +1874,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5a2bb9b63f69"
+            "query_id": "q-b503258969dd"
           }
         ],
         "caveats": [
@@ -1606,13 +1898,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5a2bb9b63f69"
+            "q-b503258969dd"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.955,
+          "elapsed_ms": 1.151,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -1635,7 +1927,7 @@
       "2021-01-14"
     ],
     "channel": "newsletter / email",
-    "query_id": "q-decb9ed66a5a",
+    "query_id": "q-cd721d83f4c9",
     "metrics": [
       {
         "metric": "sessions",
@@ -1646,7 +1938,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-decb9ed66a5a"
+        "query_id": "q-cd721d83f4c9"
       },
       {
         "metric": "purchases",
@@ -1657,7 +1949,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-decb9ed66a5a"
+        "query_id": "q-cd721d83f4c9"
       },
       {
         "metric": "conversion_rate",
@@ -1668,7 +1960,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-decb9ed66a5a"
+        "query_id": "q-cd721d83f4c9"
       },
       {
         "metric": "revenue",
@@ -1679,7 +1971,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-decb9ed66a5a"
+        "query_id": "q-cd721d83f4c9"
       },
       {
         "metric": "checkout_completion",
@@ -1690,7 +1982,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-decb9ed66a5a"
+        "query_id": "q-cd721d83f4c9"
       }
     ],
     "funnel": [
@@ -1730,9 +2022,114 @@
         "channel": "newsletter / email",
         "sessions": 140,
         "purchases": 22,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          10.61,
+          22.65
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 140,
+        "purchases": 22,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          10.61,
+          22.65
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 112,
+        "lost": 48,
+        "loss_pct": 42.86,
+        "score": 20.57
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 42,
+        "lost": 20,
+        "loss_pct": 47.62,
+        "score": 9.52
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 64,
+        "lost": 22,
+        "loss_pct": 34.38,
+        "score": 7.56
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 140,
+        "lost": 28,
+        "loss_pct": 20.0,
+        "score": 5.6
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -1814,7 +2211,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 22,
     "decision": {
@@ -1842,7 +2240,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "purchases",
@@ -1853,7 +2251,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "conversion_rate",
@@ -1864,7 +2262,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "revenue",
@@ -1875,7 +2273,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "checkout_completion",
@@ -1886,14 +2284,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -1910,7 +2308,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-decb9ed66a5a"
+            "q-cd721d83f4c9"
           ],
           "evidence_rows": [
             {
@@ -1944,7 +2342,7 @@
               "step_rate": 52.381
             }
           ],
-          "elapsed_ms": 0.949,
+          "elapsed_ms": 1.169,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -1971,14 +2369,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.91,
+          "elapsed_ms": 1.126,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -1989,7 +2387,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -2000,7 +2398,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -2011,7 +2409,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -2022,7 +2420,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -2033,7 +2431,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -2044,7 +2442,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -2055,7 +2453,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -2066,7 +2464,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -2077,7 +2475,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -2101,7 +2510,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -2112,9 +2521,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 1.035,
+          "elapsed_ms": 1.247,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2132,7 +2542,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           }
         ],
         "caveats": [
@@ -2156,13 +2566,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-decb9ed66a5a"
+            "q-cd721d83f4c9"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.981,
+          "elapsed_ms": 1.107,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2180,7 +2590,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "conversion_rate",
@@ -2191,7 +2601,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           }
         ],
         "caveats": [
@@ -2215,8 +2625,8 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-153442b55833",
-            "q-cb02807d352f"
+            "q-28894c1b7198",
+            "q-ca072a6d86bc"
           ],
           "evidence_rows": [
             [
@@ -2294,7 +2704,7 @@
               }
             ]
           ],
-          "elapsed_ms": 2.458,
+          "elapsed_ms": 2.888,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2312,7 +2722,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "purchases",
@@ -2323,7 +2733,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "conversion_rate",
@@ -2334,7 +2744,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "revenue",
@@ -2345,7 +2755,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           },
           {
             "metric": "checkout_completion",
@@ -2356,7 +2766,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-decb9ed66a5a"
+            "query_id": "q-cd721d83f4c9"
           }
         ],
         "caveats": [
@@ -2380,13 +2790,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-decb9ed66a5a"
+            "q-cd721d83f4c9"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 1.071,
+          "elapsed_ms": 1.156,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -2409,7 +2819,7 @@
       "2021-01-14"
     ],
     "channel": "google / cpc",
-    "query_id": "q-6b5a2d7221a2",
+    "query_id": "q-2fa77550cab9",
     "metrics": [
       {
         "metric": "sessions",
@@ -2420,7 +2830,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-6b5a2d7221a2"
+        "query_id": "q-2fa77550cab9"
       },
       {
         "metric": "purchases",
@@ -2431,7 +2841,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-6b5a2d7221a2"
+        "query_id": "q-2fa77550cab9"
       },
       {
         "metric": "conversion_rate",
@@ -2442,7 +2852,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-6b5a2d7221a2"
+        "query_id": "q-2fa77550cab9"
       },
       {
         "metric": "revenue",
@@ -2453,7 +2863,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-6b5a2d7221a2"
+        "query_id": "q-2fa77550cab9"
       },
       {
         "metric": "checkout_completion",
@@ -2464,7 +2874,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-6b5a2d7221a2"
+        "query_id": "q-2fa77550cab9"
       }
     ],
     "funnel": [
@@ -2504,9 +2914,114 @@
         "channel": "google / cpc",
         "sessions": 140,
         "purchases": 16,
-        "conversion": 11.4286
+        "conversion": 11.4286,
+        "conversion_interval_95": [
+          7.16,
+          17.76
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 140,
+        "purchases": 16,
+        "conversion": 11.4286,
+        "conversion_interval_95": [
+          7.16,
+          17.76
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 50,
+        "lost": 34,
+        "loss_pct": 68.0,
+        "score": 23.12
+      },
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 112,
+        "lost": 48,
+        "loss_pct": 42.86,
+        "score": 20.57
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 140,
+        "lost": 28,
+        "loss_pct": 20.0,
+        "score": 5.6
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 64,
+        "lost": 14,
+        "loss_pct": 21.88,
+        "score": 3.06
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -2588,13 +3103,14 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 16,
     "decision": {
-      "step": "Add to cart",
-      "lost_sessions": 48,
-      "action": "Audit the add to cart transition, then test one clearer experience proposition.",
+      "step": "Purchase",
+      "lost_sessions": 34,
+      "action": "Audit the purchase transition, then test one clearer experience proposition.",
       "caveat": "Synthetic fixture demonstrates diagnosis, not a real commercial opportunity. Drop-off does not establish its cause."
     },
     "attribution": {
@@ -2616,7 +3132,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "purchases",
@@ -2627,7 +3143,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "conversion_rate",
@@ -2638,7 +3154,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "revenue",
@@ -2649,7 +3165,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "checkout_completion",
@@ -2660,14 +3176,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the purchase transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -2684,7 +3200,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-6b5a2d7221a2"
+            "q-2fa77550cab9"
           ],
           "evidence_rows": [
             {
@@ -2718,7 +3234,7 @@
               "step_rate": 32.0
             }
           ],
-          "elapsed_ms": 1.012,
+          "elapsed_ms": 1.186,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2745,14 +3261,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 1.029,
+          "elapsed_ms": 1.075,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -2763,7 +3279,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -2774,7 +3290,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -2785,7 +3301,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -2796,7 +3312,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -2807,7 +3323,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -2818,7 +3334,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -2829,7 +3345,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -2840,7 +3356,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -2851,7 +3367,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -2875,7 +3402,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -2886,9 +3413,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.99,
+          "elapsed_ms": 1.228,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2906,7 +3434,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           }
         ],
         "caveats": [
@@ -2930,13 +3458,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-6b5a2d7221a2"
+            "q-2fa77550cab9"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 1.01,
+          "elapsed_ms": 1.124,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -2954,7 +3482,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "conversion_rate",
@@ -2965,7 +3493,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           }
         ],
         "caveats": [
@@ -2989,8 +3517,8 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-28f8d1b74553",
-            "q-b4171c4eadac"
+            "q-0311c45c19dc",
+            "q-54a7fd8cee1b"
           ],
           "evidence_rows": [
             [
@@ -3068,7 +3596,7 @@
               }
             ]
           ],
-          "elapsed_ms": 2.453,
+          "elapsed_ms": 2.886,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -3086,7 +3614,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "purchases",
@@ -3097,7 +3625,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "conversion_rate",
@@ -3108,7 +3636,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "revenue",
@@ -3119,7 +3647,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           },
           {
             "metric": "checkout_completion",
@@ -3130,7 +3658,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-6b5a2d7221a2"
+            "query_id": "q-2fa77550cab9"
           }
         ],
         "caveats": [
@@ -3154,13 +3682,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-6b5a2d7221a2"
+            "q-2fa77550cab9"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.961,
+          "elapsed_ms": 1.141,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -3183,7 +3711,7 @@
       "2021-01-07"
     ],
     "channel": "all",
-    "query_id": "q-b6fec75a1a64",
+    "query_id": "q-c77cbf119c04",
     "metrics": [
       {
         "metric": "sessions",
@@ -3194,7 +3722,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b6fec75a1a64"
+        "query_id": "q-c77cbf119c04"
       },
       {
         "metric": "purchases",
@@ -3205,7 +3733,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b6fec75a1a64"
+        "query_id": "q-c77cbf119c04"
       },
       {
         "metric": "conversion_rate",
@@ -3216,7 +3744,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b6fec75a1a64"
+        "query_id": "q-c77cbf119c04"
       },
       {
         "metric": "revenue",
@@ -3227,7 +3755,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b6fec75a1a64"
+        "query_id": "q-c77cbf119c04"
       },
       {
         "metric": "checkout_completion",
@@ -3238,7 +3766,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b6fec75a1a64"
+        "query_id": "q-c77cbf119c04"
       }
     ],
     "funnel": [
@@ -3278,21 +3806,164 @@
         "channel": "google / cpc",
         "sessions": 70,
         "purchases": 10,
-        "conversion": 14.2857
+        "conversion": 14.2857,
+        "conversion_interval_95": [
+          7.95,
+          24.34
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "google / organic",
         "sessions": 70,
         "purchases": 14,
-        "conversion": 20.0
+        "conversion": 20.0,
+        "conversion_interval_95": [
+          12.3,
+          30.82
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "newsletter / email",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 70,
+        "purchases": 10,
+        "conversion": 14.2857,
+        "conversion_interval_95": [
+          7.95,
+          24.34
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 70,
+        "purchases": 14,
+        "conversion": 20.0,
+        "conversion_interval_95": [
+          12.3,
+          30.82
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 168,
+        "lost": 72,
+        "loss_pct": 42.86,
+        "score": 30.86
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 69,
+        "lost": 34,
+        "loss_pct": 49.28,
+        "score": 16.75
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 210,
+        "lost": 42,
+        "loss_pct": 20.0,
+        "score": 8.4
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 96,
+        "lost": 27,
+        "loss_pct": 28.12,
+        "score": 7.59
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -3339,7 +4010,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 35,
     "decision": {
@@ -3367,7 +4039,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "purchases",
@@ -3378,7 +4050,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "conversion_rate",
@@ -3389,7 +4061,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "revenue",
@@ -3400,7 +4072,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "checkout_completion",
@@ -3411,14 +4083,14 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -3435,7 +4107,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b6fec75a1a64"
+            "q-c77cbf119c04"
           ],
           "evidence_rows": [
             {
@@ -3469,7 +4141,7 @@
               "step_rate": 50.7246
             }
           ],
-          "elapsed_ms": 1.056,
+          "elapsed_ms": 1.305,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -3487,7 +4159,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -3498,7 +4170,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -3509,7 +4181,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           }
         ],
         "caveats": [
@@ -3533,36 +4205,54 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b6fec75a1a64"
+            "q-c77cbf119c04"
           ],
           "evidence_rows": [
             {
               "channel": "google / cpc",
               "sessions": 70,
               "purchases": 10,
-              "conversion": 14.2857
+              "conversion": 14.2857,
+              "conversion_interval_95": [
+                7.95,
+                24.34
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "google / organic",
               "sessions": 70,
               "purchases": 14,
-              "conversion": 20.0
+              "conversion": 20.0,
+              "conversion_interval_95": [
+                12.3,
+                30.82
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "newsletter / email",
               "sessions": 70,
               "purchases": 11,
-              "conversion": 15.7143
+              "conversion": 15.7143,
+              "conversion_interval_95": [
+                9.01,
+                25.99
+              ],
+              "spend_usd": null,
+              "roas": null
             }
           ],
-          "elapsed_ms": 1.092,
+          "elapsed_ms": 1.275,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -3573,7 +4263,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -3584,7 +4274,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -3595,7 +4285,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -3606,7 +4296,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -3617,7 +4307,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -3628,7 +4318,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -3639,7 +4329,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -3650,7 +4340,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -3661,7 +4351,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -3685,7 +4386,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -3696,9 +4397,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 1.127,
+          "elapsed_ms": 1.354,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -3716,7 +4418,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           }
         ],
         "caveats": [
@@ -3740,13 +4442,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b6fec75a1a64"
+            "q-c77cbf119c04"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 1.059,
+          "elapsed_ms": 1.224,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -3773,8 +4475,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 1.04,
+          "elapsed_ms": 1.207,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -3792,7 +4495,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "purchases",
@@ -3803,7 +4506,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "conversion_rate",
@@ -3814,7 +4517,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "revenue",
@@ -3825,7 +4528,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           },
           {
             "metric": "checkout_completion",
@@ -3836,7 +4539,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b6fec75a1a64"
+            "query_id": "q-c77cbf119c04"
           }
         ],
         "caveats": [
@@ -3860,13 +4563,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b6fec75a1a64"
+            "q-c77cbf119c04"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 1.067,
+          "elapsed_ms": 1.262,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -3889,7 +4592,7 @@
       "2021-01-07"
     ],
     "channel": "google / organic",
-    "query_id": "q-5aeeead67a4b",
+    "query_id": "q-cddcbf60aee0",
     "metrics": [
       {
         "metric": "sessions",
@@ -3900,7 +4603,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5aeeead67a4b"
+        "query_id": "q-cddcbf60aee0"
       },
       {
         "metric": "purchases",
@@ -3911,7 +4614,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5aeeead67a4b"
+        "query_id": "q-cddcbf60aee0"
       },
       {
         "metric": "conversion_rate",
@@ -3922,7 +4625,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5aeeead67a4b"
+        "query_id": "q-cddcbf60aee0"
       },
       {
         "metric": "revenue",
@@ -3933,7 +4636,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5aeeead67a4b"
+        "query_id": "q-cddcbf60aee0"
       },
       {
         "metric": "checkout_completion",
@@ -3944,7 +4647,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-5aeeead67a4b"
+        "query_id": "q-cddcbf60aee0"
       }
     ],
     "funnel": [
@@ -3984,9 +4687,114 @@
         "channel": "google / organic",
         "sessions": 70,
         "purchases": 14,
-        "conversion": 20.0
+        "conversion": 20.0,
+        "conversion_interval_95": [
+          12.3,
+          30.82
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 70,
+        "purchases": 14,
+        "conversion": 20.0,
+        "conversion_interval_95": [
+          12.3,
+          30.82
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 23,
+        "lost": 9,
+        "loss_pct": 39.13,
+        "score": 3.52
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 9,
+        "loss_pct": 28.12,
+        "score": 2.53
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -4033,7 +4841,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 14,
     "decision": {
@@ -4061,7 +4870,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "purchases",
@@ -4072,7 +4881,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "conversion_rate",
@@ -4083,7 +4892,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "revenue",
@@ -4094,7 +4903,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "checkout_completion",
@@ -4105,14 +4914,14 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -4129,7 +4938,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5aeeead67a4b"
+            "q-cddcbf60aee0"
           ],
           "evidence_rows": [
             {
@@ -4163,7 +4972,7 @@
               "step_rate": 60.8696
             }
           ],
-          "elapsed_ms": 0.771,
+          "elapsed_ms": 0.943,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4190,14 +4999,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.738,
+          "elapsed_ms": 0.878,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -4208,7 +5017,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -4219,7 +5028,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -4230,7 +5039,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -4241,7 +5050,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -4252,7 +5061,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -4263,7 +5072,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -4274,7 +5083,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -4285,7 +5094,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -4296,7 +5105,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -4320,7 +5140,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -4331,9 +5151,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 1.026,
+          "elapsed_ms": 1.027,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4351,7 +5172,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           }
         ],
         "caveats": [
@@ -4375,13 +5196,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5aeeead67a4b"
+            "q-cddcbf60aee0"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.812,
+          "elapsed_ms": 0.9,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4408,8 +5229,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.774,
+          "elapsed_ms": 0.883,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4427,7 +5249,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "purchases",
@@ -4438,7 +5260,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "conversion_rate",
@@ -4449,7 +5271,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "revenue",
@@ -4460,7 +5282,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           },
           {
             "metric": "checkout_completion",
@@ -4471,7 +5293,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-5aeeead67a4b"
+            "query_id": "q-cddcbf60aee0"
           }
         ],
         "caveats": [
@@ -4495,13 +5317,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-5aeeead67a4b"
+            "q-cddcbf60aee0"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.807,
+          "elapsed_ms": 0.968,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -4524,7 +5346,7 @@
       "2021-01-07"
     ],
     "channel": "newsletter / email",
-    "query_id": "q-153442b55833",
+    "query_id": "q-28894c1b7198",
     "metrics": [
       {
         "metric": "sessions",
@@ -4535,7 +5357,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-153442b55833"
+        "query_id": "q-28894c1b7198"
       },
       {
         "metric": "purchases",
@@ -4546,7 +5368,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-153442b55833"
+        "query_id": "q-28894c1b7198"
       },
       {
         "metric": "conversion_rate",
@@ -4557,7 +5379,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-153442b55833"
+        "query_id": "q-28894c1b7198"
       },
       {
         "metric": "revenue",
@@ -4568,7 +5390,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-153442b55833"
+        "query_id": "q-28894c1b7198"
       },
       {
         "metric": "checkout_completion",
@@ -4579,7 +5401,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-153442b55833"
+        "query_id": "q-28894c1b7198"
       }
     ],
     "funnel": [
@@ -4619,9 +5441,114 @@
         "channel": "newsletter / email",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 21,
+        "lost": 10,
+        "loss_pct": 47.62,
+        "score": 4.76
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 11,
+        "loss_pct": 34.38,
+        "score": 3.78
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -4668,7 +5595,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 11,
     "decision": {
@@ -4696,7 +5624,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "purchases",
@@ -4707,7 +5635,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "conversion_rate",
@@ -4718,7 +5646,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "revenue",
@@ -4729,7 +5657,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "checkout_completion",
@@ -4740,14 +5668,14 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -4764,7 +5692,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-153442b55833"
+            "q-28894c1b7198"
           ],
           "evidence_rows": [
             {
@@ -4798,7 +5726,7 @@
               "step_rate": 52.381
             }
           ],
-          "elapsed_ms": 0.769,
+          "elapsed_ms": 0.958,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4825,14 +5753,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.757,
+          "elapsed_ms": 0.876,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -4843,7 +5771,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -4854,7 +5782,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -4865,7 +5793,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -4876,7 +5804,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -4887,7 +5815,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -4898,7 +5826,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -4909,7 +5837,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -4920,7 +5848,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -4931,7 +5859,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -4955,7 +5894,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -4966,9 +5905,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.803,
+          "elapsed_ms": 1.018,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -4986,7 +5926,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           }
         ],
         "caveats": [
@@ -5010,13 +5950,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-153442b55833"
+            "q-28894c1b7198"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.755,
+          "elapsed_ms": 0.897,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5043,8 +5983,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.752,
+          "elapsed_ms": 0.879,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5062,7 +6003,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "purchases",
@@ -5073,7 +6014,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "conversion_rate",
@@ -5084,7 +6025,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "revenue",
@@ -5095,7 +6036,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           },
           {
             "metric": "checkout_completion",
@@ -5106,7 +6047,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-153442b55833"
+            "query_id": "q-28894c1b7198"
           }
         ],
         "caveats": [
@@ -5130,13 +6071,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-153442b55833"
+            "q-28894c1b7198"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.782,
+          "elapsed_ms": 0.944,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -5159,7 +6100,7 @@
       "2021-01-07"
     ],
     "channel": "google / cpc",
-    "query_id": "q-b4171c4eadac",
+    "query_id": "q-54a7fd8cee1b",
     "metrics": [
       {
         "metric": "sessions",
@@ -5170,7 +6111,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b4171c4eadac"
+        "query_id": "q-54a7fd8cee1b"
       },
       {
         "metric": "purchases",
@@ -5181,7 +6122,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b4171c4eadac"
+        "query_id": "q-54a7fd8cee1b"
       },
       {
         "metric": "conversion_rate",
@@ -5192,7 +6133,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b4171c4eadac"
+        "query_id": "q-54a7fd8cee1b"
       },
       {
         "metric": "revenue",
@@ -5203,7 +6144,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b4171c4eadac"
+        "query_id": "q-54a7fd8cee1b"
       },
       {
         "metric": "checkout_completion",
@@ -5214,7 +6155,7 @@
           "2021-01-07"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-b4171c4eadac"
+        "query_id": "q-54a7fd8cee1b"
       }
     ],
     "funnel": [
@@ -5254,9 +6195,114 @@
         "channel": "google / cpc",
         "sessions": 70,
         "purchases": 10,
-        "conversion": 14.2857
+        "conversion": 14.2857,
+        "conversion_interval_95": [
+          7.95,
+          24.34
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 70,
+        "purchases": 10,
+        "conversion": 14.2857,
+        "conversion_interval_95": [
+          7.95,
+          24.34
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 25,
+        "lost": 15,
+        "loss_pct": 60.0,
+        "score": 9.0
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 7,
+        "loss_pct": 21.88,
+        "score": 1.53
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-01",
@@ -5303,7 +6349,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 10,
     "decision": {
@@ -5331,7 +6378,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "purchases",
@@ -5342,7 +6389,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "conversion_rate",
@@ -5353,7 +6400,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "revenue",
@@ -5364,7 +6411,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "checkout_completion",
@@ -5375,14 +6422,14 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -5399,7 +6446,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b4171c4eadac"
+            "q-54a7fd8cee1b"
           ],
           "evidence_rows": [
             {
@@ -5433,7 +6480,7 @@
               "step_rate": 40.0
             }
           ],
-          "elapsed_ms": 0.839,
+          "elapsed_ms": 0.972,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5460,14 +6507,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.776,
+          "elapsed_ms": 0.888,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -5478,7 +6525,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -5489,7 +6536,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -5500,7 +6547,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -5511,7 +6558,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -5522,7 +6569,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -5533,7 +6580,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -5544,7 +6591,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -5555,7 +6602,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -5566,7 +6613,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -5590,7 +6648,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -5601,9 +6659,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.817,
+          "elapsed_ms": 1.046,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5621,7 +6680,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           }
         ],
         "caveats": [
@@ -5645,13 +6704,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b4171c4eadac"
+            "q-54a7fd8cee1b"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.748,
+          "elapsed_ms": 0.9,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5678,8 +6737,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.743,
+          "elapsed_ms": 0.877,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -5697,7 +6757,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "purchases",
@@ -5708,7 +6768,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "conversion_rate",
@@ -5719,7 +6779,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "revenue",
@@ -5730,7 +6790,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           },
           {
             "metric": "checkout_completion",
@@ -5741,7 +6801,7 @@
               "2021-01-07"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-b4171c4eadac"
+            "query_id": "q-54a7fd8cee1b"
           }
         ],
         "caveats": [
@@ -5765,13 +6825,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-b4171c4eadac"
+            "q-54a7fd8cee1b"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.765,
+          "elapsed_ms": 0.938,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -5794,7 +6854,7 @@
       "2021-01-14"
     ],
     "channel": "all",
-    "query_id": "q-19959b7f9b27",
+    "query_id": "q-0ae4fdf3806b",
     "metrics": [
       {
         "metric": "sessions",
@@ -5805,7 +6865,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-19959b7f9b27"
+        "query_id": "q-0ae4fdf3806b"
       },
       {
         "metric": "purchases",
@@ -5816,7 +6876,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-19959b7f9b27"
+        "query_id": "q-0ae4fdf3806b"
       },
       {
         "metric": "conversion_rate",
@@ -5827,7 +6887,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-19959b7f9b27"
+        "query_id": "q-0ae4fdf3806b"
       },
       {
         "metric": "revenue",
@@ -5838,7 +6898,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-19959b7f9b27"
+        "query_id": "q-0ae4fdf3806b"
       },
       {
         "metric": "checkout_completion",
@@ -5849,7 +6909,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-19959b7f9b27"
+        "query_id": "q-0ae4fdf3806b"
       }
     ],
     "funnel": [
@@ -5889,21 +6949,164 @@
         "channel": "google / cpc",
         "sessions": 70,
         "purchases": 6,
-        "conversion": 8.5714
+        "conversion": 8.5714,
+        "conversion_interval_95": [
+          3.99,
+          17.47
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "google / organic",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       },
       {
         "channel": "newsletter / email",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 70,
+        "purchases": 6,
+        "conversion": 8.5714,
+        "conversion_interval_95": [
+          3.99,
+          17.47
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      },
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 168,
+        "lost": 72,
+        "loss_pct": 42.86,
+        "score": 30.86
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 70,
+        "lost": 42,
+        "loss_pct": 60.0,
+        "score": 25.2
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 210,
+        "lost": 42,
+        "loss_pct": 20.0,
+        "score": 8.4
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 96,
+        "lost": 26,
+        "loss_pct": 27.08,
+        "score": 7.04
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-08",
@@ -5950,7 +7153,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 28,
     "decision": {
@@ -5978,7 +7182,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "purchases",
@@ -5989,7 +7193,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "conversion_rate",
@@ -6000,7 +7204,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "revenue",
@@ -6011,7 +7215,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "checkout_completion",
@@ -6022,14 +7226,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -6046,7 +7250,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-19959b7f9b27"
+            "q-0ae4fdf3806b"
           ],
           "evidence_rows": [
             {
@@ -6080,7 +7284,7 @@
               "step_rate": 40.0
             }
           ],
-          "elapsed_ms": 1.041,
+          "elapsed_ms": 1.266,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6098,7 +7302,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "channel_conversion:google / organic",
@@ -6109,7 +7313,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "channel_conversion:newsletter / email",
@@ -6120,7 +7324,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "caveats": [
@@ -6144,36 +7348,54 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-19959b7f9b27"
+            "q-0ae4fdf3806b"
           ],
           "evidence_rows": [
             {
               "channel": "google / cpc",
               "sessions": 70,
               "purchases": 6,
-              "conversion": 8.5714
+              "conversion": 8.5714,
+              "conversion_interval_95": [
+                3.99,
+                17.47
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "google / organic",
               "sessions": 70,
               "purchases": 11,
-              "conversion": 15.7143
+              "conversion": 15.7143,
+              "conversion_interval_95": [
+                9.01,
+                25.99
+              ],
+              "spend_usd": null,
+              "roas": null
             },
             {
               "channel": "newsletter / email",
               "sessions": 70,
               "purchases": 11,
-              "conversion": 15.7143
+              "conversion": 15.7143,
+              "conversion_interval_95": [
+                9.01,
+                25.99
+              ],
+              "spend_usd": null,
+              "roas": null
             }
           ],
-          "elapsed_ms": 1.025,
+          "elapsed_ms": 1.237,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -6184,7 +7406,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -6195,7 +7417,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -6206,7 +7428,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -6217,7 +7439,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -6228,7 +7450,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -6239,7 +7461,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -6250,7 +7472,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -6261,7 +7483,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -6272,7 +7494,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -6296,7 +7529,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -6307,9 +7540,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 1.055,
+          "elapsed_ms": 1.349,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6327,7 +7561,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "caveats": [
@@ -6351,13 +7585,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-19959b7f9b27"
+            "q-0ae4fdf3806b"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 1.014,
+          "elapsed_ms": 1.228,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6384,8 +7618,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 1.013,
+          "elapsed_ms": 1.208,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6403,7 +7638,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "purchases",
@@ -6414,7 +7649,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "conversion_rate",
@@ -6425,7 +7660,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "revenue",
@@ -6436,7 +7671,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           },
           {
             "metric": "checkout_completion",
@@ -6447,7 +7682,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-19959b7f9b27"
+            "query_id": "q-0ae4fdf3806b"
           }
         ],
         "caveats": [
@@ -6471,13 +7706,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-19959b7f9b27"
+            "q-0ae4fdf3806b"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 1.035,
+          "elapsed_ms": 1.276,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -6500,7 +7735,7 @@
       "2021-01-14"
     ],
     "channel": "google / organic",
-    "query_id": "q-8c60dcc1936f",
+    "query_id": "q-ac45f2ab8637",
     "metrics": [
       {
         "metric": "sessions",
@@ -6511,7 +7746,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-8c60dcc1936f"
+        "query_id": "q-ac45f2ab8637"
       },
       {
         "metric": "purchases",
@@ -6522,7 +7757,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-8c60dcc1936f"
+        "query_id": "q-ac45f2ab8637"
       },
       {
         "metric": "conversion_rate",
@@ -6533,7 +7768,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-8c60dcc1936f"
+        "query_id": "q-ac45f2ab8637"
       },
       {
         "metric": "revenue",
@@ -6544,7 +7779,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-8c60dcc1936f"
+        "query_id": "q-ac45f2ab8637"
       },
       {
         "metric": "checkout_completion",
@@ -6555,7 +7790,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-8c60dcc1936f"
+        "query_id": "q-ac45f2ab8637"
       }
     ],
     "funnel": [
@@ -6595,9 +7830,114 @@
         "channel": "google / organic",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / organic",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 24,
+        "lost": 13,
+        "loss_pct": 54.17,
+        "score": 7.04
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 8,
+        "loss_pct": 25.0,
+        "score": 2.0
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-08",
@@ -6644,7 +7984,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 11,
     "decision": {
@@ -6672,7 +8013,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "purchases",
@@ -6683,7 +8024,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "conversion_rate",
@@ -6694,7 +8035,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "revenue",
@@ -6705,7 +8046,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "checkout_completion",
@@ -6716,14 +8057,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -6740,7 +8081,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-8c60dcc1936f"
+            "q-ac45f2ab8637"
           ],
           "evidence_rows": [
             {
@@ -6774,7 +8115,7 @@
               "step_rate": 45.8333
             }
           ],
-          "elapsed_ms": 0.757,
+          "elapsed_ms": 0.941,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6801,14 +8142,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.728,
+          "elapsed_ms": 0.876,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -6819,7 +8160,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -6830,7 +8171,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -6841,7 +8182,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -6852,7 +8193,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -6863,7 +8204,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -6874,7 +8215,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -6885,7 +8226,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -6896,7 +8237,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -6907,7 +8248,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -6931,7 +8283,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -6942,9 +8294,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.781,
+          "elapsed_ms": 1.003,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -6962,7 +8315,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           }
         ],
         "caveats": [
@@ -6986,13 +8339,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-8c60dcc1936f"
+            "q-ac45f2ab8637"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.741,
+          "elapsed_ms": 0.892,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7019,8 +8372,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.794,
+          "elapsed_ms": 0.866,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7038,7 +8392,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "purchases",
@@ -7049,7 +8403,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "conversion_rate",
@@ -7060,7 +8414,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "revenue",
@@ -7071,7 +8425,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           },
           {
             "metric": "checkout_completion",
@@ -7082,7 +8436,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-8c60dcc1936f"
+            "query_id": "q-ac45f2ab8637"
           }
         ],
         "caveats": [
@@ -7106,13 +8460,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-8c60dcc1936f"
+            "q-ac45f2ab8637"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.804,
+          "elapsed_ms": 0.932,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -7135,7 +8489,7 @@
       "2021-01-14"
     ],
     "channel": "newsletter / email",
-    "query_id": "q-cb02807d352f",
+    "query_id": "q-ca072a6d86bc",
     "metrics": [
       {
         "metric": "sessions",
@@ -7146,7 +8500,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-cb02807d352f"
+        "query_id": "q-ca072a6d86bc"
       },
       {
         "metric": "purchases",
@@ -7157,7 +8511,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-cb02807d352f"
+        "query_id": "q-ca072a6d86bc"
       },
       {
         "metric": "conversion_rate",
@@ -7168,7 +8522,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-cb02807d352f"
+        "query_id": "q-ca072a6d86bc"
       },
       {
         "metric": "revenue",
@@ -7179,7 +8533,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-cb02807d352f"
+        "query_id": "q-ca072a6d86bc"
       },
       {
         "metric": "checkout_completion",
@@ -7190,7 +8544,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-cb02807d352f"
+        "query_id": "q-ca072a6d86bc"
       }
     ],
     "funnel": [
@@ -7230,9 +8584,114 @@
         "channel": "newsletter / email",
         "sessions": 70,
         "purchases": 11,
-        "conversion": 15.7143
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "newsletter / email",
+        "sessions": 70,
+        "purchases": 11,
+        "conversion": 15.7143,
+        "conversion_interval_95": [
+          9.01,
+          25.99
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 21,
+        "lost": 10,
+        "loss_pct": 47.62,
+        "score": 4.76
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 11,
+        "loss_pct": 34.38,
+        "score": 3.78
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-08",
@@ -7279,7 +8738,8 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 11,
     "decision": {
@@ -7307,7 +8767,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "purchases",
@@ -7318,7 +8778,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "conversion_rate",
@@ -7329,7 +8789,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "revenue",
@@ -7340,7 +8800,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "checkout_completion",
@@ -7351,14 +8811,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the add to cart transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -7375,7 +8835,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-cb02807d352f"
+            "q-ca072a6d86bc"
           ],
           "evidence_rows": [
             {
@@ -7409,7 +8869,7 @@
               "step_rate": 52.381
             }
           ],
-          "elapsed_ms": 0.764,
+          "elapsed_ms": 0.931,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7436,14 +8896,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.734,
+          "elapsed_ms": 0.877,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -7454,7 +8914,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -7465,7 +8925,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -7476,7 +8936,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -7487,7 +8947,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -7498,7 +8958,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -7509,7 +8969,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -7520,7 +8980,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -7531,7 +8991,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -7542,7 +9002,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -7566,7 +9037,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -7577,9 +9048,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.787,
+          "elapsed_ms": 1.01,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7597,7 +9069,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           }
         ],
         "caveats": [
@@ -7621,13 +9093,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-cb02807d352f"
+            "q-ca072a6d86bc"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.743,
+          "elapsed_ms": 0.883,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7654,8 +9126,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.73,
+          "elapsed_ms": 0.866,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -7673,7 +9146,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "purchases",
@@ -7684,7 +9157,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "conversion_rate",
@@ -7695,7 +9168,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "revenue",
@@ -7706,7 +9179,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           },
           {
             "metric": "checkout_completion",
@@ -7717,7 +9190,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-cb02807d352f"
+            "query_id": "q-ca072a6d86bc"
           }
         ],
         "caveats": [
@@ -7741,13 +9214,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-cb02807d352f"
+            "q-ca072a6d86bc"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.758,
+          "elapsed_ms": 0.929,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }
@@ -7770,7 +9243,7 @@
       "2021-01-14"
     ],
     "channel": "google / cpc",
-    "query_id": "q-28f8d1b74553",
+    "query_id": "q-0311c45c19dc",
     "metrics": [
       {
         "metric": "sessions",
@@ -7781,7 +9254,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-28f8d1b74553"
+        "query_id": "q-0311c45c19dc"
       },
       {
         "metric": "purchases",
@@ -7792,7 +9265,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-28f8d1b74553"
+        "query_id": "q-0311c45c19dc"
       },
       {
         "metric": "conversion_rate",
@@ -7803,7 +9276,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-28f8d1b74553"
+        "query_id": "q-0311c45c19dc"
       },
       {
         "metric": "revenue",
@@ -7814,7 +9287,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-28f8d1b74553"
+        "query_id": "q-0311c45c19dc"
       },
       {
         "metric": "checkout_completion",
@@ -7825,7 +9298,7 @@
           "2021-01-14"
         ],
         "source_id": "synthetic_fixture_v1",
-        "query_id": "q-28f8d1b74553"
+        "query_id": "q-0311c45c19dc"
       }
     ],
     "funnel": [
@@ -7865,9 +9338,114 @@
         "channel": "google / cpc",
         "sessions": 70,
         "purchases": 6,
-        "conversion": 8.5714
+        "conversion": 8.5714,
+        "conversion_interval_95": [
+          3.99,
+          17.47
+        ],
+        "spend_usd": null,
+        "roas": null
       }
     ],
+    "campaigns": [
+      {
+        "campaign": "fixture-winter",
+        "channel": "google / cpc",
+        "sessions": 70,
+        "purchases": 6,
+        "conversion": 8.5714,
+        "conversion_interval_95": [
+          3.99,
+          17.47
+        ],
+        "spend_usd": null,
+        "roas": null
+      }
+    ],
+    "lineage": {
+      "records_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+      "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+    },
+    "priorities": [
+      {
+        "from": "Checkout",
+        "to": "Purchase",
+        "entrants": 25,
+        "lost": 19,
+        "loss_pct": 76.0,
+        "score": 14.44
+      },
+      {
+        "from": "Product views",
+        "to": "Add to cart",
+        "entrants": 56,
+        "lost": 24,
+        "loss_pct": 42.86,
+        "score": 10.29
+      },
+      {
+        "from": "Sessions",
+        "to": "Product views",
+        "entrants": 70,
+        "lost": 14,
+        "loss_pct": 20.0,
+        "score": 2.8
+      },
+      {
+        "from": "Add to cart",
+        "to": "Checkout",
+        "entrants": 32,
+        "lost": 7,
+        "loss_pct": 21.88,
+        "score": 1.53
+      }
+    ],
+    "priority_method": "Lost sessions \u00d7 conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+    "attribution_demo": {
+      "label": "SEPARATE SYNTHETIC ATTRIBUTION SCENARIO",
+      "lookback": "Invented complete 7-day same-device journeys",
+      "journeys": [
+        {
+          "id": "invented-A",
+          "touches": [
+            "email",
+            "organic"
+          ],
+          "revenue_usd": 100
+        },
+        {
+          "id": "invented-B",
+          "touches": [
+            "paid search",
+            "organic"
+          ],
+          "revenue_usd": 50
+        },
+        {
+          "id": "invented-C",
+          "touches": [
+            "paid search"
+          ],
+          "revenue_usd": 0
+        }
+      ],
+      "credits_usd": {
+        "first": {
+          "email": 100.0,
+          "paid search": 50.0
+        },
+        "last": {
+          "organic": 150.0,
+          "paid search": 0.0
+        },
+        "linear": {
+          "email": 50.0,
+          "organic": 75.0,
+          "paid search": 25.0
+        }
+      },
+      "limitation": "Three invented journeys explain sensitivity to credit rules. No incremental effect, spend, cross-device match or real channel recommendation."
+    },
     "trend": [
       {
         "day": "2021-01-08",
@@ -7914,13 +9492,14 @@
       "missing_identifiers": 1,
       "negative_revenue": 1,
       "missing_purchase_revenue": 0,
-      "missing_channel": 0
+      "missing_channel": 0,
+      "conflicting_transactions": 0
     },
     "transactions": 6,
     "decision": {
-      "step": "Add to cart",
-      "lost_sessions": 24,
-      "action": "Audit the add to cart transition, then test one clearer experience proposition.",
+      "step": "Purchase",
+      "lost_sessions": 19,
+      "action": "Audit the purchase transition, then test one clearer experience proposition.",
       "caveat": "Synthetic fixture demonstrates diagnosis, not a real commercial opportunity. Drop-off does not establish its cause."
     },
     "attribution": {
@@ -7942,7 +9521,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "purchases",
@@ -7953,7 +9532,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "conversion_rate",
@@ -7964,7 +9543,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "revenue",
@@ -7975,7 +9554,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "checkout_completion",
@@ -7986,14 +9565,14 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           }
         ],
         "caveats": [
           "Synthetic mode is illustrative, not an observed business result.",
           "Descriptive evidence does not establish causality; human review is required."
         ],
-        "recommended_action": "Audit product-to-cart tracking, then test a clearer product proposition.",
+        "recommended_action": "Audit the purchase transition, then test one clearer experience proposition.",
         "expected_direction": "Hypothesis only: improve ordered conversion; no uplift promised.",
         "how_to_test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner.",
         "confidence_label": "DESCRIPTIVE_ONLY",
@@ -8010,7 +9589,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-28f8d1b74553"
+            "q-0311c45c19dc"
           ],
           "evidence_rows": [
             {
@@ -8044,7 +9623,7 @@
               "step_rate": 24.0
             }
           ],
-          "elapsed_ms": 0.754,
+          "elapsed_ms": 0.945,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -8071,14 +9650,14 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
-          "elapsed_ms": 0.724,
+          "elapsed_ms": 0.868,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
       "get_data_quality": {
         "question": "Server-scoped analytics question",
         "status": "SUPPORTED",
-        "finding": "Raw records include known data-quality issues; the pipeline excludes invalid and duplicate records.",
+        "finding": "Quality counters describe the loaded records and exclusions; they do not prove complete tracking.",
         "supporting_metrics": [
           {
             "metric": "raw_events",
@@ -8089,7 +9668,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "clean_events",
@@ -8100,7 +9679,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "duplicates",
@@ -8111,7 +9690,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "invalid_records",
@@ -8122,7 +9701,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "schema_mismatches",
@@ -8133,7 +9712,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_identifiers",
@@ -8144,7 +9723,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "negative_revenue",
@@ -8155,7 +9734,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_purchase_revenue",
@@ -8166,7 +9745,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           },
           {
             "metric": "missing_channel",
@@ -8177,7 +9756,18 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-quality-synthetic_fixture_v1"
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
+          },
+          {
+            "metric": "conflicting_transactions",
+            "value": 0.0,
+            "unit": "events",
+            "date_range": [
+              "2021-01-01",
+              "2021-01-14"
+            ],
+            "source_id": "synthetic_fixture_v1",
+            "query_id": "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           }
         ],
         "caveats": [
@@ -8201,7 +9791,7 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-quality-synthetic_fixture_v1"
+            "q-quality-synthetic_fixture_v1-c7e4eded5eba-c23748813789"
           ],
           "evidence_rows": {
             "raw_events": 1153,
@@ -8212,9 +9802,10 @@
             "missing_identifiers": 1,
             "negative_revenue": 1,
             "missing_purchase_revenue": 0,
-            "missing_channel": 0
+            "missing_channel": 0,
+            "conflicting_transactions": 0
           },
-          "elapsed_ms": 0.78,
+          "elapsed_ms": 1.051,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -8232,7 +9823,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           }
         ],
         "caveats": [
@@ -8256,13 +9847,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-28f8d1b74553"
+            "q-0311c45c19dc"
           ],
           "evidence_rows": {
             "metric": "conversion_rate",
             "definition": "Ordered purchasing sessions / eligible sessions \u00d7 100."
           },
-          "elapsed_ms": 0.746,
+          "elapsed_ms": 0.908,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -8289,8 +9880,9 @@
           "cost_usd": null,
           "api_calls": 0,
           "attempts": 0,
+          "model_tool": null,
           "error_code": "PIPELINE_OR_PROVIDER_ERROR",
-          "elapsed_ms": 0.725,
+          "elapsed_ms": 0.883,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       },
@@ -8308,7 +9900,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "purchases",
@@ -8319,7 +9911,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "conversion_rate",
@@ -8330,7 +9922,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "revenue",
@@ -8341,7 +9933,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           },
           {
             "metric": "checkout_completion",
@@ -8352,7 +9944,7 @@
               "2021-01-14"
             ],
             "source_id": "synthetic_fixture_v1",
-            "query_id": "q-28f8d1b74553"
+            "query_id": "q-0311c45c19dc"
           }
         ],
         "caveats": [
@@ -8376,13 +9968,13 @@
           "api_calls": 0,
           "attempts": 1,
           "query_ids": [
-            "q-28f8d1b74553"
+            "q-0311c45c19dc"
           ],
           "evidence_rows": {
             "hypothesis": "Clearer product proposition improves ordered purchase-session conversion.",
             "test": "Randomize eligible sessions 50/50. Primary: ordered purchase-session conversion. Guardrails: revenue per session and checkout errors. Set sample size and duration before launch; review with the owner."
           },
-          "elapsed_ms": 0.752,
+          "elapsed_ms": 0.936,
           "execution": "Python precomputed deterministic fixture; elapsed time is build-time, not a browser model call."
         }
       }

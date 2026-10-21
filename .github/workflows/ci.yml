@@ -26,6 +26,8 @@ jobs:
       - run: .venv/bin/python scripts/check_docs.py
       - run: make check
       - run: make eval
+      - run: make eval-heldout
+      - run: npm run export:client
       - run: npm audit --audit-level=high
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

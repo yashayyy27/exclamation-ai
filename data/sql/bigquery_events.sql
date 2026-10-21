@@ -8,5 +8,6 @@ SELECT TO_HEX(SHA256(TO_JSON_STRING(STRUCT(event_timestamp,event_name,user_pseud
  ecommerce.transaction_id, ecommerce.purchase_revenue_in_usd
 FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
 WHERE _TABLE_SUFFIX BETWEEN @start_suffix AND @end_suffix
+AND DATE(TIMESTAMP_MICROS(event_timestamp), 'UTC') BETWEEN PARSE_DATE('%Y%m%d', @start_suffix) AND PARSE_DATE('%Y%m%d', @end_suffix)
 ORDER BY event_timestamp, event_id
-LIMIT 20001
+LIMIT 200001

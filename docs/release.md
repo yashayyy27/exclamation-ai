@@ -1,3 +1,5 @@
+> Original release record. The recruitment upgrade has its own [verification report](verification.md) and [readiness matrix](rga-role-evidence-matrix.md).
+
 # ! — verified release evidence
 
 - Public code: https://github.com/yashayyy27/exclamation-ai

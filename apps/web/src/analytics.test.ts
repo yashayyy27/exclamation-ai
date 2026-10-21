@@ -60,3 +60,15 @@ describe("event contract", () => {
       ),
     ).toEqual({ utm_source: "google", utm_campaign: "fixture-test" }));
 });
+
+describe("recruitment evidence arithmetic", () => {
+  it("keeps attribution scenario separate and conserves credit", () => {
+    const s = data["full|all"];
+    expect(s.priorities[0].lost).toBe(144);
+    expect(s.priorities[0].score).toBe(61.71);
+    expect(Math.max(...s.priorities.map((p) => p.loss_pct ?? 0))).toBe(54.68);
+    expect(s.campaigns.reduce((n, c) => n + c.sessions, 0)).toBe(420);
+    for (const credits of Object.values(s.attribution_demo.credits_usd))
+      expect(Object.values(credits).reduce((a, b) => a + b, 0)).toBe(150);
+  });
+});

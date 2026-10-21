@@ -1,0 +1,51 @@
+.venv/bin/python -m ruff check services scripts evals tests
+All checks passed!
+.venv/bin/python -m mypy services
+Success: no issues found in 8 source files
+npm run lint
+
+> exclamation-ai@0.1.0 lint
+> eslint .
+
+/Library/Developer/CommandLineTools/usr/bin/make test
+.venv/bin/python -m pytest -q
+..............................................                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/yashhurdale/Documents/New project/exclamation-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+46 passed, 1 warning in 2.16s
+npm test
+
+> exclamation-ai@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /Users/yashhurdale/Documents/New project/exclamation-ai/apps/web
+
+
+ Test Files  2 passed (2)
+      Tests  50 passed (50)
+   Start at  00:42:48
+   Duration  290ms (transform 122ms, setup 0ms, import 142ms, tests 108ms, environment 0ms)
+
+npm run build
+
+> exclamation-ai@0.1.0 build
+> tsc -b && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 1841 modules transformed.
+rendering chunks...
+computing gzip size...
+../../dist/index.html                            0.68 kB │ gzip:   0.39 kB
+../../dist/assets/index-C-hKEteC.css            38.45 kB │ gzip:   8.73 kB
+../../dist/assets/purify.es-CAi2OJFm.js         30.47 kB │ gzip:  11.69 kB
+../../dist/assets/index.es-4CHFiXV3.js         159.78 kB │ gzip:  53.39 kB
+../../dist/assets/html2canvas.esm-QH1iLAAe.js  202.38 kB │ gzip:  47.71 kB
+../../dist/assets/jspdf.es.min-BvO-rv9w.js     390.77 kB │ gzip: 127.33 kB
+../../dist/assets/index-CTNSFdSI.js            496.06 kB │ gzip:  99.68 kB
+✓ built in 2.10s

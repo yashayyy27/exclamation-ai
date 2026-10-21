@@ -1,0 +1,14 @@
+{
+  "kind": "SYNTHETIC ADVERSARIAL PROVIDER REPLAY; NO MODEL CALL",
+  "baseline_commit": "ba5a2738339fa939002bef9a43cbd6e76d207677",
+  "mutation": "Replace purchases evidence with a second sessions metric, differing by 0.00001 within tolerance.",
+  "results": {
+    "baseline": "ACCEPTED",
+    "upgrade": "REJECTED"
+  },
+  "api_calls": 0,
+  "expected": {
+    "baseline": "ACCEPTED",
+    "upgrade": "REJECTED"
+  }
+}

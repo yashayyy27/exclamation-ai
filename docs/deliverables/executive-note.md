@@ -7,17 +7,17 @@ Scope: 2021-01-01 to 2021-01-14 · USD · UTC
 Channel: all
 Deterministic complete fixture; no sampling. Not Google data.
 Invented event records, not an extract of public GA4.
-Query: q-211ee1809e6a
+Query: q-4407a679dc45
 
 ## Decision
 Audit the add to cart transition, then test one clearer experience proposition.
 
 ## Evidence
-sessions: 420 sessions [q-211ee1809e6a]
-purchases: 63 sessions [q-211ee1809e6a]
-conversion_rate: 15 % [q-211ee1809e6a]
-revenue: 5040 USD [q-211ee1809e6a]
-checkout_completion: 45.3237 % [q-211ee1809e6a]
+sessions: 420 sessions [q-4407a679dc45]
+purchases: 63 sessions [q-4407a679dc45]
+conversion_rate: 15 % [q-4407a679dc45]
+revenue: 5040 USD [q-4407a679dc45]
+checkout_completion: 45.3237 % [q-4407a679dc45]
 
 ## Limitation
 Synthetic fixture demonstrates diagnosis, not a real commercial opportunity. Drop-off does not establish its cause.

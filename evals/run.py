@@ -11,7 +11,8 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from services.api.agent import ask, run_tool, validate_decision
 from services.api.analytics import Analytics, ROOT
-from services.api.models import AskRequest, ModelDecision
+from services.api.models import AskRequest, ModelDecision, Answer
+from evals.heldout import ORACLE
 
 
 class FailureProvider:
@@ -27,8 +28,7 @@ def run(provider: str = "fixture") -> dict:
             a = Analytics()
             req = AskRequest(question=c["question"], provider=provider)
             ans = ask(req, analytics=a, version=version, provider=FailureProvider() if c["simulate_failure"] else None)
-            schema = True
-            ModelDecision  # The final answer has already been validated by Pydantic in ask().
+            schema = Answer.model_validate_json(ans.model_dump_json()) == ans
             scores = {
                 "schema": schema,
                 "abstention": ans.status == c["expected_status"],
@@ -38,6 +38,18 @@ def run(provider: str = "fixture") -> dict:
             }
             if ans.status == "SUPPORTED":
                 try:
+                    scores["numeric"] = all(
+                        abs(
+                            m.value
+                            - (
+                                {"2021-01-01": 16.6667, "2021-01-08": 13.3333}[m.date_range[0]]
+                                if ans.trace["tools"] == ["compare_periods"]
+                                else ORACLE.get(m.metric, float("inf"))
+                            )
+                        )
+                        < 0.00005
+                        for m in ans.supporting_metrics
+                    )
                     t = ans.trace["tools"][0]
                     from services.api.agent import TOOL_MAP
 
@@ -145,7 +157,10 @@ def run(provider: str = "fixture") -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--provider", choices=["fixture", "openai"], default="fixture")
+    parser.add_argument("--allow-paid", action="store_true")
     args = parser.parse_args()
+    if args.provider == "openai":
+        parser.error("Legacy development-set live scoring retired; use evals/heldout.py with approval and request ceiling")
     report = run(args.provider)
     if report["versions"]["v2"]["passed"] != report["case_count"]:
         sys.exit(1)

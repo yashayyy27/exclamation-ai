@@ -41,6 +41,11 @@ def protect(request: Request, authorization: Annotated[str | None, Header()] = N
         raise HTTPException(401, "Valid API access token required")
 
 
+def require_paid_opt_in() -> None:
+    if os.getenv("OWNER_ALLOW_PAID_CALLS") != "1":
+        raise HTTPException(403, "Owner paid-call opt-in is disabled")
+
+
 @app.get("/health")
 def health() -> dict:
     return {
@@ -63,6 +68,7 @@ def analytics(
         if source == "bigquery":
             if not os.getenv("API_ACCESS_TOKEN"):
                 raise HTTPException(403, "External queries require configured API_ACCESS_TOKEN")
+            require_paid_opt_in()
             from services.api.bigquery import BigQueryAdapter
 
             a, audit = BigQueryAdapter().load(start, end)
@@ -80,6 +86,8 @@ def analytics(
 def ask_route(req: AskRequest) -> dict:
     if (req.provider == "openai" or req.source == "bigquery") and not os.getenv("API_ACCESS_TOKEN"):
         raise HTTPException(403, "Paid/external integrations require server access token")
+    if req.provider == "openai" or req.source == "bigquery":
+        require_paid_opt_in()
     a = None
     if req.source == "bigquery":
         try:

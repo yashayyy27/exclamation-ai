@@ -127,13 +127,13 @@ test("analyst uses evidence and refuses ROAS", async ({ page }) => {
   await nav(page, "Ask ! 04");
   await page.getByRole("button", { name: "Find the signal" }).click();
   await expect(page.locator(".answer")).toContainText("SUPPORTED");
-  await expect(page.locator(".answer")).toContainText("q-211ee1809e6a");
+  await expect(page.locator(".answer")).toContainText(/q-[a-f0-9]{12}/);
   await page
     .getByLabel("YOUR ANALYTICS QUESTION", { exact: true })
     .fill("Calculate ROAS by channel");
   await page.getByRole("button", { name: "Find the signal" }).click();
   await expect(page.locator(".answer")).toContainText("INSUFFICIENT EVIDENCE");
-  await expect(page.locator(".answer")).not.toContainText("q-211ee1809e6a");
+  await expect(page.locator(".answer")).not.toContainText(/q-[a-f0-9]{12}/);
 });
 test("evaluation failure inspection and client export review", async ({
   page,
@@ -217,4 +217,74 @@ test("all pages have no serious accessibility violations or overflow", async ({
       });
     }
   }
+});
+
+test("marketing priorities, scoped campaign and separate attribution are explorable", async ({
+  page,
+}, info) => {
+  await page.goto("/");
+  await nav(page, "Customer Journey 03");
+  await expect(
+    page.getByRole("table", { name: "Ranked funnel transitions" }),
+  ).toContainText("144 / 336");
+  await expect(
+    page.getByRole("table", { name: "Ranked funnel transitions" }),
+  ).toContainText("54.68%");
+  await page
+    .getByRole("combobox", { name: "Campaign exploration" })
+    .selectOption("fixture-winter");
+  await expect(
+    page.getByRole("table", { name: /Acquisition campaign/ }),
+  ).toContainText("fixture-winter");
+  await page
+    .getByRole("button", {
+      name: "Compare credit rules on separate synthetic journeys",
+    })
+    .click();
+  await page
+    .getByRole("combobox", { name: "Attribution rule" })
+    .selectOption("last");
+  await expect(page.locator(".credit-rows")).toContainText("USD 150.00");
+  await expect(page.locator(".attribution-example")).toContainText(
+    "Three invented journeys",
+  );
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  if (info.project.name === "desktop")
+    await page.screenshot({
+      path: "docs/screenshots/marketing-intelligence.png",
+      fullPage: true,
+    });
+});
+
+test("consent defaults precede update and are queued only once", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await nav(page, "Measurement Lab 02");
+  await page.getByRole("button", { name: "Allow analytics" }).click();
+  const commands = await page.evaluate(() =>
+    window.dataLayer
+      .filter(
+        (x: unknown) =>
+          typeof x === "object" &&
+          x !== null &&
+          (x as Record<number, string>)[0] === "consent",
+      )
+      .map((x: unknown) => Array.from(x as ArrayLike<unknown>)),
+  );
+  expect(commands[0][1]).toBe("default");
+  expect(commands[1][1]).toBe("update");
+  expect(commands.filter((c) => c[1] === "default")).toHaveLength(1);
+  expect(commands[0][2]).toMatchObject({
+    analytics_storage: "denied",
+    ad_storage: "denied",
+  });
+  expect(commands[1][2]).toMatchObject({
+    analytics_storage: "granted",
+    ad_storage: "denied",
+  });
 });

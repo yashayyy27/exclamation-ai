@@ -31,6 +31,7 @@ declare global {
   interface Window {
     dataLayer: unknown[];
     __gtmLoaded?: boolean;
+    __consentDefaulted?: boolean;
   }
 }
 export const catalog: Item[] = [
@@ -158,6 +159,15 @@ export function setAnalyticsConsent(allow: boolean): void {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer.push(arguments);
   };
+  if (!window.__consentDefaulted) {
+    command("consent", "default", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    window.__consentDefaulted = true;
+  }
   command("consent", "update", {
     analytics_storage: allow ? "granted" : "denied",
     ad_storage: "denied",
@@ -166,13 +176,6 @@ export function setAnalyticsConsent(allow: boolean): void {
   });
   const id = import.meta.env.VITE_GTM_ID;
   if (allow && /^GTM-[A-Z0-9]+$/.test(id || "") && !window.__gtmLoaded) {
-    command("consent", "default", {
-      analytics_storage: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-    });
-    command("consent", "update", { analytics_storage: "granted" });
     window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
     const script = document.createElement("script");
     script.src = `https://www.googletagmanager.com/gtm.js?id=${id}`;

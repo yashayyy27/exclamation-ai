@@ -131,11 +131,13 @@ export function Funnel({
             <span className="bar-track">
               <span
                 className="bar-fill"
-                style={{ width: `${Math.max(1, f.rate)}%` }}
+                style={{ width: `${Math.max(1, f.rate ?? 0)}%` }}
               />
             </span>
             <strong>{fmt(f.value)}</strong>
-            <span className="funnel-rate">{f.rate.toFixed(1)}%</span>
+            <span className="funnel-rate">
+              {f.rate === null ? "Undefined" : `${f.rate.toFixed(1)}%`}
+            </span>
             <ChevronDown size={14} />
           </button>
         ))}
@@ -143,8 +145,10 @@ export function Funnel({
       {selected !== null && (
         <div className="chart-detail" role="status">
           <strong>{s.funnel[selected].name}</strong> ·{" "}
-          {s.funnel[selected].step_rate.toFixed(1)}% of previous stage ·{" "}
-          {s.funnel[selected].value} eligible sessions.{" "}
+          {s.funnel[selected].step_rate === null
+            ? "Undefined"
+            : `${s.funnel[selected].step_rate!.toFixed(1)}%`}{" "}
+          of previous stage · {s.funnel[selected].value} eligible sessions.{" "}
           {selected > 0
             ? `${s.funnel[selected - 1].value - s.funnel[selected].value} sessions lost from previous stage.`
             : "Denominator: all sessions starting in the selected window."}

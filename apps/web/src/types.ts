@@ -49,7 +49,12 @@ export interface Snapshot {
   channel: string;
   query_id: string;
   metrics: Metric[];
-  funnel: { name: string; value: number; rate: number; step_rate: number }[];
+  funnel: {
+    name: string;
+    value: number;
+    rate: number | null;
+    step_rate: number;
+  }[];
   channels: {
     channel: string;
     sessions: number;
@@ -59,6 +64,33 @@ export interface Snapshot {
   trend: { day: string; sessions: number; purchases: number }[];
   quality: Record<string, number>;
   transactions: number;
+  priorities: {
+    from: string;
+    to: string;
+    entrants: number;
+    lost: number;
+    loss_pct: number | null;
+    score: number | null;
+  }[];
+  priority_method: string;
+  campaigns: {
+    campaign: string;
+    channel: string;
+    sessions: number;
+    purchases: number;
+    conversion: number;
+    conversion_interval_95: number[] | null;
+    spend_usd: null;
+    roas: null;
+  }[];
+  lineage: { records_sha256: string; transform_sha256: string };
+  attribution_demo: {
+    label: string;
+    lookback: string;
+    journeys: { id: string; touches: string[]; revenue_usd: number }[];
+    credits_usd: Record<string, Record<string, number>>;
+    limitation: string;
+  };
   decision: {
     step: string | null;
     lost_sessions: number;

@@ -1,0 +1,1 @@
+{"provider": "fixture", "versions": {"v1": {"passed": 21, "total": 36}, "v2": {"passed": 36, "total": 36}}, "file": "/Users/yashhurdale/Documents/New project/exclamation-ai/evals/runs/fixture-latest.json"}

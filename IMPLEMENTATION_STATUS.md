@@ -1,3 +1,5 @@
+> Recruitment upgrade: see [verification](docs/verification.md), [readiness matrix](docs/rga-role-evidence-matrix.md) and [audit](docs/audit/2026-10-22-gap-report.md) for current evidence and owner-dependent gates. The following records the original implementation.
+
 # ! — implementation status
 
 ## Implemented and verified locally

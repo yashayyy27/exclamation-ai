@@ -1,6 +1,6 @@
 # ! — owner setup actions
 
-No secret values should be pasted into chat, committed, or placed in VITE_ variables. The offline app works now; these steps unlock external verification.
+Start with [the bounded integration runbook](integration-verification.md). Credentials are local/server-only. No key, token or credential JSON belongs in chat, Git or VITE variables. Paid execution requires explicit owner approval; `OWNER_ALLOW_PAID_CALLS=1` is an additional local API switch, not evidence of approval by itself.
 
 ## 1. Local setup
 
@@ -39,7 +39,7 @@ In another terminal with the same token environment:
 curl --fail -H "Authorization: Bearer $API_ACCESS_TOKEN" 'http://127.0.0.1:8000/analytics?source=bigquery&start=2021-01-01&end=2021-01-01'
 ```
 
-The adapter rejects a window over the byte cap or 20,000-row completeness limit. Start small. Preserve job_id, dry_run_bytes and comparison evidence, not credentials. No silent fixture fallback occurs. Review public-source acquisition metadata and UTC semantics before interpreting channel results.
+The adapter rejects a window over the byte cap or 200,000-row completeness limit. Start small. Preserve job_id, dry_run_bytes and comparison evidence, not credentials. No silent fixture fallback occurs. Review public-source acquisition metadata and UTC semantics before interpreting channel results.
 
 ## 3. GA4 / GTM (NOT YET VERIFIED)
 
@@ -52,7 +52,7 @@ Store an owner-created project API key in the shell/keychain or a local ignored 
 ```sh
 # Set OPENAI_API_KEY securely in this terminal. Never print it.
 export OPENAI_MODEL='YOUR_SUPPORTED_MODEL_ID'
-make eval-live
+make eval-live MAX_REQUESTS=48 PAID_APPROVAL=--allow-paid
 ```
 
 This makes real API calls and uses owner credits. Run only after setting an owner-approved API budget. Requests are bounded to two model calls per successful attempt, at most two validation attempts. Start with one question via `/ask` before evaluating both prompt versions. No live call has been made by the build agent. Cost remains null unless separately measured; tokens/latency are recorded when returned.

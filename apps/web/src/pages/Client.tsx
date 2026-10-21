@@ -6,6 +6,7 @@ import { clientDeck, download, summary } from "../export";
 export default function Client({ s }: { s: Snapshot }) {
   const [text, setText] = useState(s.decision.action);
   const [reviewed, setReviewed] = useState(false);
+  const [exportError, setExportError] = useState("");
   useEffect(() => {
     setText(s.decision.action);
     setReviewed(false);
@@ -31,10 +32,7 @@ export default function Client({ s }: { s: Snapshot }) {
             <br />
             commitment.
           </h2>
-          <p className="client-lead">
-            Investigate the product-to-cart transition before making a bigger
-            investment.
-          </p>
+          <p className="client-lead">{s.decision.action}</p>
           <div className="paper-metrics">
             <div>
               <strong>{s.metrics[2].value}%</strong>
@@ -84,8 +82,11 @@ export default function Client({ s }: { s: Snapshot }) {
             <div>
               <h4>Alternative considered</h4>
               <p>
-                Channel budget reallocation is premature without matched spend
-                and causal evidence. Validate the journey first.
+                Product relevance, interaction friction and missing tracking can
+                each explain the observed loss. Funnel counts do not separate
+                them. Validate delivery, then collect usability evidence before
+                selecting a variant. Channel budget reallocation needs matched
+                spend and causal evidence.
               </p>
             </div>
           </div>
@@ -131,20 +132,30 @@ export default function Client({ s }: { s: Snapshot }) {
           <button
             className="button"
             disabled={!reviewed || !text.trim()}
-            onClick={async () =>
-              (await clientDeck(s, text, reviewed)).save("client-review.pdf")
-            }
+            onClick={async () => {
+              try {
+                setExportError("");
+                (await clientDeck(s, text, reviewed)).save("client-review.pdf");
+              } catch (error) {
+                setExportError(
+                  error instanceof Error
+                    ? error.message
+                    : "PDF export failed. Try again.",
+                );
+              }
+            }}
           >
             <Presentation size={17} />
             Download 6-slide PDF
           </button>
+          {exportError && <p role="alert">{exportError}</p>}
           <div className="six-slides">
             <span className="eyebrow">THE CLIENT STORY / 6 SLIDES</span>
             {[
               "Business question",
-              "Source & scope",
-              "Defined performance",
-              "Journey evidence",
+              "Provenance & performance",
+              "Funnel diagnosis",
+              "Competing explanations",
               "One next move",
               "Test & learn",
             ].map((x, i) => (

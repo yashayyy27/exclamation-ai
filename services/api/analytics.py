@@ -8,6 +8,7 @@ import sqlite3
 from datetime import date
 from pathlib import Path
 from typing import Any
+from services.api.marketing import prioritise, wilson, attribution_demo
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = {
@@ -33,6 +34,10 @@ class Analytics:
     def __init__(self, records: list[dict[str, Any]] | None = None, source: dict[str, Any] | None = None):
         self.source = source or SOURCE.copy()
         self.records = records if records is not None else json.loads((ROOT / "data/fixtures/events.json").read_text())
+        self.content_hash = hashlib.sha256(json.dumps(self.records, sort_keys=True).encode()).hexdigest()
+        self.sql_hash = hashlib.sha256(
+            "".join((ROOT / f"data/sql/{n}.sql").read_text() for n in ["clean_events", "sessions", "transactions"]).encode()
+        ).hexdigest()
         self.db = sqlite3.connect(":memory:")
         self.db.row_factory = sqlite3.Row
         self.db.execute(
@@ -52,6 +57,17 @@ class Analytics:
                     or not math.isfinite(e["event_timestamp"])
                     or not isinstance(t.get("purchase_revenue_in_usd") or 0, (int, float))
                     or not math.isfinite(t.get("purchase_revenue_in_usd") or 0)
+                    or any(
+                        v is not None and not isinstance(v, (str, int))
+                        for v in [
+                            e.get("user_pseudo_id"),
+                            p.get("ga_session_id"),
+                            p.get("source_medium"),
+                            p.get("campaign"),
+                            p.get("currency"),
+                            t.get("transaction_id"),
+                        ]
+                    )
                 ):
                     raise ValueError("Raw event schema mismatch")
             except (AttributeError, TypeError, ValueError):
@@ -68,7 +84,7 @@ class Analytics:
                     p.get("source_medium") or "(unknown)",
                     p.get("campaign") or "(unknown)",
                     p.get("currency", "USD"),
-                    t.get("transaction_id"),
+                    t.get("transaction_id") if str(t.get("transaction_id") or "").strip() not in ["", "(not set)"] else None,
                     t.get("purchase_revenue_in_usd") or 0,
                     int(e["event_name"] == "purchase" and t.get("purchase_revenue_in_usd") is None),
                 ),
@@ -96,6 +112,9 @@ class Analytics:
             "negative_revenue": self.db.execute("SELECT COUNT(*) FROM raw_events WHERE revenue<0").fetchone()[0],
             "missing_purchase_revenue": self.db.execute("SELECT COUNT(*) FROM raw_events WHERE missing_revenue=1").fetchone()[0],
             "missing_channel": self.db.execute("SELECT COUNT(*) FROM events WHERE channel='(unknown)'").fetchone()[0],
+            "conflicting_transactions": self.db.execute(
+                "SELECT COUNT(*) FROM (SELECT transaction_id FROM events WHERE name='purchase' AND transaction_id IS NOT NULL GROUP BY transaction_id HAVING COUNT(DISTINCT revenue)>1 OR COUNT(DISTINCT session_key)>1)"
+            ).fetchone()[0],
         }
 
     def snapshot(self, start: str = "2021-01-01", end: str = "2021-01-14", channel: str = "all") -> dict[str, Any]:
@@ -111,8 +130,8 @@ class Analytics:
             {
                 "name": n,
                 "value": v,
-                "rate": round(v / counts[0] * 100, 4) if counts[0] else 0,
-                "step_rate": round(v / counts[i - 1] * 100, 4) if i and counts[i - 1] else 100 if v else 0,
+                "rate": round(v / counts[0] * 100, 4) if counts[0] else None,
+                "step_rate": round(v / counts[i - 1] * 100, 4) if i and counts[i - 1] else 100 if v else None,
             }
             for i, (n, v) in enumerate(zip(names, counts))
         ]
@@ -127,6 +146,16 @@ class Analytics:
             + " GROUP BY channel ORDER BY sessions DESC, channel",
             args,
         )
+        campaigns = self.rows(
+            "SELECT campaign, channel, COUNT(*) AS sessions, SUM(purchased IS NOT NULL) AS purchases, ROUND(100.0*SUM(purchased IS NOT NULL)/COUNT(*),4) AS conversion FROM sessions WHERE "
+            + where
+            + " GROUP BY campaign, channel ORDER BY campaign, channel",
+            args,
+        )
+        for group in channels + campaigns:
+            group["conversion_interval_95"] = wilson(group["purchases"], group["sessions"])
+            group["spend_usd"] = None
+            group["roas"] = None
         trend = self.rows(
             "SELECT day, COUNT(*) AS sessions, SUM(purchased IS NOT NULL) AS purchases FROM sessions WHERE "
             + where
@@ -134,7 +163,10 @@ class Analytics:
             args,
         )
         qid = (
-            "q-" + hashlib.sha256(json.dumps([self.source["id"], start, end, channel], sort_keys=True).encode()).hexdigest()[:12]
+            "q-"
+            + hashlib.sha256(
+                json.dumps([self.source["id"], self.content_hash, self.sql_hash, start, end, channel], sort_keys=True).encode()
+            ).hexdigest()[:12]
         )
         metric_values = [
             ("sessions", counts[0], "sessions"),
@@ -168,7 +200,8 @@ class Analytics:
             for n, v, u in metric_values
         ]
         losses = [counts[i - 1] - counts[i] for i in range(1, len(counts))]
-        biggest = max(range(len(losses)), key=losses.__getitem__) if counts[0] else None
+        priorities = prioritise(funnel)
+        biggest = names.index(priorities[0]["to"]) - 1 if counts[0] else None
         return {
             "source": self.source,
             "window": [start, end],
@@ -177,6 +210,11 @@ class Analytics:
             "metrics": metrics,
             "funnel": funnel,
             "channels": channels,
+            "campaigns": campaigns,
+            "lineage": {"records_sha256": self.content_hash, "transform_sha256": self.sql_hash},
+            "priorities": priorities,
+            "priority_method": "Lost sessions × conditional loss fraction. Diagnostic ranking only; no recovered sessions or revenue forecast. Validate instrumentation before testing.",
+            "attribution_demo": attribution_demo(),
             "trend": trend,
             "quality": self.quality(),
             "transactions": revenue["transactions"],

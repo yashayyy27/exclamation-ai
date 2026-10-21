@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-10-21T12:50:18.283223+00:00",
+  "run_at": "2026-10-21T13:35:09.912645+00:00",
   "provider": "fixture",
   "kind": "deterministic fixture / mocked failure",
   "model": null,
@@ -25,7 +25,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.896,
+      "elapsed_ms": 2.894,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -50,7 +50,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 2.052,
+      "elapsed_ms": 2.062,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -75,7 +75,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.796,
+      "elapsed_ms": 2.087,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -100,7 +100,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.744,
+      "elapsed_ms": 2.273,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -125,7 +125,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.748,
+      "elapsed_ms": 2.885,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -150,7 +150,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.781,
+      "elapsed_ms": 2.344,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -175,7 +175,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.729,
+      "elapsed_ms": 2.111,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -200,7 +200,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.754,
+      "elapsed_ms": 2.202,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -225,7 +225,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.748,
+      "elapsed_ms": 2.545,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -250,7 +250,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.738,
+      "elapsed_ms": 2.068,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -275,7 +275,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.858,
+      "elapsed_ms": 2.417,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -300,7 +300,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.783,
+      "elapsed_ms": 2.16,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -325,7 +325,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.773,
+      "elapsed_ms": 2.463,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -350,7 +350,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.723,
+      "elapsed_ms": 2.034,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -375,7 +375,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 3.864,
+      "elapsed_ms": 4.417,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -400,7 +400,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 3.789,
+      "elapsed_ms": 9.391,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -425,7 +425,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.756,
+      "elapsed_ms": 2.79,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -450,7 +450,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.731,
+      "elapsed_ms": 2.068,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -475,7 +475,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.755,
+      "elapsed_ms": 2.03,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -498,7 +498,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.009,
+      "elapsed_ms": 0.007,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -523,7 +523,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.749,
+      "elapsed_ms": 2.189,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -548,7 +548,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 2.104,
+      "elapsed_ms": 2.106,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -573,7 +573,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.733,
+      "elapsed_ms": 2.057,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -598,7 +598,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.764,
+      "elapsed_ms": 2.056,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -623,7 +623,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.8,
+      "elapsed_ms": 1.998,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -648,7 +648,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 2.107,
+      "elapsed_ms": 13.425,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -673,7 +673,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 2.139,
+      "elapsed_ms": 2.098,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -698,7 +698,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.747,
+      "elapsed_ms": 2.048,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -723,7 +723,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.885,
+      "elapsed_ms": 2.188,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -748,7 +748,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.879,
+      "elapsed_ms": 2.376,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -773,7 +773,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.749,
+      "elapsed_ms": 2.028,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -798,7 +798,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.834,
+      "elapsed_ms": 2.083,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -823,7 +823,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 2.067,
+      "elapsed_ms": 2.004,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -848,7 +848,7 @@
         "evidence_linkage": true
       },
       "passed": false,
-      "elapsed_ms": 1.869,
+      "elapsed_ms": 2.16,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -871,7 +871,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.011,
+      "elapsed_ms": 0.006,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -896,7 +896,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 2.073,
+      "elapsed_ms": 1.971,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -921,7 +921,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 2.616,
+      "elapsed_ms": 2.41,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -946,7 +946,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.789,
+      "elapsed_ms": 1.995,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -971,7 +971,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 6.515,
+      "elapsed_ms": 2.397,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -996,7 +996,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.872,
+      "elapsed_ms": 2.001,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1021,7 +1021,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.812,
+      "elapsed_ms": 2.097,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1046,7 +1046,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.801,
+      "elapsed_ms": 2.02,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1071,7 +1071,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.781,
+      "elapsed_ms": 2.381,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1096,7 +1096,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.795,
+      "elapsed_ms": 2.074,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1121,7 +1121,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.755,
+      "elapsed_ms": 2.108,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1146,7 +1146,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.75,
+      "elapsed_ms": 2.054,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1171,7 +1171,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.882,
+      "elapsed_ms": 2.425,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1196,7 +1196,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 11.975,
+      "elapsed_ms": 2.136,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1221,7 +1221,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 3.61,
+      "elapsed_ms": 2.221,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1246,7 +1246,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.995,
+      "elapsed_ms": 2.079,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1271,7 +1271,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 6.808,
+      "elapsed_ms": 4.795,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1296,7 +1296,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 4.093,
+      "elapsed_ms": 4.481,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1321,7 +1321,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 2.074,
+      "elapsed_ms": 2.085,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1346,7 +1346,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 1.882,
+      "elapsed_ms": 2.104,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1369,7 +1369,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.025,
+      "elapsed_ms": 0.011,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1392,7 +1392,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.014,
+      "elapsed_ms": 0.015,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1415,7 +1415,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.015,
+      "elapsed_ms": 0.013,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1438,7 +1438,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.022,
+      "elapsed_ms": 0.013,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1461,7 +1461,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.022,
+      "elapsed_ms": 0.013,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1484,7 +1484,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.014,
+      "elapsed_ms": 0.012,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1507,7 +1507,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.015,
+      "elapsed_ms": 0.013,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1530,7 +1530,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.052,
+      "elapsed_ms": 0.011,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1553,7 +1553,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.042,
+      "elapsed_ms": 0.014,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1576,7 +1576,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.036,
+      "elapsed_ms": 0.018,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1599,7 +1599,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.009,
+      "elapsed_ms": 0.01,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1622,7 +1622,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.012,
+      "elapsed_ms": 0.009,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1645,7 +1645,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.016,
+      "elapsed_ms": 0.014,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1668,7 +1668,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.011,
+      "elapsed_ms": 0.009,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1691,7 +1691,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.019,
+      "elapsed_ms": 0.025,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1714,7 +1714,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.016,
+      "elapsed_ms": 0.013,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1737,7 +1737,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 0.054,
+      "elapsed_ms": 0.024,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,
@@ -1762,7 +1762,7 @@
         "evidence_linkage": true
       },
       "passed": true,
-      "elapsed_ms": 2.171,
+      "elapsed_ms": 2.049,
       "tokens": null,
       "cost_usd": null,
       "api_calls": 0,

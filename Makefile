@@ -1,9 +1,9 @@
 PYTHON ?= .venv/bin/python
-.PHONY: dev api snapshot test eval eval-live check
+.PHONY: dev api snapshot test eval eval-heldout eval-live check
 api:
 	$(PYTHON) -m uvicorn services.api.main:app --host 127.0.0.1 --port 8000
 dev:
-	@trap 'kill 0' EXIT; $(MAKE) api & npm run dev & wait
+	@$(PYTHON) scripts/dev.py
 snapshot:
 	$(PYTHON) scripts/build_snapshot.py
 test:
@@ -11,8 +11,10 @@ test:
 	npm test
 eval:
 	$(PYTHON) evals/run.py
+eval-heldout:
+	$(PYTHON) evals/heldout.py
 eval-live:
-	$(PYTHON) evals/run.py --provider openai
+	$(PYTHON) evals/heldout.py --provider openai --max-requests $(MAX_REQUESTS) $(PAID_APPROVAL)
 check:
 	$(PYTHON) -m ruff check services scripts evals tests
 	$(PYTHON) -m mypy services

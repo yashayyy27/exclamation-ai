@@ -150,7 +150,7 @@ def test_bigquery_dry_run_and_hard_budget():
 
 
 def test_bigquery_parameterization_and_incomplete_rejection():
-    client = FakeBQ(rows=[{}] * 20001)
+    client = FakeBQ(rows=[{}] * 200001)
     with pytest.raises(ValueError, match="complete-row"):
         BigQueryAdapter(client).load("2021-01-01", "2021-01-01")
     assert client.calls[1][1].maximum_bytes_billed == 1000000000

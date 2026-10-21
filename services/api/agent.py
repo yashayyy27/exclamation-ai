@@ -100,7 +100,12 @@ def run_tool(name: str, snapshot: dict[str, Any], analytics: Analytics, metric_k
                 "value": v,
                 "unit": "events",
                 "date_range": [analytics.source["start"], analytics.source["end"]],
-                "query_id": "q-quality-" + analytics.source["id"],
+                "query_id": "q-quality-"
+                + analytics.source["id"]
+                + "-"
+                + analytics.content_hash[:12]
+                + "-"
+                + analytics.sql_hash[:12],
             }
             for k, v in rows.items()
         ]

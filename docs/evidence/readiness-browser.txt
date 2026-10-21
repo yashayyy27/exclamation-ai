@@ -2,24 +2,24 @@
 > exclamation-ai@0.1.0 test:e2e
 > playwright test
 
-[WebServer] (node:38676) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (node:39817) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
 
 Running 14 tests using 1 worker
 
-  ✓   1 [desktop] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (1.1s)
+  ✓   1 [desktop] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (1.0s)
   ✓   2 [desktop] › tests/browser/app.spec.ts:50:1 › store full purchase, consent gate and unique transaction (1.1s)
-  ✓   3 [desktop] › tests/browser/app.spec.ts:125:1 › analyst uses evidence and refuses ROAS (704ms)
-  ✓   4 [desktop] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (682ms)
-  ✓   5 [desktop] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (3.8s)
-  ✓   6 [desktop] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (601ms)
-  ✓   7 [desktop] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (405ms)
-  ✓   8 [mobile] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (699ms)
+  ✓   3 [desktop] › tests/browser/app.spec.ts:125:1 › analyst uses evidence and refuses ROAS (666ms)
+  ✓   4 [desktop] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (701ms)
+  ✓   5 [desktop] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (3.7s)
+  ✓   6 [desktop] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (816ms)
+  ✓   7 [desktop] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (425ms)
+  ✓   8 [mobile] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (741ms)
   ✓   9 [mobile] › tests/browser/app.spec.ts:50:1 › store full purchase, consent gate and unique transaction (1.2s)
   ✓  10 [mobile] › tests/browser/app.spec.ts:125:1 › analyst uses evidence and refuses ROAS (936ms)
-  ✓  11 [mobile] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (1.2s)
-  ✓  12 [mobile] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (5.1s)
-  ✓  13 [mobile] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (749ms)
-  ✓  14 [mobile] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (613ms)
+  ✓  11 [mobile] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (1.3s)
+  ✓  12 [mobile] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (4.8s)
+  ✓  13 [mobile] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (665ms)
+  ✓  14 [mobile] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (609ms)
 
-  14 passed (21.6s)
+  14 passed (24.1s)

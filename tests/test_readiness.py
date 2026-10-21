@@ -46,6 +46,10 @@ def test_input_fingerprint_changes_lineage_without_changing_counts():
     b = Analytics(records)
     assert a.snapshot()["metrics"][0]["value"] == b.snapshot()["metrics"][0]["value"]
     assert a.snapshot()["query_id"] != b.snapshot()["query_id"]
+    assert (
+        run_tool("get_data_quality", a.snapshot(), a)["metrics"][0]["query_id"]
+        != run_tool("get_data_quality", b.snapshot(), b)["metrics"][0]["query_id"]
+    )
 
 
 def test_source_fallback_fails_closed():
@@ -184,3 +188,25 @@ def test_model_unregistered_tool_never_executes(monkeypatch):
     with pytest.raises(ValueError, match="unapproved"):
         provider.select("Show funnel")
     assert provider.calls == 1
+
+
+def test_larger_complete_extract_reconciles_with_indexed_session_lookup():
+    records = []
+    seed = Analytics().records
+    for i in range(24):
+        for original in seed:
+            e = copy.deepcopy(original)
+            e["event_id"] = f"batch-{i}-{e['event_id']}"
+            if e.get("user_pseudo_id") is not None:
+                e["user_pseudo_id"] = f"batch-{i}-{e['user_pseudo_id']}"
+            if e["ecommerce"].get("transaction_id"):
+                e["ecommerce"]["transaction_id"] = f"batch-{i}-{e['ecommerce']['transaction_id']}"
+            records.append(e)
+    a = Analytics(records)
+    s = a.snapshot()
+    assert [f["value"] for f in s["funnel"]] == [10080, 8064, 4608, 3336, 1512]
+    assert next(m["value"] for m in s["metrics"] if m["metric"] == "revenue") == 120960
+    plan = a.rows(
+        "EXPLAIN QUERY PLAN SELECT MIN(ts) FROM events WHERE session_key=? AND name=? AND ts>=?", ("example", "view_item", 0)
+    )
+    assert any("USING COVERING INDEX" in row["detail"] for row in plan)

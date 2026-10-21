@@ -1,6 +1,6 @@
 # ! — evaluation report
 
-Actual recorded run: 2026-10-21T13:35:09.912645+00:00
+Actual recorded run: 2026-10-21T13:43:32.752219+00:00
 
 **Provider: deterministic fixture / mocked failure. These are not live model quality scores.**
 

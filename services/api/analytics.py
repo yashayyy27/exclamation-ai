@@ -37,6 +37,8 @@ class Analytics:
         self.content_hash = hashlib.sha256(json.dumps(self.records, sort_keys=True).encode()).hexdigest()
         self.sql_hash = hashlib.sha256(
             "".join((ROOT / f"data/sql/{n}.sql").read_text() for n in ["clean_events", "sessions", "transactions"]).encode()
+            + Path(__file__).read_bytes()
+            + (ROOT / "services/api/marketing.py").read_bytes()
         ).hexdigest()
         self.db = sqlite3.connect(":memory:")
         self.db.row_factory = sqlite3.Row
@@ -91,6 +93,8 @@ class Analytics:
             )
         for table, file in [("events", "clean_events"), ("sessions", "sessions"), ("transactions", "transactions")]:
             self.db.execute(f"CREATE TABLE {table} AS " + (ROOT / f"data/sql/{file}.sql").read_text())
+            if table == "events":
+                self.db.execute("CREATE INDEX events_session_name_time ON events(session_key,name,ts)")
         self.db.execute("PRAGMA query_only=ON")
 
     def rows(self, sql: str, args: tuple = ()) -> list[dict[str, Any]]:

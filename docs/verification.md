@@ -5,7 +5,7 @@ Audit date: **22 October 2026 (Australia/Sydney)**. Machine receipts use UTC. Ba
 ## Observed checks
 
 - Baseline rerun: 27 Python tests, 47 frontend tests; lint, mypy, TypeScript and production build passed.
-- Upgraded first check: 43 Python tests, 48 frontend tests; lint/types/build passed. Final full check: **45 Python tests and 50 frontend tests passed**, with lint, mypy, TypeScript and production build passing. [Actual log](evidence/readiness-checks.txt).
+- Upgraded first check: 43 Python tests, 48 frontend tests; lint/types/build passed. Final full check: **46 Python tests and 50 frontend tests passed**, with lint, mypy, TypeScript and production build passing. [Actual log](evidence/readiness-checks.txt).
 - Development policy evaluation: v1 21/36, v2 36/36; zero model calls. Numerical grading now checks an independent fixed oracle; schema validation is executed rather than hardcoded.
 - Separate release cases: initial 23/24; H02 oracle adjudicated, corrected run 24/24. Original failed run is retained. The inspected set is not untouched held-out evidence. No live model score exists.
 - Adversarial replay: original metric validator ACCEPTED a near-equal duplicate replacing purchases; upgraded gate REJECTED the identical candidate. Zero model calls. See [receipt](evidence/validator-replay.json).
@@ -20,6 +20,8 @@ Audit date: **22 October 2026 (Australia/Sydney)**. Machine receipts use UTC. Ba
 No paid calls were made. OpenAI key/model and Google project/ADC were absent at audit start. The owner has offered to configure integrations, but IDs/configuration and spend approval remain pending. No Tag Assistant, GA4 DebugView or real BigQuery receipt exists. These cannot be marked verified by local tests.
 
 Run [the bounded integration protocol](integration-verification.md) only after owner setup and approval. The GoogleSQL reconciliation query and real Responses behaviour remain NOT YET VERIFIED against their services, even when mocked protocol tests pass. Dollar cost is unknown. Do not treat null as zero.
+
+- Public-extract scale preparation: a 27,672-record synthetic replication reconciles 10,080 sessions, 1,512 ordered purchasers and USD 120,960. Session-stage lookups use a covering index. This is a local scale regression, not a Google extraction benchmark. Quality query IDs and snapshot IDs include content plus SQL/Python transformation fingerprints.
 
 ## Publication
 

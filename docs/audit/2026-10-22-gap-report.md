@@ -9,6 +9,7 @@ Baseline inspected: `ba5a2738339fa939002bef9a43cbd6e76d207677`. This is a review
 | P1 | Period comparison selects metrics by array index | Empty periods can mislabel revenue as conversion | Select by metric name and abstain on undefined ratios |
 | P1 | Query IDs omit input-content and SQL hashes | Different inputs can share lineage IDs | Fingerprint source records and transformations |
 | P1 | BigQuery quality scope claims the entire public dataset even for a narrow extract | Dates overstate inspected coverage | Separate dataset availability from actual extraction bounds |
+| P1 | Ordered stage lookups repeatedly scan events; raising the extract cap needs indexing | A larger public extract could become impractically slow locally | Add a covering session/name/time index and verify a 27,672-record synthetic replication |
 | P1 | BigQuery receipt omits billed bytes, cache status, reconciliation | SDK mock tests cannot establish real extraction or costs | Owner-only verification command, independent aggregate reconciliation and explicit byte budget |
 | P1 | Live integrations require access token but no explicit spend switch | A configured server can incur unapproved costs | Require separate owner paid-call opt-in; default disabled |
 | P1 | Evaluation schema grade is hardcoded; some numerical grades default true; same functions grade their own evidence | 36/36 cannot be interpreted as model quality | Remove automatic grades, add independent oracle and immutable, hashed held-out run records |

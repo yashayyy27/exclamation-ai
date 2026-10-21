@@ -33,7 +33,7 @@
 
 ## Release status
 
-GitHub and hosting publication are in progress; consult [docs/release.md](docs/release.md) for verified URLs, commits, deployment identifiers and hosted CI state. No expected URL is claimed as live here.
+Published: [public source repository](https://github.com/yashayyy27/exclamation-ai) and [working GitHub Pages demo](https://yashayyy27.github.io/exclamation-ai/). Initial hosted CI and Pages build/deploy jobs completed successfully; the deployed Overview and Evaluation Studio were browser-verified. Consult [docs/release.md](docs/release.md) for code verification commits and actual workflow evidence. External Google/model verification remains separate.
 
 ## Planned, not represented as working
 

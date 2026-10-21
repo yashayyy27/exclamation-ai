@@ -10,7 +10,9 @@ A working, independent portfolio built around one question: **what decision does
 
 **No credentials needed for the complete offline experience.** The public demo uses **SYNTHETIC / ILLUSTRATIVE** events and a **deterministic fixture analyst**. It makes no live model calls. Public Google historical data, owner GA4/GTM and actual model results are separate, explicitly unverified integrations.
 
-Publication: final release verification in progress. See the [release record](docs/release.md) for actual URLs and identifiers. Expected hosting URLs are not proof of deployment.
+**[Open the working GitHub Pages demo](https://yashayyy27.github.io/exclamation-ai/)** · **[Source code](https://github.com/yashayyy27/exclamation-ai)** · [Hosted CI](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) · [Release evidence](docs/release.md)
+
+Published to the authenticated owner’s public repository and GitHub Pages. The deployed Overview and Evaluation Studio were checked in a browser; the recorded fixture run loads correctly under the project URL. Hosted CI has passed, including desktop/mobile browser tests. Further pushes rerun verification automatically.
 
 ## Run it in one minute
 

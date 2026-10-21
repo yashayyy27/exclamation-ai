@@ -33,3 +33,9 @@ Initial browser run passed 10/10. A later focus-management refinement caused a r
 Dependency audit found vulnerabilities in the initial jsPDF/Vitest versions and pytest 8.4.2. Updated to patched versions and reran applicable checks; final audit logs are committed. A TestClient deprecation warning remains visible; it is not a test failure.
 
 Final command evidence: `make check`, `make eval`, `npm run test:e2e`, `npm audit --audit-level=high`, Python `pip-audit`, relative-link check and tracked-file secret-pattern scan. Actual results and limits live in `docs/evidence/` and `docs/release.md`. Hosted GitHub CI/publication/deployment are only marked verified after actual successful responses. External Google/model credentials remain the owner's next step, documented in MANUAL_SETUP_ACTIONS.md.
+
+## Release verification
+
+The public GitHub repository was created on the confirmed account, preserving its initial README commit when merging project history. The first Git upload failed with HTTP 400 and did not reach the remote; a buffered HTTP/1.1 transfer succeeded. GitHub Pages was enabled with GitHub Actions as its source, and the project-path build was verified after adding Node configuration types. Initial hosted verify run 39602228450 and Pages run 39602228528 both succeeded. The owner explicitly chose GitHub hosting, so the unused private Sites workflow was cancelled before source synchronization/deployment.
+
+A final null-data review added tests for missing purchase revenue and undefined denominators: monetary totals are omitted and advice abstains, rather than treating unknown values as zero. Public-source caveats now follow the selected source. Current local totals: 27 Python tests, 47 browser unit tests; recorded evaluation remains 36/36 v2 and 21/36 v1.

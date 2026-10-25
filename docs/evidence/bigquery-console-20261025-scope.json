@@ -1,0 +1,19 @@
+[{
+  "table_suffix": "20201231",
+  "partition_events": "24537",
+  "events_in_requested_utc_window": "0",
+  "first_event_utc": "2020-12-31 00:00:04.317692 UTC",
+  "last_event_utc": "2020-12-31 23:59:23.197109 UTC"
+}, {
+  "table_suffix": "20210101",
+  "partition_events": "22096",
+  "events_in_requested_utc_window": "22096",
+  "first_event_utc": "2021-01-01 00:00:08.136569 UTC",
+  "last_event_utc": "2021-01-01 23:59:55.455070 UTC"
+}, {
+  "table_suffix": "20210102",
+  "partition_events": "23599",
+  "events_in_requested_utc_window": "0",
+  "first_event_utc": "2021-01-02 00:00:00.948492 UTC",
+  "last_event_utc": "2021-01-02 23:59:59.369413 UTC"
+}]

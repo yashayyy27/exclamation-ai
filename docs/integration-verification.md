@@ -1,6 +1,6 @@
 # Owner integration verification
 
-Status: **BLOCKED** on owner configuration and explicit paid-run approval. Preparing code or passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
+Status: **VERIFIED** one public day through authenticated, unbilled BigQuery Console execution and complete local reconciliation; see [the actual analysis](bigquery-analysis-2026-10-25.md). **BLOCKED** for live OpenAI, SDK authentication and GA4/GTM receipt on the remaining owner setup/approval. Passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
 
 ## OpenAI: concrete run to approve
 
@@ -30,7 +30,9 @@ export GOOGLE_CLOUD_PROJECT=OWNER_PROJECT_ID
 .venv/bin/python scripts/verify_bigquery.py --start 2021-01-01 --end 2021-01-01 --maximum-bytes 1000000000 --execute --allow-paid
 ```
 
-The total execution ceiling is split equally between extraction and independent GoogleSQL aggregation. Each dry-run estimate must fit its half; unknown estimates fail closed. USD revenue uses `purchase_revenue_in_usd`; partition bounds and UTC timestamp dates are explicit. Complete extracts above 200,000 rows are rejected, never sampled. A raised row cap makes a full public day feasible without silently truncating; Google execution and actual daily size are still unverified.
+The total SDK execution ceiling is split equally between extraction and independent GoogleSQL aggregation. Each dry-run estimate must fit its half; unknown estimates fail closed. USD revenue uses `purchase_revenue_in_usd`; partition bounds and UTC timestamp dates are explicit. Complete extracts above 200,000 rows are rejected, never sampled. One actual public day is now verified through the Console (22,096 rows); this does not verify SDK authentication, transport or budget enforcement. Other windows remain untested.
+
+An unbilled sandbox offers a separate no-charge Console workflow. On 25 October it produced genuine extraction, aggregation and UTC boundary receipts. The [offline export reconciler](../scripts/reconcile_bigquery_export.py) reproduces all nine comparisons without network access; it cannot itself authenticate Google or prove file origin. Inspect the [job evidence and reproduction procedure](bigquery-analysis-2026-10-25.md) before treating a supplied export as genuine. Do not use this workflow to bypass approval for queries on a billed project.
 
 The receipt records dry/actual bytes, cache state, job IDs, hashes and count/revenue reconciliation between GoogleSQL and local SQLite. Check raw/clean counts, five funnel stages, transactions and available revenue. Missing revenue is excluded from monetary verification and flagged. A mismatch exits nonzero. Billed bytes are not a dollar bill: pricing/free quota/slot mode determine actual cost. No GA4 UI parity is claimed: reconcile property timezone, obfuscation, first-user acquisition source, event deduplication and boundary-session truncation first. Narrow the window if the byte or complete-row cap fails.
 

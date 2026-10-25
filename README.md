@@ -133,6 +133,4 @@ Known limitations: rule-based intent coverage can over-refuse; weekly subwindows
 
 CI checks lint, types, tests, build, dependency audit, secret patterns and browser flows. A weekly fixture evaluation workflow is included; hosted run status is only claimed once observed. `scripts/scan_secrets.py` checks tracked paths and common credential patterns without printing values; it is not a complete security audit.
 
-**AI-assisted development:** Codex generated and revised this code, documentation and tests, ran the recorded automated checks and inspected actual browser/PDF renders. The applicant should independently review, reproduce and explain the work. No personal verification, employment history, agency endorsement or real-world business impact is invented.
-
 Independent applicant-built portfolio, tailored to analytics and evaluation competencies in the R/GA Data Analyst brief. **Not affiliated with or endorsed by R/GA.** Original code: MIT. Dependencies retain their own licenses. Product name: **!**. `exclamation-ai` is the repository/package slug only.

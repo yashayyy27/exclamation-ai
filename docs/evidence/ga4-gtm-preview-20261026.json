@@ -1,0 +1,131 @@
+{
+  "kind": "AUTHENTICATED MANUAL GTM PREVIEW AND GA4 DEBUGVIEW; NOT PUBLIC DEPLOYMENT",
+  "observed_local_date": "2026-10-26",
+  "timezone": "Australia/Sydney",
+  "test_event_time_range_local": [
+    "2026-10-26T00:32:13+11:00",
+    "2026-10-26T00:36:25+11:00"
+  ],
+  "test_event_time_range_utc": [
+    "2026-10-25T13:32:13Z",
+    "2026-10-25T13:36:25Z"
+  ],
+  "browser": "Google Chrome 155.0.8059.85",
+  "base_commit": "732c0f4c185a56861b076d8266621a9954b9cf0f",
+  "dirty_tree": true,
+  "relevant_code_sha256": {
+    "apps/web/src/main.tsx": "ea2d6363db20b62cf919bb83c1d095d9245fd8c212e296199c23c0b4d3f53248",
+    "apps/web/src/measurement.ts": "099d0d91a9081c77f03d163688a1ba36c30dfc7a972da63d8e8dd4e87700d9cf"
+  },
+  "test_url": "http://127.0.0.1:5175/#Measurement%20Lab",
+  "gtm": {
+    "container_id": "GTM-PFQ2M7ZG",
+    "container_name": "Exclamation AI Demo",
+    "workspace_id": "2",
+    "mode": "unpublished Preview",
+    "published_version": "1 Empty Container",
+    "actual_export_sha256": "30e701a55c6a767a5a73c532d9913e1655138d07d1096be56c301b6a5f9389ba",
+    "export_file": "gtm-owner-workspace-20261026.json"
+  },
+  "ga4": {
+    "property_id": "560653438",
+    "property_name": "Exclamation AI Analytics",
+    "stream_id": "16197776847",
+    "measurement_id": "G-E1MF7870B8",
+    "currency": "USD",
+    "timezone": "Australia/Sydney",
+    "enhanced_measurement": false
+  },
+  "first_walkthrough_debugview_counts": {
+    "page_view": 1,
+    "view_item_list": 1,
+    "select_item": 1,
+    "view_item": 1,
+    "add_to_cart": 2,
+    "remove_from_cart": 1,
+    "begin_checkout": 1,
+    "purchase": 1,
+    "first_visit": 1,
+    "session_start": 1,
+    "user_engagement": 1
+  },
+  "final_debugview_counts": {
+    "page_view": 2,
+    "view_item_list": 2,
+    "select_item": 1,
+    "view_item": 1,
+    "add_to_cart": 3,
+    "remove_from_cart": 1,
+    "begin_checkout": 2,
+    "purchase": 2,
+    "first_visit": 1,
+    "session_start": 1,
+    "user_engagement": 2
+  },
+  "purchase_hits": [
+    {
+      "transaction_id": "demo-fe1d1f4d-001b-482f-88f6-c817c7a0cef9",
+      "value": 24,
+      "currency": "USD",
+      "item_id": "object-01",
+      "item_name": "Signal notebook",
+      "item_price_sent": 24,
+      "quantity": 1,
+      "source_id": "first_party_demo",
+      "debug_mode": true,
+      "matched_in_ga4_debugview": true
+    },
+    {
+      "transaction_id": "demo-553bbc01-71d0-4816-8513-079369c09feb",
+      "value": 24,
+      "currency": "USD",
+      "item_id": "object-01",
+      "item_name": "Signal notebook",
+      "item_price_sent": 24,
+      "quantity": 1,
+      "source_id": "first_party_demo",
+      "debug_mode": true,
+      "matched_in_ga4_debugview": true
+    }
+  ],
+  "second_purchase_campaign_hit": {
+    "cs": "portfolio",
+    "cm": "qa",
+    "cn": "owner_verification",
+    "endpoint": "https://www.google-analytics.com/g/collect"
+  },
+  "consent": {
+    "default_analytics": "denied",
+    "allowed_analytics": "granted",
+    "ad_storage": "denied",
+    "ad_user_data": "denied",
+    "ad_personalization": "denied",
+    "revoked_analytics": "denied",
+    "manual_post_revoke_cart_action": "local QA grew from 9 to 10 events; GTM ecommerce tag stayed at 9 executions; newest GTM event remained Consent Update",
+    "final_local_consent": "revoked"
+  },
+  "limitations": [
+    "No HTTP response status or complete raw network log captured; Tag Assistant Hits Sent plus independent GA4 ingestion observed.",
+    "GTM draft not published; public Pages build still has tracking disabled.",
+    "DebugView item price displays 24000000 while actual collect payload uses pr24 and value 24 USD; do not interpret the raw DebugView price display as dollars without export-unit reconciliation.",
+    "No GA4 report/export, production visitor behaviour, BigQuery first-party export or server-side SDK transport verified.",
+    "No claim that all vendor automatic technical events are disabled: first_visit, session_start and user_engagement were observed.",
+    "No client/session IDs or preview authorization parameters retained in this public receipt."
+  ],
+  "bigquery_daily_export": {
+    "status": "LINK_CREATED; FIRST TABLE NOT YET VERIFIED",
+    "owner_action_time_confirmation": true,
+    "link_id": "F0mQFps2QVehkk3nA37JCQ",
+    "project_id": "exclamation-ai-yh-20261025",
+    "region": "us",
+    "event_daily_export": true,
+    "stream_count": 1,
+    "event_exclusions": [],
+    "streaming_export": false,
+    "advertising_identifiers": false,
+    "user_data_daily_export": false,
+    "created_date_local": "2026-10-26",
+    "billing_account_linked": false,
+    "resource_identity_iam_membership": "NOT YET INDEPENDENTLY INSPECTED"
+  }
+}

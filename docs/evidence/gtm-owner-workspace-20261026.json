@@ -1,0 +1,534 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-10-25 13:35:03",
+    "containerVersion": {
+        "path": "accounts/6399741843/containers/283492497/versions/0",
+        "accountId": "6399741843",
+        "containerId": "283492497",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6399741843/containers/283492497",
+            "accountId": "6399741843",
+            "containerId": "283492497",
+            "name": "Exclamation AI Demo",
+            "publicId": "GTM-PFQ2M7ZG",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1792892938897",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6399741843/containers/283492497/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-PFQ2M7ZG"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "tagId": "3",
+                "name": "GA4 - Test base - no automatic page_view",
+                "type": "dest_ga",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "destinationId",
+                        "value": "G-E1MF7870B8"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "configSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "send_page_view"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "false"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1792893963326",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NEEDED",
+                    "consentType": {
+                        "type": "LIST",
+                        "list": [
+                            {
+                                "type": "TEMPLATE",
+                                "value": "analytics_storage"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "tagId": "8",
+                "name": "GA4 - Demo ecommerce events",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "getEcommerceDataFrom",
+                        "value": "dataLayer"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "source_id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - source_id}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "debug_mode"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - debug_mode}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "page_path"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - page_path}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_source"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - campaign.utm_source}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_medium"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - campaign.utm_medium}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{DLV - campaign.utm_campaign}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "{{Event}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-E1MF7870B8"
+                    }
+                ],
+                "fingerprint": "1792893963326",
+                "firingTriggerId": [
+                    "7"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NEEDED",
+                    "consentType": {
+                        "type": "LIST",
+                        "list": [
+                            {
+                                "type": "TEMPLATE",
+                                "value": "analytics_storage"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "triggerId": "7",
+                "name": "Demo ecommerce - exact events and source",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "^(page_view|view_item_list|select_item|view_item|add_to_cart|remove_from_cart|begin_checkout|purchase)$"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{DLV - source_id}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "first_party_demo"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1792893476423"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "6",
+                "name": "DLV - source_id",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "source_id"
+                    }
+                ],
+                "fingerprint": "1792893408213",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "9",
+                "name": "DLV - campaign.utm_source",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "campaign.utm_source"
+                    }
+                ],
+                "fingerprint": "1792893963286",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "10",
+                "name": "DLV - debug_mode",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "debug_mode"
+                    }
+                ],
+                "fingerprint": "1792893963287",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "11",
+                "name": "DLV - campaign.utm_medium",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "campaign.utm_medium"
+                    }
+                ],
+                "fingerprint": "1792893963287",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "12",
+                "name": "DLV - campaign.utm_campaign",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "campaign.utm_campaign"
+                    }
+                ],
+                "fingerprint": "1792893963287",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "variableId": "13",
+                "name": "DLV - page_path",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "page_path"
+                    }
+                ],
+                "fingerprint": "1792893963287",
+                "formatValue": {}
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "type": "EVENT",
+                "name": "Event"
+            }
+        ],
+        "fingerprint": "1792935303624",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6399741843/containers/283492497/versions/0?apiLink=version",
+        "gtagConfig": [
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "gtagConfigId": "4",
+                "type": "ogt_auto_events",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableOutboundClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableScroll",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableDownload",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableHistoryEvents",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableForm",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableVideo",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1792893963327"
+            },
+            {
+                "accountId": "6399741843",
+                "containerId": "283492497",
+                "gtagConfigId": "5",
+                "type": "ogt_1p_data_v2",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "isEnabled",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1792893963326"
+            }
+        ]
+    }
+}

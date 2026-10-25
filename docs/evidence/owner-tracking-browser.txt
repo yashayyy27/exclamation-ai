@@ -1,0 +1,31 @@
+
+> exclamation-ai@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:96311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:96324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (982ms)
+  ✓   2 [desktop] › tests/browser/app.spec.ts:50:1 › store full purchase, consent gate and unique transaction (1.0s)
+  ✓   3 [desktop] › tests/browser/app.spec.ts:125:1 › analyst uses evidence and refuses ROAS (709ms)
+  ✓   4 [desktop] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (681ms)
+  ✓   5 [desktop] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (3.6s)
+  ✓   6 [desktop] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (646ms)
+  ✓   7 [desktop] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (369ms)
+  ✓   8 [desktop] › tests/browser/app.spec.ts:292:1 › restored consent precedes initial storefront event delivery (214ms)
+(node:96389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile] › tests/browser/app.spec.ts:15:1 › overview filters, drilldowns and real screenshot (828ms)
+  ✓  10 [mobile] › tests/browser/app.spec.ts:50:1 › store full purchase, consent gate and unique transaction (1.2s)
+  ✓  11 [mobile] › tests/browser/app.spec.ts:125:1 › analyst uses evidence and refuses ROAS (879ms)
+  ✓  12 [mobile] › tests/browser/app.spec.ts:138:1 › evaluation failure inspection and client export review (1.3s)
+  ✓  13 [mobile] › tests/browser/app.spec.ts:173:1 › all pages have no serious accessibility violations or overflow (4.7s)
+  ✓  14 [mobile] › tests/browser/app.spec.ts:222:1 › marketing priorities, scoped campaign and separate attribution are explorable (667ms)
+  ✓  15 [mobile] › tests/browser/app.spec.ts:263:1 › consent defaults precede update and are queued only once (589ms)
+  ✓  16 [mobile] › tests/browser/app.spec.ts:292:1 › restored consent precedes initial storefront event delivery (196ms)
+
+  16 passed (21.4s)

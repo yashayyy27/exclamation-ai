@@ -14,7 +14,7 @@ eval:
 eval-heldout:
 	$(PYTHON) evals/heldout.py
 eval-live:
-	$(PYTHON) evals/heldout.py --provider openai --max-requests $(MAX_REQUESTS) $(PAID_APPROVAL)
+	$(PYTHON) evals/heldout.py --provider openai --max-requests $(MAX_REQUESTS) --prices-reviewed-on $(PRICES_REVIEWED_ON) $(PAID_APPROVAL)
 check:
 	$(PYTHON) -m ruff check services scripts evals tests
 	$(PYTHON) -m mypy services

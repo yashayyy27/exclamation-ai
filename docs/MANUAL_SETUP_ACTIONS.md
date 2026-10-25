@@ -45,7 +45,9 @@ The adapter rejects a window over the byte cap or 200,000-row completeness limit
 
 The owner resources now exist. [Actual IDs, native container export, two received transactions and genuine DebugView evidence](google-tracking-2026-10-26.md) verify the unpublished local Preview path. Daily event export into the unbilled Cloud sandbox was created with owner confirmation; first table arrival and reconciliation remain unverified. Public Pages tracking stays disabled. Follow [the reproducible setup](gtm-setup.md) without creating duplicate resources.
 
-## 4. Optional OpenAI (NOT YET VERIFIED)
+## 4. Optional OpenAI (NOT RUN / NO PAID AUTHORIZATION)
+
+The owner chose no paid verification on 26 October. The following is a reference procedure, not an instruction to fund an account, create credentials or execute paid requests. Current release evidence contains zero real model calls.
 
 Keep the dedicated project key in ignored, owner-readable `.env.owner`; the evaluation runner loads only the two allowed fields as data. Set `OPENAI_MODEL=gpt-5.4-mini`, exactly as authorized. The standalone API service does not automatically load that file and requires its separate access-token setup.
 

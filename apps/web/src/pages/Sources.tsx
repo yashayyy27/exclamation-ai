@@ -41,7 +41,7 @@ export default function Sources({ s }: { s: Snapshot }) {
           {
             title: "OpenAI Responses",
             tag: "NOT VERIFIED",
-            body: "Bounded tool calling and structured output provider implemented server-side. No actual model calls recorded. Configure API key, model and API access token locally.",
+            body: "Optional bounded tool calling and structured output provider implemented server-side. No live model evaluation was run. The public analyst and recorded scores are deterministic; SDK tests use mocks. This release uses no paid APIs.",
             icon: Sparkles,
           },
         ].map((c) => (

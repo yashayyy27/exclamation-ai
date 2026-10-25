@@ -25,9 +25,11 @@ Run [the bounded integration protocol](integration-verification.md) only after o
 
 ## Publication
 
-Published through [PR #1](https://github.com/yashayyy27/exclamation-ai/pull/1). [Hosted verification workflow](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) reruns on every branch push and PR change; inspect PR checks for the current head. The first upgrade PR run passed all steps: [39609478642](https://github.com/yashayyy27/exclamation-ai/actions/runs/39609478642).
+Publication status rechecked on **25 October 2026 (Australia/Sydney)**: [PR #1](https://github.com/yashayyy27/exclamation-ai/pull/1) is **merged**, not open. GitHub records the merge at `2026-10-21T14:00:27Z` (22 October in Sydney), producing commit `12ddb03cc9923fa48ae1ba28a87792bd6736402b`.
 
-The PR remains open for owner review. GitHub Pages serves the existing main release until merge; new branch features are demonstrated by the committed actual screenshots and PDF, not claimed as already deployed. No failed-test merge is permitted. Static Pages hosts no paid API service.
+Both the merge commit's [post-merge verification run](https://github.com/yashayyy27/exclamation-ai/actions/runs/39612991571) and [GitHub Pages deployment](https://github.com/yashayyy27/exclamation-ai/actions/runs/39612991478) completed successfully. The deployment's build and deploy jobs passed. The [public application](https://yashayyy27.github.io/exclamation-ai/) includes the recruitment upgrade; its funnel-prioritisation table and downloaded six-page client presentation were checked in the live browser after deployment.
+
+Later main-branch changes are tracked by the [verification workflow](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) and [Pages workflow](https://github.com/yashayyy27/exclamation-ai/actions/workflows/deploy.yml). The linked run IDs above are evidence for PR #1's merge, not a claim about every later commit. Static Pages hosts the synthetic demo and no paid API service. Successful publication does **not** establish real BigQuery, GA4/GTM or OpenAI integration success; those require the separate owner-authenticated receipts described above.
 
 ## Remaining limits
 

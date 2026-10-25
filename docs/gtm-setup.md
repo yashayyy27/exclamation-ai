@@ -1,6 +1,6 @@
 # ! — GTM / GA4 setup and manual verification
 
-1. Use an owner-controlled test GA4 property and GTM web container. Keep sandbox/debug traffic separate from production. No real property or container was created by this project.
+1. Use an owner-controlled test GA4 property and GTM web container. Keep sandbox/debug traffic separate from production. The owner test resources and actual IDs are recorded in [the genuine preview receipt](google-tracking-2026-10-26.md).
 2. Put the public container ID in local `apps/web/.env.local`: `VITE_GTM_ID=GTM-YOURID`. Restart Vite. Never put an API key in a `VITE_` variable.
 3. In GTM, create a Google tag using the owner's GA4 measurement ID. Disable automatic page_view (`send_page_view=false`) so the explicit sandbox page_view remains the sole source. Review enhanced measurement settings to prevent duplicate history/page events.
 4. Create Data Layer Variables (version 2): `ecommerce.currency`, `ecommerce.value`, `ecommerce.items`, `ecommerce.transaction_id`, `page_path`, `source_id`, `debug_mode`, `campaign.utm_source`, `campaign.utm_medium`, `campaign.utm_campaign`.
@@ -11,6 +11,6 @@
 9. Verify every delivered event in GA4 DebugView. Filter debug/internal traffic out of production reporting. Revoke consent and verify subsequent clicks produce no analytics event requests. A consent-state request from an already loaded Google tag must not be mistaken for ecommerce collection.
 10. Export the actual owner GTM container JSON from Admin → Export Container after QA. Do not publish an unvalidated generated container recipe.
 
-Record evidence in `docs/qa-guide.md`: date, browser, container version, test property, pre-consent network check, Tag Assistant screenshot, DebugView screenshot, one transaction payload and duplicate-event check. Redact account/private identifiers. **No such external evidence exists yet.**
+Record evidence in `docs/qa-guide.md`: date, browser, container version, test property, pre-consent network check, Tag Assistant screenshot, DebugView screenshot, one transaction payload and duplicate-event check. Redact account/private identifiers. **Authenticated Preview/DebugView evidence now exists for the owner test resources; public tracking remains disabled.** See [actual results and limitations](google-tracking-2026-10-26.md).
 
 Troubleshooting: no events → check consent and container ID/build restart; duplicate purchase → check duplicate tags and trigger overlap; wrong cart value → inspect the latest cleared ecommerce payload; missing DebugView → verify debug_mode and test property; dashboard does not update → expected: storefront events are intentionally separate from the committed analytics fixture.

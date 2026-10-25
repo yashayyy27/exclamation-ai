@@ -1,18 +1,28 @@
 # Owner integration verification
 
-Status: **VERIFIED** one public day through authenticated, unbilled BigQuery Console execution and complete local reconciliation; see [the actual analysis](bigquery-analysis-2026-10-25.md). **BLOCKED** for live OpenAI, SDK authentication and GA4/GTM receipt on the remaining owner setup/approval. Passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
+Status: **VERIFIED** one public day through authenticated, unbilled BigQuery Console execution and complete local reconciliation; see [the actual analysis](bigquery-analysis-2026-10-25.md). **VERIFIED** authenticated owner GA4/GTM local Preview delivery; see [actual tracking evidence](google-tracking-2026-10-26.md). **BLOCKED** for live OpenAI and SDK authentication on remaining owner setup/approval. Passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
 
 ## OpenAI: concrete run to approve
 
-Configure server-only `OPENAI_API_KEY` and `OPENAI_MODEL` locally. Never use `VITE_` for these. The key needs Responses API access to the selected model. Use a restricted project key and review the owner's current pricing/usage limits. Set a small owner project budget; provider budgets may be alerts rather than hard stops.
+The owner selected **gpt-5.4-mini**, **USD 3 maximum cumulative API spend** and **48 attempted Responses generations**. Final paid-call confirmation is still required. No real model calls have been made.
 
-Proposed command after approval:
+Create a dedicated API project, restrict the key to the required Responses generation and input-token-count endpoints, and put it only in ignored owner-readable `.env.owner` (`chmod 600`). The runner reads only `OPENAI_API_KEY` and `OPENAI_MODEL` as data, never as shell code. It never prints their values. Keep the model `gpt-5.4-mini`; never prefix secrets with `VITE_`. The public site has no API credentials or paid endpoint.
+
+Current OpenAI documentation offers project hard spend limits, with possible enforcement delay. Set USD 3 in Project settings → Limits → Spend → Edit spend limit, enable the hard limit, and save if the owner account supports it. A notification alone is insufficient. Do not purchase credits above the authorized amount. [Official spend limits](https://developers.openai.com/api/docs/guides/spend-limits).
+
+**Do not execute until the owner confirms the concrete run:**
 
 ```sh
-.venv/bin/python evals/heldout.py --provider openai --allow-paid --max-requests 48
+.venv/bin/python evals/heldout.py --provider openai --allow-paid --max-requests 48 --prices-reviewed-on 2026-10-26
 ```
 
-This runs 24 author-written release cases. At most 48 attempted Responses requests, no SDK automatic retry, maximum 800 output tokens for selection and 2,500 for authoring. Expected path: 42 requests (6 abstentions, 18 supported). Tokens are measured if returned; partial/unknown usage and dollar cost remain null. **The request cap is not a dollar cap.** Approve a model and maximum estimated spend using its current prices before execution. The harness does not assume a price or claim that an OpenAI account budget is a hard cap. Stop rather than execute if the owner requires a monetary hard cap the provider cannot enforce.
+The [local monetary controller](../evals/spend.py) fixes the standard vendor endpoint and default service tier, disables SDK retries, excludes hosted tools/media/background processing, counts the identical complete input before each generation, and reserves its maximum output charge in a durable SQLite ledger before transmission. The dated model rate card is USD 0.75 / 0.075 / 4.50 per million ordinary input / cached input / output tokens. It expires after one day to force another official-price review. [Actual model pricing](https://developers.openai.com/api/docs/models/gpt-5.4-mini), [official controller pattern](https://developers.openai.com/cookbook/articles/per_run_spending_controller_responses_api).
+
+Each generation permits at most 16,000 input and 2,500 output tokens (800 output for selection). Even 48 maximum-sized generations reserve USD **1.116** at those rates, below the owner's USD 3 ceiling. Reasoning is explicitly `none`; reasoning tokens, if returned, are included in output accounting. Model requests keep the exact owner-approved alias; only that alias or its currently documented returned snapshot is accepted. No model fallback occurs. There are at most 48 additional token-count preflights for a fresh run; these are not model-generation calls.
+
+The ignored `.openai/local-verification.sqlite3` ledger survives process restarts. Admission uses an atomic transaction; pending, interrupted, missing-usage, unexpected-model/tier or incomplete responses stop further requests and retain their reservation. Never delete the ledger to retry or start another spend authorization. Actual usage, raw synthetic-case model responses (including rejected answers) and token-price calculations are saved separately from invoice cost, which remains null. Inspect the ledger/report locally before publishing. This controller covers this evaluation's documented model-token charges; it is **not** a guarantee against taxes, account-specific surcharges, changed vendor pricing or unrelated API use. If those prevent a reliable USD 3 total cap for the owner's account, **do not run**. Owner authentication and confirmation remain gates, not presumed completed work.
+
+The 24 author-written release cases expect 42 generations on the oracle path (6 abstentions, 18 supported selections plus authoring). Unexpected valid tool selection may change that count; the cumulative hard ceiling stays 48. Offline timeout/restart, oversize, wrong-model/tier, pending-reservation, dollar-admission and protocol tests are not model-quality results.
 
 Model probes directly offer six registered tools plus abstention, bypassing the lexical router so safety-policy results cannot masquerade as model resistance. No arbitrary SQL or shell executes. Questions, aggregate metrics and deliberately malicious test text reach the model; raw event identities and credentials do not. Each result records choice, schema, independent numeric oracle, exact evidence gate, abstention and bounded recommendation rubric. A human recommendation rating is still required for commercial usefulness; it stays null until performed.
 
@@ -49,6 +59,6 @@ Use an owner test container/property. Put only the public container ID in `apps/
 5. Capture actual `/g/collect` request parameters and response for each event. Redact client/session identifiers. A 204 response proves transport acceptance, not report ingestion.
 6. Match all eight event types in the owner's GA4 DebugView, including a unique `demo-` transaction ID and value. Save genuine Tag Assistant/DebugView captures locally, redact, and label them with date/build. Never synthesize screenshots.
 7. Repeat purchase: distinct transaction IDs. Revoke consent: subsequent ecommerce clicks produce no collection requests. Inspect automatic page_view/enhanced-measurement duplication.
-8. Record pass/fail and any discrepancies in a dated JSON/Markdown receipt under `docs/evidence/`. Missing DebugView or consent evidence leaves status NOT YET VERIFIED. External evidence is absent today.
+8. Record pass/fail and any discrepancies in a dated JSON/Markdown receipt under `docs/evidence/`. Missing DebugView or consent evidence leaves status NOT YET VERIFIED. External Preview/DebugView evidence is now recorded in [the dated receipt](google-tracking-2026-10-26.md); raw HTTP response-status evidence remains absent.
 
 The public Pages demo remains fixture-only until owner configuration is explicitly supplied. No production tracking data is mixed into its historical dashboard.

@@ -23,14 +23,19 @@ export default function Sources({ s }: { s: Snapshot }) {
             tag: "CONSOLE VERIFIED",
             body: "One historical UTC day: 22,096 real public events, nine local/GoogleSQL checks matched. SDK authentication remains unverified. Dashboard metrics remain synthetic.",
             href: "https://github.com/yashayyy27/exclamation-ai/blob/main/docs/bigquery-analysis-2026-10-25.md",
+            linkLabel: "Inspect actual jobs and analysis",
             icon: Database,
           },
           {
             title: "GA4 / GTM sandbox",
-            tag: import.meta.env.VITE_GTM_ID
-              ? "CONFIGURED / UNVERIFIED"
-              : "NOT CONFIGURED",
-            body: "Consent-gated dataLayer events work locally. Live collection requires owner GTM container + GA4 property and manual Tag Assistant/DebugView QA.",
+            tag: "LOCAL PREVIEW VERIFIED",
+            body:
+              "All eight demo event types received in the owner's GA4 DebugView on 26 Oct 2026, including two distinct test purchases. " +
+              (import.meta.env.VITE_GTM_ID
+                ? "This build has GTM configured; delivery requires consent and a working container."
+                : "Tracking is disabled in this public build. Dashboard metrics remain synthetic."),
+            href: "https://github.com/yashayyy27/exclamation-ai/blob/main/docs/google-tracking-2026-10-26.md",
+            linkLabel: "Inspect genuine tracking evidence",
             icon: Activity,
           },
           {
@@ -47,7 +52,7 @@ export default function Sources({ s }: { s: Snapshot }) {
             <p>{c.body}</p>
             {c.href && (
               <a href={c.href} target="_blank" rel="noreferrer">
-                Inspect actual jobs and analysis
+                {c.linkLabel}
               </a>
             )}
           </article>

@@ -1,6 +1,6 @@
 """Release holdout: independent numeric oracle, optional measured model selection.
 
-No paid requests without --allow-paid AND a finite request ceiling. Once tuned on,
+No paid requests without --allow-paid, current prices and persistent spend guard. Once tuned on,
 this author-written set is development data: rotate it before another release.
 """
 
@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from services.api.agent import FixtureProvider, OpenAIProvider, TOOL_MAP, classify, run_tool, validate_decision
 from services.api.analytics import Analytics, ROOT
 from services.api.models import ModelDecision
+from evals.spend import MODEL, SpendBlocked, SpendGuard, load_owner_config
 
 ORACLE = {
     "sessions": 420,
@@ -44,14 +45,18 @@ ORACLE = {
 
 
 class BoundedProvider(OpenAIProvider):
-    def __init__(self, ceiling: int):
+    def __init__(self, ceiling: int, prices_reviewed_on: str):
+        if os.getenv("OPENAI_MODEL") != MODEL:
+            raise SpendBlocked("Owner authorization is limited to gpt-5.4-mini")
+        self.guard = SpendGuard(ROOT / ".openai/local-verification.sqlite3", ceiling, prices_reviewed_on)
         super().__init__()
-        self.ceiling = ceiling
 
     def request(self, **kwargs: Any) -> Any:
-        if self.calls >= self.ceiling:
-            raise ValueError("Approved request ceiling reached")
-        return super().request(**kwargs)
+        try:
+            return self.guard.request(self.client, kwargs)
+        finally:
+            self.calls, self.tokens = self.guard.calls, self.guard.tokens
+            self.usage_complete = self.guard.usage_complete
 
 
 def grade(case: dict, tool: str | None, decision: ModelDecision | None, evidence: dict | None) -> dict:
@@ -96,17 +101,20 @@ def grade(case: dict, tool: str | None, decision: ModelDecision | None, evidence
     return scores
 
 
-def run(provider: str, ceiling: int = 0) -> dict:
+def run(provider: str, ceiling: int = 0, prices_reviewed_on: str = "") -> dict:
     path = ROOT / "evals/cases/heldout.json"
     cases = json.loads(path.read_text())
     began = time.perf_counter()
-    model = BoundedProvider(ceiling) if provider == "openai" else None
+    model = BoundedProvider(ceiling, prices_reviewed_on) if provider == "openai" else None
     results = []
+    stopped = False
     for case in cases:
         t = time.perf_counter()
         calls_before = model.calls if model else 0
         tool, decision, evidence, error = None, None, None, None
         try:
+            if stopped:
+                raise SpendBlocked("Run stopped; remaining cases were not submitted")
             # Deliberately bypass the lexical guard for model-only probes. Never
             # execute an arbitrary model instruction; only registered local tools.
             if model:
@@ -124,6 +132,10 @@ def run(provider: str, ceiling: int = 0) -> dict:
                     }
                 decision, _ = (model or FixtureProvider()).decide(tool, evidence, "v2")
             scores = grade(case, tool, decision, evidence)
+        except SpendBlocked:
+            error = "SPEND_GUARD_STOPPED_OR_NOT_EXECUTED"
+            scores = {"execution": False}
+            stopped = True
         except Exception:
             # Do not save SDK exception bodies, which can include request metadata.
             error = "PROVIDER_OR_VALIDATION_FAILURE"
@@ -140,6 +152,7 @@ def run(provider: str, ceiling: int = 0) -> dict:
                 "error_code": error,
                 "decision": decision.model_dump() if decision else None,
                 "api_requests": (model.calls - calls_before) if model else 0,
+                "ledger_request_ids": model.guard.request_ids[calls_before:] if model else [],
                 "elapsed_ms": round(1000 * (time.perf_counter() - t), 3),
             }
         )
@@ -158,13 +171,14 @@ def run(provider: str, ceiling: int = 0) -> dict:
             b"".join(
                 p.read_bytes()
                 for p in sorted(
-                    [*(ROOT / "services/api").glob("*.py"), *(ROOT / "data/sql").glob("*.sql"), ROOT / "evals/heldout.py"]
+                    [*(ROOT / "services/api").glob("*.py"), *(ROOT / "data/sql").glob("*.sql"), ROOT / "evals/heldout.py", ROOT / "evals/spend.py"]
                 )
             )
         ).hexdigest(),
         "api_requests": model.calls if model else 0,
         "tokens": model.tokens if model and model.usage_complete and not any(r["error_code"] for r in results) else None,
-        "cost_usd": None,
+        "cost_usd": None,  # Provider invoice is not available; token cost is separately calculated.
+        "spending": model.guard.report() if model else None,
         "human_recommendation_rating": None,
         "limitations": "Author-written small release holdout, not an external benchmark. Bounded action rubric is not an independent human quality rating. Model probes bypass router to distinguish model behaviour from policy. No client outcomes.",
         "passed": sum(r["passed"] for r in results),
@@ -175,7 +189,7 @@ def run(provider: str, ceiling: int = 0) -> dict:
     dest = ROOT / f"evals/runs/{report['run_id']}.json"
     dest.write_text(json.dumps(report, indent=2) + "\n")
     (ROOT / f"evals/runs/heldout-{provider}-latest.json").write_text(dest.read_text())
-    print(json.dumps({k: v for k, v in report.items() if k != "results"}, indent=2))
+    print(json.dumps({k: v for k, v in report.items() if k not in {"results", "spending"}}, indent=2))
     return report
 
 
@@ -184,8 +198,11 @@ if __name__ == "__main__":
     parser.add_argument("--provider", choices=["fixture", "openai"], default="fixture")
     parser.add_argument("--allow-paid", action="store_true")
     parser.add_argument("--max-requests", type=int, default=0)
+    parser.add_argument("--prices-reviewed-on", default="")
     args = parser.parse_args()
-    if args.provider == "openai" and (not args.allow_paid or not 0 < args.max_requests <= 100):
-        parser.error("Live verification requires owner spend approval, --allow-paid and --max-requests 1..100")
-    result = run(args.provider, args.max_requests)
+    if args.provider == "openai":
+        if not args.allow_paid or not 0 < args.max_requests <= 48 or not args.prices_reviewed_on:
+            parser.error("Requires final owner approval, --allow-paid, --max-requests 1..48 and --prices-reviewed-on")
+        load_owner_config(ROOT / ".env.owner")
+    result = run(args.provider, args.max_requests, args.prices_reviewed_on)
     sys.exit(0 if result["passed"] == result["total"] else 1)

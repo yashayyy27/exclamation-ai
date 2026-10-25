@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -67,7 +67,8 @@ function App() {
     window.addEventListener("hashchange", f);
     return () => window.removeEventListener("hashchange", f);
   }, []);
-  useEffect(() => {
+  // Restore consent before child effects can queue initial storefront events.
+  useLayoutEffect(() => {
     if (localStorage.getItem("analytics-consent") === "true")
       setAnalyticsConsent(true);
   }, []);

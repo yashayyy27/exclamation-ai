@@ -41,21 +41,21 @@ curl --fail -H "Authorization: Bearer $API_ACCESS_TOKEN" 'http://127.0.0.1:8000/
 
 The adapter rejects a window over the byte cap or 200,000-row completeness limit. Start small. Preserve job_id, dry_run_bytes and comparison evidence, not credentials. No silent fixture fallback occurs. Review public-source acquisition metadata and UTC semantics before interpreting channel results.
 
-## 3. GA4 / GTM (NOT YET VERIFIED)
+## 3. GA4 / GTM (LOCAL PREVIEW VERIFIED)
 
-Follow `docs/gtm-setup.md`. Set `VITE_GTM_ID` locally; restart/build. Verify analytics_storage denied before grant and on revoke, one event per action, correct item values and unique demo transaction IDs. Save real redacted Tag Assistant/DebugView evidence. An owner GA4-to-BigQuery link is a separate future setup; the app does not create it.
+The owner resources now exist. [Actual IDs, native container export, two received transactions and genuine DebugView evidence](google-tracking-2026-10-26.md) verify the unpublished local Preview path. Daily event export into the unbilled Cloud sandbox was created with owner confirmation; first table arrival and reconciliation remain unverified. Public Pages tracking stays disabled. Follow [the reproducible setup](gtm-setup.md) without creating duplicate resources.
 
 ## 4. Optional OpenAI (NOT YET VERIFIED)
 
-Store an owner-created project API key in the shell/keychain or a local ignored environment file. Choose a model that supports function calling and strict structured outputs and set `OPENAI_MODEL` explicitly. Configure the API access token above. The app does not automatically load .env files into Python; export them explicitly with your shell's safe method.
+Keep the dedicated project key in ignored, owner-readable `.env.owner`; the evaluation runner loads only the two allowed fields as data. Set `OPENAI_MODEL=gpt-5.4-mini`, exactly as authorized. The standalone API service does not automatically load that file and requires its separate access-token setup.
 
 ```sh
 # Set OPENAI_API_KEY securely in this terminal. Never print it.
-export OPENAI_MODEL='YOUR_SUPPORTED_MODEL_ID'
-make eval-live MAX_REQUESTS=48 PAID_APPROVAL=--allow-paid
+export OPENAI_MODEL='gpt-5.4-mini'
+make eval-live MAX_REQUESTS=48 PRICES_REVIEWED_ON=2026-10-26 PAID_APPROVAL=--allow-paid
 ```
 
-This makes real API calls and uses owner credits. Run only after setting an owner-approved API budget. Requests are bounded to two model calls per successful attempt, at most two validation attempts. Start with one question via `/ask` before evaluating both prompt versions. No live call has been made by the build agent. Cost remains null unless separately measured; tokens/latency are recorded when returned.
+This makes real paid API calls only after final owner confirmation. The persistent evaluation ledger limits the cumulative authorization to 48 attempted generations and USD 3 in documented model-token costs, with exact input preflights and maximum-output reservations. Unknown charges block further calls. See [the complete spending scope and limits](integration-verification.md). Do not run additional `/ask` smoke requests outside this ledger under the evaluation approval. No live call has been made; actual model results remain unverified.
 
 To expose local model mode in the web UI, add `VITE_API_URL=http://127.0.0.1:8000` to ignored `.env.local`, restart Vite, select OpenAI in Ask ! and enter the server access token into the masked field. The token stays in React memory only. Vite root is `apps/web`, so place that file at `apps/web/.env.local`. The template at repository root is a reference, not automatic runtime loading.
 
@@ -79,3 +79,5 @@ Do not overwrite a repository that already exists. Confirm owner before creating
 The verified demo is deployed at https://yashayyy27.github.io/exclamation-ai/ on GitHub Pages. Hosting on another provider is unnecessary. The static build can be reproduced without credentials: `npm run build`, publish `dist/`. The Python service is optional and not hosted with the static demo. GitHub Pages deployment is configured in `.github/workflows/deploy.yml`; only a successful GitHub deployment and reachable page constitute publication. In repository Settings → Pages, choose GitHub Actions as the source. The build sets `DEPLOY_BASE_PATH=/exclamation-ai/` so assets and evaluation JSON resolve under the project path. Do not bind a domain, pay for a plan or deploy external API credentials as part of this demo.
 
 To reproduce on another static host: select Node 24, build `npm ci && npm run build`, publish directory `dist`. Hash navigation works without server rewrites. Keep the demo source as SYNTHETIC / ILLUSTRATIVE and provider as deterministic fixture. Add a model/BigQuery backend only after server authentication, budgets and a live verification pass.
+
+Current owner setup and exact resource IDs: [genuine Google tracking receipt](google-tracking-2026-10-26.md). The live-model command is subject to the [persistent monetary guard and final owner confirmation](integration-verification.md); an API key alone is not spend approval.

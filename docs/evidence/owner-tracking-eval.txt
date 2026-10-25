@@ -1,0 +1,23 @@
+.venv/bin/python evals/run.py
+{"provider": "fixture", "versions": {"v1": {"passed": 21, "total": 36}, "v2": {"passed": 36, "total": 36}}, "file": "/Users/yashhurdale/Documents/New project/exclamation-ai/evals/runs/fixture-latest.json"}
+.venv/bin/python evals/heldout.py
+{
+  "run_id": "heldout-fixture-20261025T135412066961Z",
+  "provider": "fixture",
+  "kind": "DETERMINISTIC RELEASE HOLDOUT; NOT MODEL QUALITY",
+  "model": null,
+  "commit": "732c0f4c185a56861b076d8266621a9954b9cf0f",
+  "working_tree_dirty": true,
+  "cases_sha256": "017d8b9f7b8a650a570a6bad7215c598e4a7b15740d0a27d24574b15717346c2",
+  "prompt_sha256": "8bceaa674bcb7e9c479a62817a026d297b42d5b6ab55cecd8ade1fccfcf1b36b",
+  "data_sha256": "c7e4eded5eba3a0f068e442af831b3cf9c982858b6a1b6df390343f9d7f26ec7",
+  "code_sha256": "32aa077cc5c0d28791dce28dd8a138600afc23276ed346882a9cdcdb06b5a0e9",
+  "api_requests": 0,
+  "tokens": null,
+  "cost_usd": null,
+  "human_recommendation_rating": null,
+  "limitations": "Author-written small release holdout, not an external benchmark. Bounded action rubric is not an independent human quality rating. Model probes bypass router to distinguish model behaviour from policy. No client outcomes.",
+  "passed": 24,
+  "total": 24,
+  "elapsed_ms": 289.725
+}

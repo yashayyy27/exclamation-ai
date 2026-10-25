@@ -8,7 +8,7 @@ Coverage:
 - SQL ground truth: 420 sessions, 336 ordered views, 192 cart sessions, 139 checkouts, 63 purchases. USD 5,040 deduplicated transaction revenue and 15% ordered conversion.
 - Data-quality exclusion, event and transaction deduplication, event order, filter reconciliation, date/SQL-injection boundaries and snapshot parity.
 - Exact evidence values/units/dates/query/source IDs; mismatched provider output retries then returns REVIEW_REQUIRED; empty evidence abstains.
-- BigQuery dry-run and hard budget, parameter values and complete-row-limit rejection via mocked SDK. No live SQL execution claimed.
+- BigQuery dry-run and hard budget, parameter values and complete-row-limit rejection via mocked SDK. The SDK path remains mocked; [separate authenticated Console execution](bigquery-analysis-2026-10-25.md) is verified.
 - Responses API function-call and strict JSON-schema protocol with a mocked SDK; no live model test claimed.
 - Store product/list/cart/checkout, removal, consent gate, no delivery before opt-in, unique repeated transaction IDs, local event payload schema.
 - Every page navigation, responsive overflow, axe WCAG A/AA automated scans, supported answer and unsupported ROAS, baseline failure details, editable recommendation, review reset and PDF/Markdown downloads.
@@ -19,10 +19,10 @@ Visual checklist: actual desktop/mobile screenshots; no clipped charts; source/p
 
 | Check | Status | Required evidence |
 |---|---|---|
-| GTM no request before grant / no ecommerce delivery after revoke | NOT YET VERIFIED externally | Network log and redacted Tag Assistant screenshot |
-| GA4 receives eight correct ecommerce/page events once | NOT YET VERIFIED | DebugView screenshot and payload inspection |
-| BigQuery real public extraction and UTC reconciliation | NOT YET VERIFIED | Job ID, byte estimate, actual row coverage and metric reconciliation |
+| GTM consent order and revoked ecommerce gate | VERIFIED queue ordering and manual Preview suppression; raw network log NOT YET VERIFIED | [Actual consent and bug/fix receipt](google-tracking-2026-10-26.md) |
+| GA4 receives eight intended ecommerce/page event types | VERIFIED unpublished local Preview; two distinct received purchases | [Actual counts, parameters, screenshots and unit caveat](google-tracking-2026-10-26.md) |
+| BigQuery real public extraction and UTC reconciliation | VERIFIED one public UTC day | [Actual three jobs and nine reconciled checks](bigquery-analysis-2026-10-25.md) |
 | OpenAI live semantic/tool/evidence quality | NOT YET VERIFIED | Separate live report, model ID, per-case outcomes, token/latency record |
-| Owner first-party GA4 export | NOT CONFIGURED | Separate dataset, scope and consent verification |
+| Owner first-party GA4 export | LINK CREATED; table arrival NOT YET VERIFIED | [Saved daily-only unbilled settings](google-tracking-2026-10-26.md) |
 
 Never substitute generated screenshots or a mocked SDK test for any external evidence above.

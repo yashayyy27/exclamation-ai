@@ -288,3 +288,29 @@ test("consent defaults precede update and are queued only once", async ({
     ad_storage: "denied",
   });
 });
+
+test("restored consent precedes initial storefront event delivery", async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
+    localStorage.setItem("analytics-consent", "true"),
+  );
+  await page.goto("/#Measurement%20Lab");
+  await expect(
+    page.getByRole("button", { name: "Revoke analytics consent" }),
+  ).toBeVisible();
+  const order = await page.evaluate(() =>
+    window.dataLayer.map((entry: unknown) => {
+      const value = entry as Record<string | number, unknown>;
+      return value[0] === "consent" ? `consent:${value[1]}` : value.event;
+    }),
+  );
+  expect(order).toContain("page_view");
+  expect(order).toContain("view_item_list");
+  expect(order.indexOf("consent:default")).toBeLessThan(
+    order.indexOf("page_view"),
+  );
+  expect(order.indexOf("consent:update")).toBeLessThan(
+    order.indexOf("page_view"),
+  );
+});

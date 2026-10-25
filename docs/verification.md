@@ -34,6 +34,14 @@ Run [the bounded SDK/LLM integration protocol](integration-verification.md) only
 - Deterministic evaluation reproduced **21/36 → 36/36** and **24/24** with **zero model calls**. [Actual evaluation log](evidence/owner-tracking-eval.txt). The heldout receipt records the dirty tree and code hashes; these cases remain author-written and previously inspected.
 - The authenticated evaluation now has a persistent atomic reservation ledger, exact input-token preflight, fixed model/tier/endpoint and fail-closed unknown-charge handling. [Controller](../evals/spend.py), [reviewable command and financial limits](integration-verification.md). Local authentication and final paid-call confirmation are still required; no live model score or provider bill is claimed.
 
+## Current no-paid decision — 26 October
+
+The owner declined paid setup after the Google verification. Live OpenAI evaluation remains **NOT RUN / BLOCKED by no paid authorization**. No funds, payment details or API keys were added by the agent; no paid model calls were made. The earlier bounded model/budget proposal is historical and does not authorize future execution. The verified Google receipts and offline tests remain valid.
+
+For the profile/portfolio documentation update, `make check` passed (72 Python and 50 frontend tests, lint, type checks and production build), `make eval` reproduced deterministic 21/36 → 36/36 with no model calls, and `npm run test:e2e` passed all 16 browser tests. Public tracking was disabled during browser verification.
+
+PR #5 was merged at commit `50149aaf4523d87be83ee0466850c83ac219e3b7`. Its [post-merge CI](https://github.com/yashayyy27/exclamation-ai/actions/runs/40200213887) and [Pages deployment](https://github.com/yashayyy27/exclamation-ai/actions/runs/40200213912) passed. The live Sources page was checked after deployment.
+
 ## Publication
 
 Publication status rechecked on **25 October 2026 (Australia/Sydney)**: [PR #1](https://github.com/yashayyy27/exclamation-ai/pull/1) is **merged**, not open. GitHub records the merge at `2026-10-21T14:00:27Z` (22 October in Sydney), producing commit `12ddb03cc9923fa48ae1ba28a87792bd6736402b`.

@@ -1,16 +1,18 @@
 # Owner integration verification
 
-Status: **VERIFIED** one public day through authenticated, unbilled BigQuery Console execution and complete local reconciliation; see [the actual analysis](bigquery-analysis-2026-10-25.md). **VERIFIED** authenticated owner GA4/GTM local Preview delivery; see [actual tracking evidence](google-tracking-2026-10-26.md). **BLOCKED** for live OpenAI and SDK authentication on remaining owner setup/approval. Passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
+Status: **VERIFIED** one public day through authenticated, unbilled BigQuery Console execution and complete local reconciliation; see [the actual analysis](bigquery-analysis-2026-10-25.md). **VERIFIED** authenticated owner GA4/GTM local Preview delivery; see [actual tracking evidence](google-tracking-2026-10-26.md). **BLOCKED** for live OpenAI because the owner chose no paid verification; BigQuery SDK authentication remains separately unverified. Passing fake-SDK tests does not establish vendor success. No paid requests have been made during this upgrade.
 
-## OpenAI: concrete run to approve
+## OpenAI: not run — no paid verification authorized
 
-The owner selected **gpt-5.4-mini**, **USD 3 maximum cumulative API spend** and **48 attempted Responses generations**. Final paid-call confirmation is still required. No real model calls have been made.
+**Current decision, 26 October 2026:** the owner declined paid setup. Do not add funds, request credentials or execute paid verification under the earlier proposal. No real model calls have been made. Deterministic/mocked scores must not be presented as live model quality.
+
+The optional procedure below preserves the earlier gpt-5.4-mini / USD 3 / 48-request proposal for engineering review. It is **not current authorization**. Any future paid run requires a new explicit owner instruction, current-price review and concrete final confirmation.
 
 Create a dedicated API project, restrict the key to the required Responses generation and input-token-count endpoints, and put it only in ignored owner-readable `.env.owner` (`chmod 600`). The runner reads only `OPENAI_API_KEY` and `OPENAI_MODEL` as data, never as shell code. It never prints their values. Keep the model `gpt-5.4-mini`; never prefix secrets with `VITE_`. The public site has no API credentials or paid endpoint.
 
 Current OpenAI documentation offers project hard spend limits, with possible enforcement delay. Set USD 3 in Project settings → Limits → Spend → Edit spend limit, enable the hard limit, and save if the owner account supports it. A notification alone is insufficient. Do not purchase credits above the authorized amount. [Official spend limits](https://developers.openai.com/api/docs/guides/spend-limits).
 
-**Do not execute until the owner confirms the concrete run:**
+**Reference command only — execution is not authorized for this release:**
 
 ```sh
 .venv/bin/python evals/heldout.py --provider openai --allow-paid --max-requests 48 --prices-reviewed-on 2026-10-26

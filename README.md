@@ -8,7 +8,7 @@ A working, AI-assisted portfolio built around one question: **what decision does
 
 ![Actual running desktop workspace](docs/screenshots/overview-desktop.png)
 
-**No credentials needed for the complete offline experience.** The public demo uses **SYNTHETIC / ILLUSTRATIVE** events and a **deterministic fixture analyst**. It makes no live model calls. A separate [genuine BigQuery analysis](docs/bigquery-analysis-2026-10-25.md) reconciles 22,096 public historical events against GoogleSQL. A separate [authenticated GA4/GTM preview](docs/google-tracking-2026-10-26.md) received all eight demo event types and two distinct test purchases. Public tracking remains disabled; SDK authentication and actual model results remain unverified.
+**No credentials needed for the complete offline experience.** The public demo uses **SYNTHETIC / ILLUSTRATIVE** events and a **deterministic fixture analyst**. It makes no live model calls. A separate [genuine BigQuery analysis](docs/bigquery-analysis-2026-10-25.md) reconciles 22,096 public historical events against GoogleSQL. A separate [authenticated GA4/GTM preview](docs/google-tracking-2026-10-26.md) received all eight demo event types and two distinct test purchases. Public tracking remains disabled; SDK authentication and actual model results remain unverified. This release intentionally uses no paid APIs; live LLM evaluation was not run.
 
 **[Open the working GitHub Pages demo](https://yashayyy27.github.io/exclamation-ai/)** · **[Source code](https://github.com/yashayyy27/exclamation-ai)** · [Hosted CI](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) · [Release evidence](docs/release.md)
 
@@ -115,8 +115,8 @@ See [IMPLEMENTATION_STATUS](IMPLEMENTATION_STATUS.md) and [actual command logs](
 | Synthetic fixture / deterministic analyst | Implemented and tested end to end |
 | FIRST-PARTY DEMO EVENTS | Working local QA and consent-gated dataLayer; no dashboard mixing |
 | GOOGLE PUBLIC / HISTORICAL | VERIFIED one-day Console execution + complete local reconciliation; SDK authentication/transport NOT YET VERIFIED |
-| Owner GA4/GTM | Collection code and setup guide; external Tag Assistant/DebugView NOT YET VERIFIED |
-| OpenAI | Real SDK provider + mocked protocol tests; actual model calls NOT YET VERIFIED |
+| Owner GA4/GTM | VERIFIED unpublished local Preview → GA4 DebugView: all eight event types and two distinct demo purchases. Public tracking disabled; daily export table unverified |
+| OpenAI | Optional SDK provider + mocked protocol tests; live model evaluation NOT RUN. No paid verification is currently authorized |
 | Multi-touch attribution / causal impact / ROAS | Insufficient evidence; not fabricated |
 | Durable multi-user approval / production tenancy | Planned; local review flag only |
 

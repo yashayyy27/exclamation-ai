@@ -2,6 +2,8 @@
 
 > 25 October update: [one genuine BigQuery Console analysis](docs/bigquery-analysis-2026-10-25.md) is verified, including full extraction, nine reconciled aggregates and UTC date coverage. The original unchecked Google item below still applies to the **SDK/ADC path**, not to that separately verified Console execution. GA4/GTM and real model evaluation remain pending.
 
+> 26 October current state: [owner GTM Preview → GA4 DebugView](docs/google-tracking-2026-10-26.md) is VERIFIED for all eight event types and two distinct demo purchases. Daily export is linked; first table and SDK/ADC remain unverified. Live OpenAI evaluation was NOT RUN: the owner chose no paid verification. The original implementation checklist below is qualified by these dated updates.
+
 # ! — implementation status
 
 ## Implemented and verified locally
@@ -30,9 +32,11 @@
 ## Requires owner credentials / external verification
 
 - [ ] Google Cloud project + ADC and a real bounded public query with job ID and reconciliation.
-- [ ] Test GTM container + GA4 property; actual Tag Assistant/DebugView screenshots, duplicate and consent network checks.
-- [ ] OpenAI project key, configured model and owner-approved spend budget; real held-out semantic evaluation.
-- [ ] Owner first-party GA4-to-BigQuery linking and separate-source reconciliation.
+- [x] Owner GTM test container + GA4 property, actual unpublished Preview/DebugView receipts, distinct received purchases and consent-state inspection.
+- [ ] Complete raw network log / HTTP status and export-level item-price reconciliation; see the recorded limitations.
+- [ ] Live OpenAI semantic evaluation — NOT RUN; no paid verification currently authorized.
+- [x] Owner-approved daily GA4-to-BigQuery sandbox link.
+- [ ] First daily table arrival and separate-source reconciliation.
 - [ ] Applicant's own review of the code, numerical reasoning and client recommendation.
 
 ## Release status

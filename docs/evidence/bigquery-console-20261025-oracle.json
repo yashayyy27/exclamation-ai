@@ -1,0 +1,11 @@
+[{
+  "raw_events": "22096",
+  "clean_events": "22096",
+  "sessions": "2289",
+  "views": "314",
+  "carts": "67",
+  "checkouts": "20",
+  "purchases": "10",
+  "transactions": "13",
+  "revenue_usd": "961.0"
+}]

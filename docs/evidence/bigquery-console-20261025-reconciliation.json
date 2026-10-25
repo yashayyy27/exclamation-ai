@@ -1,0 +1,237 @@
+{
+  "status": "EXPORT_RECONCILED",
+  "verification_boundary": "Local arithmetic only. Google origin, authentication and job costs require separate Console receipts. SDK transport is not verified by this command.",
+  "window": [
+    "2021-01-01",
+    "2021-01-01"
+  ],
+  "timezone": "UTC",
+  "revenue_unit": "USD",
+  "export_sha256": "a20aaabd192d50b5ce33e74d162b60f819e0f2d06a10c5797ed29eaf7931f4bd",
+  "oracle_export_sha256": "bfd625b344b6835025faee24cdde0896e1151fb98805560626121cbd704410b4",
+  "observed": {
+    "sessions": 2289,
+    "views": 314,
+    "carts": 67,
+    "checkouts": 20,
+    "purchases": 10,
+    "raw_events": 22096,
+    "clean_events": 22096,
+    "transactions": 13,
+    "revenue_usd": 961.0
+  },
+  "oracle": {
+    "raw_events": 22096,
+    "clean_events": 22096,
+    "sessions": 2289,
+    "views": 314,
+    "carts": 67,
+    "checkouts": 20,
+    "purchases": 10,
+    "transactions": 13,
+    "revenue_usd": 961.0
+  },
+  "checks": {
+    "raw_events": true,
+    "clean_events": true,
+    "sessions": true,
+    "views": true,
+    "carts": true,
+    "checkouts": true,
+    "purchases": true,
+    "transactions": true,
+    "revenue_usd": true
+  },
+  "quality": {
+    "raw_events": 22096,
+    "clean_events": 22096,
+    "duplicates": 0,
+    "invalid_records": 0,
+    "schema_mismatches": 0,
+    "missing_identifiers": 0,
+    "negative_revenue": 0,
+    "missing_purchase_revenue": 0,
+    "missing_channel": 0,
+    "conflicting_transactions": 0
+  },
+  "lineage": {
+    "records_sha256": "be013cb1cecae8feb8b37bee72684bd78f4c03d5bb3ff587167e528ed82cd5a8",
+    "transform_sha256": "c23748813789f31565f9753bcf2f287af821fc49ca77991bb1b6e1eb8844355b"
+  },
+  "funnel": [
+    {
+      "name": "Sessions",
+      "value": 2289,
+      "rate": 100.0,
+      "step_rate": 100
+    },
+    {
+      "name": "Product views",
+      "value": 314,
+      "rate": 13.7178,
+      "step_rate": 13.7178
+    },
+    {
+      "name": "Add to cart",
+      "value": 67,
+      "rate": 2.927,
+      "step_rate": 21.3376
+    },
+    {
+      "name": "Checkout",
+      "value": 20,
+      "rate": 0.8737,
+      "step_rate": 29.8507
+    },
+    {
+      "name": "Purchase",
+      "value": 10,
+      "rate": 0.4369,
+      "step_rate": 50.0
+    }
+  ],
+  "funnel_priority": [
+    {
+      "from": "Sessions",
+      "to": "Product views",
+      "entrants": 2289,
+      "lost": 1975,
+      "loss_pct": 86.28,
+      "score": 1704.07
+    },
+    {
+      "from": "Product views",
+      "to": "Add to cart",
+      "entrants": 314,
+      "lost": 247,
+      "loss_pct": 78.66,
+      "score": 194.3
+    },
+    {
+      "from": "Add to cart",
+      "to": "Checkout",
+      "entrants": 67,
+      "lost": 47,
+      "loss_pct": 70.15,
+      "score": 32.97
+    },
+    {
+      "from": "Checkout",
+      "to": "Purchase",
+      "entrants": 20,
+      "lost": 10,
+      "loss_pct": 50.0,
+      "score": 5.0
+    }
+  ],
+  "acquisition_groups": [
+    {
+      "channel": "google / organic",
+      "sessions": 746,
+      "purchases": 2,
+      "conversion": 0.2681,
+      "conversion_interval_95": [
+        0.07,
+        0.97
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "(direct) / (none)",
+      "sessions": 564,
+      "purchases": 5,
+      "conversion": 0.8865,
+      "conversion_interval_95": [
+        0.38,
+        2.06
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "<Other> / <Other>",
+      "sessions": 377,
+      "purchases": 0,
+      "conversion": 0.0,
+      "conversion_interval_95": [
+        0.0,
+        1.01
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "<Other> / referral",
+      "sessions": 211,
+      "purchases": 1,
+      "conversion": 0.4739,
+      "conversion_interval_95": [
+        0.08,
+        2.64
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "shop.googlemerchandisestore.com / referral",
+      "sessions": 134,
+      "purchases": 0,
+      "conversion": 0.0,
+      "conversion_interval_95": [
+        0.0,
+        2.79
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "google / cpc",
+      "sessions": 103,
+      "purchases": 1,
+      "conversion": 0.9709,
+      "conversion_interval_95": [
+        0.17,
+        5.3
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "(data deleted) / (data deleted)",
+      "sessions": 88,
+      "purchases": 1,
+      "conversion": 1.1364,
+      "conversion_interval_95": [
+        0.2,
+        6.16
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "<Other> / organic",
+      "sessions": 64,
+      "purchases": 0,
+      "conversion": 0.0,
+      "conversion_interval_95": [
+        0.0,
+        5.66
+      ],
+      "spend_usd": null,
+      "roas": null
+    },
+    {
+      "channel": "<Other> / (data deleted)",
+      "sessions": 2,
+      "purchases": 0,
+      "conversion": 0.0,
+      "conversion_interval_95": [
+        0.0,
+        65.76
+      ],
+      "spend_usd": null,
+      "roas": null
+    }
+  ]
+}

@@ -20,8 +20,9 @@ export default function Sources({ s }: { s: Snapshot }) {
           },
           {
             title: "Google public BigQuery",
-            tag: "NOT CONNECTED",
-            body: "Read-only SDK adapter implemented. Owner project and ADC credentials required; dry run, 1 GB hard cap and complete extraction limit.",
+            tag: "CONSOLE VERIFIED",
+            body: "One historical UTC day: 22,096 real public events, nine local/GoogleSQL checks matched. SDK authentication remains unverified. Dashboard metrics remain synthetic.",
+            href: "https://github.com/yashayyy27/exclamation-ai/blob/main/docs/bigquery-analysis-2026-10-25.md",
             icon: Database,
           },
           {
@@ -44,6 +45,11 @@ export default function Sources({ s }: { s: Snapshot }) {
             <Tag>{c.tag}</Tag>
             <h3>{c.title}</h3>
             <p>{c.body}</p>
+            {c.href && (
+              <a href={c.href} target="_blank" rel="noreferrer">
+                Inspect actual jobs and analysis
+              </a>
+            )}
           </article>
         ))}
       </div>

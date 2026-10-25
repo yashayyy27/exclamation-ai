@@ -17,11 +17,13 @@ Audit date: **22 October 2026 (Australia/Sydney)**. Machine receipts use UTC. Ba
 
 ## Integrations
 
-No paid calls were made. OpenAI key/model and Google project/ADC were absent at audit start. The owner has offered to configure integrations, but IDs/configuration and spend approval remain pending. No Tag Assistant, GA4 DebugView or real BigQuery receipt exists. These cannot be marked verified by local tests.
+No paid calls were made. OpenAI key/model and Google project/ADC were absent at audit start. **Update, 25 October:** three genuine BigQuery Console jobs ran in the owner's new unbilled sandbox. A complete 22,096-row extract for 1 January 2021 UTC reconciled on all nine checks with independent GoogleSQL; adjacent-partition coverage was separately checked. See [actual analysis, job IDs, exports and screenshot](bigquery-analysis-2026-10-25.md). The SDK/ADC path remains unverified. No Tag Assistant, GA4 DebugView or real OpenAI evaluation receipt exists. GTM setup is at Google's owner Terms/DPA review; no agreement was accepted by the agent. Local OpenAI key/model and paid-run approval remain absent.
 
-Run [the bounded integration protocol](integration-verification.md) only after owner setup and approval. The GoogleSQL reconciliation query and real Responses behaviour remain NOT YET VERIFIED against their services, even when mocked protocol tests pass. Dollar cost is unknown. Do not treat null as zero.
+Run [the bounded SDK/LLM integration protocol](integration-verification.md) only after owner setup and approval. GoogleSQL syntax and one-day results are verified in the Console; real SDK transport and Responses behaviour remain NOT YET VERIFIED against their services. Sandbox query charges were zero; exact Console scan counters/cache state and future paid-run dollar costs remain unknown. Do not treat those nulls as zero.
 
 - Public-extract scale preparation: a 27,672-record synthetic replication reconciles 10,080 sessions, 1,512 ordered purchasers and USD 120,960. Session-stage lookups use a covering index. This is a local scale regression, not a Google extraction benchmark. Quality query IDs and snapshot IDs include content plus SQL/Python transformation fingerprints.
+
+- 25 October integration-evidence update: `make check` passed with **51 Python tests and 50 frontend tests**, lint/types and production build. The five new export-path cases cover INT64/money interpretation, independent mismatches, missing revenue, partial extraction and date scope. Browser/accessibility rerun passed **14/14** (29.3 seconds). Deterministic evaluations reproduced **21/36 → 36/36** and **24/24**, with **zero model calls**. Earlier local attempts stalled during SDK disk imports or timed out loading PDF/browser resources; unchanged-timeout reruns passed. These reruns are not evidence of live model quality. The genuine Google analysis has its separate job/export receipts linked above.
 
 ## Publication
 

@@ -8,7 +8,7 @@ A working, AI-assisted portfolio built around one question: **what decision does
 
 ![Actual running desktop workspace](docs/screenshots/overview-desktop.png)
 
-**No credentials needed for the complete offline experience.** The public demo uses **SYNTHETIC / ILLUSTRATIVE** events and a **deterministic fixture analyst**. It makes no live model calls. Public Google historical data, owner GA4/GTM and actual model results are separate, explicitly unverified integrations.
+**No credentials needed for the complete offline experience.** The public demo uses **SYNTHETIC / ILLUSTRATIVE** events and a **deterministic fixture analyst**. It makes no live model calls. A separate [genuine BigQuery analysis](docs/bigquery-analysis-2026-10-25.md) reconciles 22,096 public historical events against GoogleSQL. Owner GA4/GTM delivery, SDK authentication and actual model results remain unverified.
 
 **[Open the working GitHub Pages demo](https://yashayyy27.github.io/exclamation-ai/)** · **[Source code](https://github.com/yashayyy27/exclamation-ai)** · [Hosted CI](https://github.com/yashayyy27/exclamation-ai/actions/workflows/ci.yml) · [Release evidence](docs/release.md)
 
@@ -18,7 +18,7 @@ Published to the authenticated owner’s public repository and GitHub Pages. The
 
 The [prioritised independent audit](docs/audit/2026-10-22-gap-report.md) found a real validation defect: two near-equal copies of one metric could replace another. The [recorded replay](docs/evidence/validator-replay.json) shows baseline **ACCEPTED** and upgraded **REJECTED**. This is a synthetic adversarial provider test, not an invented model failure. The public deterministic ROAS failure remains inspectable in Evaluation Studio.
 
-The upgrade adds genuine model tool choice, a separate bounded release-evaluation harness with independent numeric oracles, content/SQL lineage hashes, GoogleSQL reconciliation, explicit paid-call opt-in, campaign uncertainty, absolute/proportional funnel priorities and a separate attribution sensitivity example. The [readiness matrix](docs/rga-role-evidence-matrix.md) links code, tests and demo evidence. The [verification report](docs/verification.md) records observed results and remaining owner gates. **Live OpenAI quality, BigQuery results and GTM/GA4 receipt remain unverified.**
+The upgrade adds genuine model tool choice, a separate bounded release-evaluation harness with independent numeric oracles, content/SQL lineage hashes, GoogleSQL reconciliation, explicit paid-call opt-in, campaign uncertainty, absolute/proportional funnel priorities and a separate attribution sensitivity example. The [readiness matrix](docs/rga-role-evidence-matrix.md) links code, tests and demo evidence. The [verification report](docs/verification.md) records observed results and remaining owner gates. **BigQuery Console execution and nine local reconciliation checks are verified for one public day. Live OpenAI quality, BigQuery SDK transport and GTM/GA4 receipt remain unverified.**
 
 Start with the [three-minute walkthrough](docs/demo-script.md), [six-slide client PDF](docs/deliverables/client-review.pdf) and [marketing decision framework](docs/marketing-framework.md). Everything is advisory; no client use, uplift or applicant-only authorship is claimed.
 
@@ -68,7 +68,7 @@ The [three-minute technical script](docs/demo-script.md) adds architecture and e
 - **Evidence travels with a claim.** Metrics carry unit, date window, source ID and query ID. The validator rejects changed values, units, dates, sources and citations. Empty evidence abstains. Two failed validation attempts return REVIEW_REQUIRED.
 - **Bounded model integration.** An optional real OpenAI Responses provider uses strict function calling and structured output. The server scopes the intent and filters, offers six tools plus abstention for genuine model selection, calculates registered aggregates and verifies the result. The model selects constrained finding/action types; it cannot write arbitrary SQL or unsupported numeric prose. Actual API behavior is NOT YET VERIFIED. Unknown token usage is null; validation retries accumulate known usage rather than overwriting it.
 - **Real measurement code.** Product/list/cart/checkout actions produce schema-validated dataLayer contracts. Google tags load only after analytics consent, with advertising consent denied. GTM is the single delivery path. Local event QA does not pretend to be live GA4 collection.
-- **Source-aware BigQuery adapter.** One fixed public table, parameterized dates, dry runs, a hard maximum of 1 GB billed, timeouts and refusal of incomplete extracts above 200,000 rows. SDK protocol/cost guards are mocked tests; real Google execution remains unverified.
+- **One genuine Google analysis.** Three authenticated, unbilled BigQuery Console jobs verify extraction, independent aggregation and adjacent-partition UTC coverage for 1 January 2021. All nine local checks match: 2,289 sessions, 10 ordered purchasers, 13 transactions, USD 961. [Inspect actual jobs, screenshot, failure guards and business interpretation](docs/bigquery-analysis-2026-10-25.md). The fixed-table SDK adapter has parameterized dates, dry runs, byte/time/row caps; its transport and cost guards remain verified only with mocked SDK tests.
 - **Decision before decoration.** A priority transition, descriptive source comparison, honest attribution insufficiency, sample-size assumptions and editable client output make the next action reviewable.
 
 ```mermaid
@@ -114,7 +114,7 @@ See [IMPLEMENTATION_STATUS](IMPLEMENTATION_STATUS.md) and [actual command logs](
 |---|---|
 | Synthetic fixture / deterministic analyst | Implemented and tested end to end |
 | FIRST-PARTY DEMO EVENTS | Working local QA and consent-gated dataLayer; no dashboard mixing |
-| GOOGLE PUBLIC / HISTORICAL | Real adapter implemented; live connection NOT YET VERIFIED |
+| GOOGLE PUBLIC / HISTORICAL | VERIFIED one-day Console execution + complete local reconciliation; SDK authentication/transport NOT YET VERIFIED |
 | Owner GA4/GTM | Collection code and setup guide; external Tag Assistant/DebugView NOT YET VERIFIED |
 | OpenAI | Real SDK provider + mocked protocol tests; actual model calls NOT YET VERIFIED |
 | Multi-touch attribution / causal impact / ROAS | Insufficient evidence; not fabricated |

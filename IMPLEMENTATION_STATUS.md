@@ -1,5 +1,7 @@
 > Recruitment upgrade: see [verification](docs/verification.md), [readiness matrix](docs/rga-role-evidence-matrix.md) and [audit](docs/audit/2026-10-22-gap-report.md) for current evidence and owner-dependent gates. The following records the original implementation.
 
+> 25 October update: [one genuine BigQuery Console analysis](docs/bigquery-analysis-2026-10-25.md) is verified, including full extraction, nine reconciled aggregates and UTC date coverage. The original unchecked Google item below still applies to the **SDK/ADC path**, not to that separately verified Console execution. GA4/GTM and real model evaluation remain pending.
+
 # ! — implementation status
 
 ## Implemented and verified locally
